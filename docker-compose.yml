@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+ frontend:
+  container_name: immosolution_frontend
+  build: ./frontend
+  image: immosolution_frontend
+  restart: always
+  ports:
+    - 8080:80
+  
+ database:
+  container_name: immosolution_database
+  image:  postgres:13-alpine
+  volumes: # delete one so the db creates all the tables etc. then include the volume
+   - D:\4a\Abschlussarbeit\database\data:/var/lib/postgresql/data
+  restart: always
+  ports:
+   - 5431:5432
+  environment:
+   - POSTGRES_PASSWORD=Immosolution_Abschlussarbeit
+  
+ backend:
+  container_name: immosolution_backend
+  image: immosolution_backend
+  build: ./backend
+  restart: always
+  environment:
+   - database.server=database
+   - database.name=postgres
+   - database.user=postgres
+   - database.password=Immosolution_Abschlussarbeit
+  ports:
+   - 5050:5000
+  links:
+   - database
+  depends_on:
+   - database
