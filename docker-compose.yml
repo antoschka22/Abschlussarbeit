@@ -13,7 +13,7 @@ services:
   container_name: immosolution_database
   image:  postgres:13-alpine
   volumes: # delete one so the db creates all the tables etc. then include the volume
-   - D:\4a\Abschlussarbeit\database\data:/var/lib/postgresql/data
+   - D:\Abschlussarbeit\abschlussarbeit\database\data:/var/lib/postgresql/data
   restart: always
   ports:
    - 5431:5432
