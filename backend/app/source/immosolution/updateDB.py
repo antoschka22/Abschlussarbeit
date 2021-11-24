@@ -69,12 +69,6 @@ def updateDatabase():
                     privatkunden VARCHAR(65535) NOT NULL,
                     PRIMARY KEY (id)
                 );
-                CREATE TABLE IF NOT EXISTS Projekte(
-                    id UUID DEFAULT uuid_generate_v4 () UNIQUE,
-                    projektname VARCHAR(65535) NOT NULL UNIQUE,
-                    herzeigeprojekte BOOLEAN NOT NULL,
-                    PRIMARY KEY (id)
-                );
                 CREATE TABLE IF NOT EXISTS Kunden(
                     firmenname VARCHAR(65535) NOT NULL,
                     PLZ VARCHAR(65535) NOT NULL,
@@ -82,12 +76,19 @@ def updateDatabase():
                     strasse VARCHAR(65535) NOT NULL,
                     PRIMARY KEY (firmenname)
                 );
-                CREATE TABLE IF NOT EXISTS Projektbilder(
+                CREATE TABLE IF NOT EXISTS Projekte(
+                    id UUID DEFAULT uuid_generate_v4 () UNIQUE,
+                    projektname VARCHAR(65535) NOT NULL UNIQUE,
+                    herzeigeprojekte BOOLEAN NOT NULL,
+                    kunden_kundenname VARCHAR(65535),
+                    PRIMARY KEY (id),
+                    FOREIGN KEY (kunden_kundenname) REFERENCES Kunden(firmenname) ON DELETE CASCADE
+                );
+                CREATE TABLE IF NOT EXISTS Bilder(
                     id UUID DEFAULT uuid_generate_v4 () UNIQUE,
                     projektbilder VARCHAR(65535),
                     projekt_id UUID,
-                    kunden_kundenname VARCHAR(65535),
-                    FOREIGN KEY (kunden_kundenname) REFERENCES Kunden(firmenname) ON DELETE CASCADE,
+                    PRIMARY KEY (id),
                     FOREIGN KEY (projekt_id) REFERENCES Projekte(id) ON DELETE CASCADE
                 );
                 CREATE TABLE IF NOT EXISTS Leistungen(
@@ -130,3 +131,8 @@ def updateDatabase():
                 ('Solartechnik und nachhaltige Wärmetechnik', 'Gebäudetechnik');
                 """)
         addVersion(0.2, 'basic tables creation')
+    if lastVersionId["max"] != 0.2:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+
+            """)

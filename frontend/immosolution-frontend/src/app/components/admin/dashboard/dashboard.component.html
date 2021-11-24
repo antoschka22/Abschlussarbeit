@@ -1,0 +1,272 @@
+<app-navbar (toggleMainEvent)="toggleMain($event)"></app-navbar>
+<div [ngClass]="{
+    'main-content-toggled': mainStyle === 0,
+    'main-content': mainStyle === 280
+}">
+
+    <main class="text">
+        <div class="page-header">
+            <div>
+                <h1>Analytics Dashboard</h1>
+                <small>Monitor key metrics. Check reporting and review insights</small>
+            </div>
+
+            <div class="header-actions">
+                <button>
+                    <span class="las la-file-export"></span>
+                    export
+                </button>
+                <button>
+                    <span class="las la-tools"></span>
+                    Settings
+                </button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-single">
+                <div class="card-flex">
+                    <div class="card-info">
+                        <div class="card-head">
+                            <span>Purchases</span>
+                            <small>Number of Purchases</small>
+                        </div>
+
+                        <h2>17,663</h2>
+                        <small>2% less purchases</small>
+                    </div>
+                    <div class="card-chart danger">
+                        <span class="las la-chart-line"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="card-flex">
+                    <div class="card-info">
+                        <div class="card-head">
+                            <span>Refunds</span>
+                            <small>Number of refunded orders</small>
+                        </div>
+
+                        <h2>$4,523.11</h2>
+                        <small>10% less refund</small>
+                    </div>
+                    <div class="card-chart success">
+                        <span class="las la-chart-line"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="card-flex">
+                    <div class="card-info">
+                        <div class="card-head">
+                            <span>Unique Visitors</span>
+                            <small>Number of visitors</small>
+                        </div>
+
+                        <h2>46,085</h2>
+                        <small>2% less visitors</small>
+                    </div>
+                    <div class="card-chart yellow">
+                        <span class="las la-chart-line"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jobs-grid">
+            <div class="analytics-card">
+                <div class="analytics-head">
+                    <h3>Actions needed</h3>
+                    <span class="las la-ellipsis-h"></span>
+                </div>
+
+                <div class="analytics-chart">
+                    <div class="chart-circle">
+                        <h1>74%</h1>
+                    </div>
+                    
+                    <div class="analytics-note">
+                        <small>None: Current sprint requires stakeholders</small>
+                    </div>
+                </div>
+
+                <div class="analytics-btn">
+                    <button>Generate report</button>
+                </div>
+            </div>
+            
+            <div class="jobs">
+                <h2>Jobs <small>See all jobs <span class="las la-arrow-right"></span></small></h2>
+                <div class="table-responsive">
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="indicator"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Customer experience designer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Design
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Copenhagen Dk.
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Posted 6 days ago
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button>8 applications</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="indicator even"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Software developer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Developer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Copenhagen Dk.
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Posted 6 days ago
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button>3 applications</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="indicator"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Customer experience designer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Design
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Copenhagen Dk.
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Posted 6 days ago
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button>8 applications</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="indicator even"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Software developer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Developer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Copenhagen Dk.
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Posted 6 days ago
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button>3 applications</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="indicator"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Customer experience designer
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Design
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Copenhagen Dk.
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        Posted 6 days ago
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <button>8 applications</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<label for="sidebar-toggle" class="body-label"></label>

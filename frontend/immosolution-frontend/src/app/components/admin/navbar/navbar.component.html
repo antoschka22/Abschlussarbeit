@@ -1,0 +1,97 @@
+<input type="checkbox" name="" id="sidebar-toggle">
+
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <div class="brand-flex">
+            <img src="" width="30px" alt="">
+
+            <div class="brand-icon">
+                <span class="las la-user-circle" style="font-size: 2rem;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-main">
+        <div class="sidebar-user">
+            <img src="./assets/images/alfasam.png" alt="">
+            <div>
+                <h3 class="text">Adam</h3>
+                <span class="text">email@email.com</span>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <div class="menu-head">
+                <span class="text">Social-Media</span>
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <span class="lab la-facebook-square"></span>
+                        <span class="text">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class=" lab la-instagram"></span>
+                        <span class="text">Instagram</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="menu-head">
+                <span class="text">Applications</span>
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <span class=" las la-calendar"></span>
+                        <span class="text">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class=" las la-users"></span>
+                        <span class="text">Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class=" las la-shopping-cart"></span>
+                        <span class="text">Ecommerce</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class=" las la-envelope"></span>
+                        <span class="text">Mailbox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class=" las la-check-circle"></span>
+                        <span class="text">Tasks</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <header>
+        <div class="menu-toggle">
+            <label for="sidebar-toggle" (click)="toggleSidebar()">
+                <span class="las la-bars"></span>
+            </label>
+        </div>
+
+        <div class="header-icons">
+            <span class="las la-search"></span>
+            <span class="las la-bookmark"></span>
+            <span class="las la-sms"></span>
+        </div>
+    </header>
+</div>
+
+<label for="sidebar-toggle" class="body-label"></label>
