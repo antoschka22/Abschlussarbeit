@@ -84,3 +84,71 @@ paths:
             application/json:
               schema:
                 type: string
+  
+  /login:
+    post:
+      tags:
+      - login
+      summary: Return JWT token
+      operationId: web.security.jwt.login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginCredentials'
+              x-body-name: body
+        required: false
+      responses:
+        200:
+          description: JWT token
+          content:
+            application/json:
+              schema:
+                type: string
+        403:
+          description: Unautorized
+          content:
+            application/json:
+              schema:
+                type: string
+      x-codegen-request-body-name: credentials
+  
+  /secret:
+    get:
+      tags:
+        - healthcheck
+      summary: Return secret string
+      operationId: web.security.jwt.get_secret
+      responses:
+        '200':
+          description: secret response
+          content:
+            'text/plain':
+              schema:
+                type: string
+      security:
+      - jwt: ['secret']
+
+components:
+  securitySchemes:
+      jwt:
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
+        x-bearerInfoFunc: web.security.jwt.decode_token
+        
+  schemas:
+    LoginCredentials:
+      required:
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          type: string
+          description: email
+        password:
+          type: string
+      example:
+        username: antonio@molina.com
+        password: password
