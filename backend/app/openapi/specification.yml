@@ -13,12 +13,26 @@ paths:
       operationId: web.controllers.healthcheck.healthcheck
       responses:
         200:
-          description: Appllication is running
+          description: Application is running
           content:
             application/json:
               schema:
                 type: string
-  
+
+  /infos/all:
+    get:  
+      tags:
+        - infos
+      summary: get all the information necessary for the index
+      operationId: web.controllers.infos.get_all_infos
+      responses:
+        200:
+          description: all informations from the db fetched
+          content:
+            application/json:
+              schema:
+                type: string
+                
   /infos/angebot:
     get:
       tags:

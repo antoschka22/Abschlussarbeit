@@ -44,3 +44,12 @@ def get_privatkunden():
         return dao_get_privatkunden(), 200
     except:
         return "An error ocurred while fetching the privatkunden text", 404
+    
+def get_all_infos():
+    """
+        get all the informations needed for the index
+    """
+    try:
+        return dao_get_all_infos(), 200
+    except:
+        return "An error ocurred while fetching all the infos", 404

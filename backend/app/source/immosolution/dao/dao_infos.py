@@ -39,3 +39,11 @@ def dao_get_privatkunden():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT privatkunden FROM infos")
         return cursor.fetchone()
+    
+def dao_get_all_infos():
+    """
+        get all the data in the infos table
+    """
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT * FROM infos")
+        return cursor.fetchone()
