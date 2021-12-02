@@ -54,7 +54,7 @@ def updateDatabase():
     checkAllTheTables = checkTables()
     lastVersionId = latestVersion()
     if checkAllTheTables['amountoftables'] == 1:
-        if lastVersionId["max"] < 0.1:
+        if lastVersionId["max"] != 0.1:
             addVersion(0.1, 'test')
     if lastVersionId["max"] < 0.2:
         with get_db_cursor() as cursor:
