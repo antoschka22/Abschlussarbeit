@@ -15,8 +15,4 @@ export class InstagramService {
     return this.http.get('https://tetris.armstrongconsulting.com/api/v1/boxes/' + id);
   }
 
-  getAllIfos(){
-    return this.http.get(this.baseUri + '/infos/all');
-  }
-
 }

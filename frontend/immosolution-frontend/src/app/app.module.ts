@@ -8,13 +8,15 @@ import { NavbarComponent } from './components/admin/navbar/navbar.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { FacebookComponent } from './components/admin/navbar/facebook/facebook.component';
 import { ToastrModule } from 'ngx-toastr';
+import { IndexComponent } from './components/frontend/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    FacebookComponent
+    FacebookComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
