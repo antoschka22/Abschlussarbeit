@@ -1,4 +1,160 @@
-{{ infos.angebot }}
-{{ infos.gruedung }}
+<!-- {{ infos.angebot }}
+{{ infos.gruedung }} -->
+<script>
+    $(document).ready(function() {
 
-<br><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+    $('button').on('click', function() {
+    if($(this).hasClass('nav-button')) {
+        $('nav div').addClass('show');
+    } else if($(this).hasClass('exit-menu')) {
+        $('nav div').removeClass('show');
+    } 
+    else if($(this).hasClass('to-top')) {
+        $('html,body').animate({scrollTop:0}, 'slow');
+    }
+    });
+
+    AOS.init({      
+        duration: 1800,
+    easing: 'ease'
+    }); 
+})
+
+
+
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+        x.className += " responsive";
+        } else {
+        x.className = "topnav";
+        }
+    } 
+</script>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <div class="topnav" id="myTopnav">
+    <a href="#" class="active">Home</a>
+    <a href="#about">Über uns</a>
+    <a href="#team">Team</a>
+    <a href="#project">Projekte</a>
+    <a href="#partner">Partner</a>
+    <a href="#">Anmelden</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+    </div>
+  
+
+    <div class="center">
+        <h1 class="alex-brush">Wilkommen</h1>
+        <h2>Immosolution</h2>
+        <span id="asterisk">*</span>
+        <p>Immobilien & Facility Management GmbH</p>
+    </div>
+</header>
+
+<section class="add-padding add-flex">
+    <div class="center-text">
+        
+        <h1 class="alex-brush" id="about"><span class="custom-font">Über uns</span><br /></h1>
+        <h2>*</h2>
+        <p>{{ infos.angebot }}</p>
+    </div>
+    <div  class="sacher" data-aos="fade-left" data-aos-delay="300">
+    </div>
+</section>
+
+<section class="Geschmackvoll-background center-h1">
+    <h1 class="custom-h1 alex-brush"><span class="custom-font">Jahrelange</span><br />Übung</h1>
+</section>
+
+<section class="menu add-flex add-padding">
+  <div class="menu-images">
+     
+  </div>
+  <div class="center-text">
+    <h1><span class="custom-font alex-brush" id="team">Unser</span><br />Team</h1>
+    <h2>*</h2>
+    <p>{{ infos.mitarbeiter }}</p>
+  </div>
+</section>
+
+<section class="dritter-background center-h1">
+
+  <h1 class="custom-h1"><span class="custom-font alex-brush">Qualitative</span><br />Mitarbeiter</h1>
+</section>
+
+<section class="add-flex reservation-section">
+  <div class="center-text add-padding">
+    <h1><span class="custom-font alex-brush" id="project">Unsere</span><br />Projekte</h1>
+    <h2>*</h2>
+    <p>{{ infos.referenzprojekte }}</p>
+  </div>
+  
+
+  <div>
+    
+  </div>
+</section>
+<section class="Geschmackvoll-background center-h1">
+    <h1 class="custom-h1 alex-brush"><span class="custom-font">Jahrelange</span><br />Übung</h1>
+</section>
+
+<section class="menu add-flex add-padding">
+  <div class="menu-images">
+     
+  </div>
+  <div class="center-text">
+    <h1><span class="custom-font alex-brush" id="partner">Unsere</span><br />Partner</h1>
+    <h2>*</h2>
+    <p>{{ infos.privatkunden }}</p>
+  </div>
+</section>
+<footer>
+  
+  
+  <div class="restaurant-info">
+  
+  <div class="locations">
+      <h4>Standort</h4>
+      <div class="location-1">
+        <h5>Lemböckgasse 47<br />Austria, Vienna &#8212; 1230</h5>
+      </div><!--location-1-->
+      <div class="location-2">
+        <h5>
+        <br /><a href="User/login.php">Login</a><br>
+        <a href="User/logout.php">Logout</a>
+        </h5>
+      </div>
+    </div><!--locations end-->
+
+    <div class="hours">
+      <h4>Öffnungszeiten</h4>
+      <div class="weekdays">
+        <h5>Montag - Donnerstag<br />
+            8:00 bis 18:00 Uhr
+        </h5>
+        <h5>Freitag<br>
+            8:00 bis 12:00 Uhr
+        </h5>
+      </div>
+      
+      
+      
+    </div><!--hours end-->
+    
+  </div><!--restaurant-info end-->
+  
+  <div class="copyright">
+    
+    <p><small>Copyright by &#8226; Immosolution</small></p>
+  </div>
+  
+</footer>
+
