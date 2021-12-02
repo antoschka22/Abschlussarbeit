@@ -1,6 +1,34 @@
 # FIT Abschlussprüfung
-Unser Projekt ist in 4 Ordner unterteilt, der Backendentwickler kümmert sich um die Ordner ``admin, backend und database`` und der Frontendwentwickler um den Ordner ``frontend``.<br><br>
-### !!! DER CODE DES FRONTENDENTWICKLERS MUSS IM ``./frontend/immosolution_frontend`` SEIN<br><br>
+## How to use
+1. code fetchen
+```bash
+git clone https://github.com/antoschka22/abschlussarbeit.git
+```
+
+2. im immosolution-frontend Ordner node-modules herunterladen
+```npm
+npm install
+```
+
+3. ebenfalls im immosolution-frontend Ordner Angular-Projekt kompilieren 
+```angular
+ng.cmd build
+```
+
+4. Docker-Abbildung und Docker-Container erstellen
+```docker
+docker-compose build
+docker-compose up -d
+```
+# Zusäztliche Commands
+```bash
+#Angular-Web-Server starten
+ng.cmd serve --open
+```
+
+
+<br><br>
+Unser Projekt ist in 3 Ordner unterteilt, der Backendentwickler kümmert sich um die Ordner ``frontend/admin, backend und database`` und der Frontendentwickler ``frontend/frontend``.<br><br>
 
 ## docker-compose 
 Docker-compose hat zwei Commands, die für Anfänger notwendig sind.
@@ -21,6 +49,6 @@ docker-compose build frontend
 docker logs immosolution_frontend
 ```
 ```bash
-# Um alle Kontainer aufzulisten
+# Um alle Container aufzulisten
 docker ps
 ```
