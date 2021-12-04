@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { FacebookComponent } from './components/admin/facebook/facebook.component';
 import { ToastrModule } from 'ngx-toastr';
 import { IndexComponent } from './components/frontend/index/index.component';
+import { LoginComponent } from './components/admin/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { IndexComponent } from './components/frontend/index/index.component';
     NavbarComponent,
     DashboardComponent,
     FacebookComponent,
-    IndexComponent
+    IndexComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

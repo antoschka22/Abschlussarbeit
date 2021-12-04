@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { InstagramService } from 'src/app/service/instagram.service';
 
 declare var FB: any;
@@ -11,7 +12,8 @@ declare var FB: any;
 export class DashboardComponent implements OnInit {
 
   constructor(private instaService: InstagramService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private facebookService: FacebookAuthService) { }
 
   ngOnInit(): void {
     (window as any).fbAsyncInit = function() {
@@ -42,7 +44,7 @@ export class DashboardComponent implements OnInit {
         {
           if (response.authResponse)
           {
-            console.log('submitLogin',response);
+            this.facebookService.setTokenFacebook(response.authResponse.accessToken, true)
             this.toastr.success('login successful', 'Success!');
           }
            else
