@@ -1,160 +1,187 @@
-<!-- {{ infos.angebot }}
-{{ infos.gruedung }} -->
-<script>
-    $(document).ready(function() {
-
-    $('button').on('click', function() {
-    if($(this).hasClass('nav-button')) {
-        $('nav div').addClass('show');
-    } else if($(this).hasClass('exit-menu')) {
-        $('nav div').removeClass('show');
-    } 
-    else if($(this).hasClass('to-top')) {
-        $('html,body').animate({scrollTop:0}, 'slow');
-    }
-    });
-
-    AOS.init({      
-        duration: 1800,
-    easing: 'ease'
-    }); 
-})
-
-
-
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-        x.className += " responsive";
-        } else {
-        x.className = "topnav";
-        }
-    } 
-</script>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="assets/images/Logo.ico">
 </head>
-<header>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-
-    <div class="topnav" id="myTopnav">
-    <a href="#" class="active">Home</a>
-    <a href="#about">Über uns</a>
-    <a href="#team">Team</a>
-    <a href="#project">Projekte</a>
-    <a href="#partner">Partner</a>
-    <a href="#">Anmelden</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
-    </div>
-  
-
-    <div class="center">
-        <h1 class="alex-brush">Wilkommen</h1>
-        <h2>Immosolution</h2>
-        <span id="asterisk">*</span>
-        <p>Immobilien & Facility Management GmbH</p>
-    </div>
-</header>
-
-<section class="add-padding add-flex">
-    <div class="center-text">
-        
-        <h1 class="alex-brush" id="about"><span class="custom-font">Über uns</span><br /></h1>
-        <h2>*</h2>
-        <p>{{ infos.angebot }}</p>
-    </div>
-    <div  class="sacher" data-aos="fade-left" data-aos-delay="300">
-    </div>
-</section>
-
-<section class="Geschmackvoll-background center-h1">
-    <h1 class="custom-h1 alex-brush"><span class="custom-font">Jahrelange</span><br />Übung</h1>
-</section>
-
-<section class="menu add-flex add-padding">
-  <div class="menu-images">
-     
-  </div>
-  <div class="center-text">
-    <h1><span class="custom-font alex-brush" id="team">Unser</span><br />Team</h1>
-    <h2>*</h2>
-    <p>{{ infos.mitarbeiter }}</p>
-  </div>
-</section>
-
-<section class="dritter-background center-h1">
-
-  <h1 class="custom-h1"><span class="custom-font alex-brush">Qualitative</span><br />Mitarbeiter</h1>
-</section>
-
-<section class="add-flex reservation-section">
-  <div class="center-text add-padding">
-    <h1><span class="custom-font alex-brush" id="project">Unsere</span><br />Projekte</h1>
-    <h2>*</h2>
-    <p>{{ infos.referenzprojekte }}</p>
-  </div>
-  
-
-  <div>
-    
-  </div>
-</section>
-<section class="Geschmackvoll-background center-h1">
-    <h1 class="custom-h1 alex-brush"><span class="custom-font">Jahrelange</span><br />Übung</h1>
-</section>
-
-<section class="menu add-flex add-padding">
-  <div class="menu-images">
-     
-  </div>
-  <div class="center-text">
-    <h1><span class="custom-font alex-brush" id="partner">Unsere</span><br />Partner</h1>
-    <h2>*</h2>
-    <p>{{ infos.privatkunden }}</p>
-  </div>
-</section>
-<footer>
-  
-  
-  <div class="restaurant-info">
-  
-  <div class="locations">
-      <h4>Standort</h4>
-      <div class="location-1">
-        <h5>Lemböckgasse 47<br />Austria, Vienna &#8212; 1230</h5>
-      </div><!--location-1-->
-      <div class="location-2">
-        <h5>
-        <br /><a href="User/login.php">Login</a><br>
-        <a href="User/logout.php">Logout</a>
-        </h5>
+<body>
+  <!-- --------------------------------------- Header --------------------------------------- -->
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand">
+        <a href="#">Immosolution</a>
+        </div>
+        <nav>
+        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li>
+          <a href="#">Home</a>
+          </li>
+          <li>
+          <a href="#about">Über uns</a>
+          </li>
+          <li>
+          <a href="#team">Team</a>
+          </li>
+          <li>
+          <a href="#project">Projekte</a>
+          <ul class="nav-dropdown">
+            <li>
+            <a href="#">Projekt 1</a>
+            </li>
+            <li>
+            <a href="#">Projekt 2</a>
+            </li>
+            <li>
+            <a href="#">Projekt 3</a>
+            </li>
+          </ul>
+          </li>
+          <li>
+          <a href="#partner">Partner</a>
+          </li>
+        </ul>
+        </nav>
       </div>
-    </div><!--locations end-->
-
-    <div class="hours">
-      <h4>Öffnungszeiten</h4>
-      <div class="weekdays">
-        <h5>Montag - Donnerstag<br />
-            8:00 bis 18:00 Uhr
-        </h5>
-        <h5>Freitag<br>
-            8:00 bis 12:00 Uhr
-        </h5>
-      </div>
-      
-      
-      
-    </div><!--hours end-->
+      </section>
+  <!-- --------------------------------------- BG Video / BG Picture --------------------------------------- -->
     
-  </div><!--restaurant-info end-->
-  
-  <div class="copyright">
-    
-    <p><small>Copyright by &#8226; Immosolution</small></p>
+  <div class="col-xl-12 bg-color-bg-pic">
+    <img class="transperancy" src="./assets/images/bg-picture-2.jpg">
   </div>
   
-</footer>
+  <!-- --------------------------------------- Footer --------------------------------------- -->
+  <div class="main">
 
+    <br>
+    <div div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+
+    <div class="grey-bg">
+      <div class="feld1 row" id="about">
+        <div class="col-xl-9 text-align-left">	
+          <h1 style="color: #000">Über uns</h1>
+          <p class="about" id="p1">{{ infos.angebot }}</p>
+          <br>
+          <h3 style="color: #000">Gründung</h3>
+          <p class="about" id="p1">{{ infos.gruedung }}</p>
+        </div>
+        <div class="col-xl-3 text-align-right">
+          <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+
+    <div class="feld2 row" id="team">
+      <div class="col-xl-3">
+        <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
+      </div>
+      <div class="col-xl-9">
+        <h1 style="color: #000">Team</h1>
+        <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+    <div class="grey-bg">
+      <div class="feld3 row" id="project">
+        <div class="col-xl-9">
+          <h1 style="color: #000">Projekte</h1>
+          <p class="project" id="p1">{{ infos.referenzprojekte }}</p>
+        </div>
+        <div class="col-xl-3">
+          <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+    <div class="feld3 row" id="partner">
+      <div class="col-xl-3">
+        <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
+      </div>
+      <div class="col-xl-9">
+        <h1 style="color: #000">Partner</h1>
+        <p class="partner" id="p1">{{ infos.privatkunden }}</p>
+      </div>
+    </div>
+
+  </div> 
+  <!-- --------------------------------------- Footer --------------------------------------- -->
+    <div class="footerBGC">
+    
+  
+    <footer>
+    <div class="footer-content-wrapper">
+      <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
+        <h3 class="text-center" id="footerH3">Adresse</h3>
+        <p>Österreich</p>
+        <p>Lemböckgasse 47, 1230 Wien</p>
+      </div>
+      <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
+        <h3 class="footerH3">Kontakt:</h3>
+          <p>Tel: 01 66273300</p>
+          <p>eMail:</p>
+      </div>
+      <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
+        <h3 class="footerH3">Kontakt</h3>
+        <button type="button" class="btn btn-light">Anmelden</button>
+      </div>
+      <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
+        <h3 class="footerH3">Kontakt</h3>
+        <button type="button" class="btn btn-light">Anmelden</button>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </footer>
+  </div>
+    
+    
+    
+  
+    <script>
+      (function($) { // Begin jQuery
+      $(function() { // DOM ready
+        // If a link has a dropdown, add sub menu toggle.
+        $('nav ul li a:not(:only-child)').click(function(e) {
+          $(this).siblings('.nav-dropdown').toggle();
+          // Close one dropdown when selecting another
+          $('.nav-dropdown').not($(this).siblings()).hide();
+          e.stopPropagation();
+        });
+        // Clicking away from dropdown will remove the dropdown class
+        $('html').click(function() {
+          $('.nav-dropdown').hide();
+        });
+        // Toggle open and close nav styles on click
+        $('#nav-toggle').click(function() {
+          $('nav ul').slideToggle();
+        });
+        // Hamburger to X toggle
+        $('#nav-toggle').on('click', function() {
+          this.classList.toggle('active');
+        });
+      }); // end DOM ready
+    })(jQuery); // end jQuery
+    </script>
+  </body>
