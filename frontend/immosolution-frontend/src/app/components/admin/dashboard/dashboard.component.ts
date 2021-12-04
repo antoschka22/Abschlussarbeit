@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     (window as any).fbAsyncInit = function() {
       FB.init({
-        appId      : '1015863969274706',
+        appId      : '920691181906595',
         cookie     : true,
         xfbml      : true,
         version    : 'v12.0'
@@ -36,18 +36,20 @@ export class DashboardComponent implements OnInit {
   }
 
   submitLogin(){
-    console.log("submit login to facebook");
+    // console.log("submit login to facebook");
     // FB.login();
     FB.login((response: any)=>
         {
-          console.log('submitLogin',response);
           if (response.authResponse)
           {
+            console.log('submitLogin',response);
             this.toastr.success('login successful', 'Success!');
           }
            else
            {
-           console.log('User login failed');
+            this.toastr.error('Login error', 'Error', {
+              timeOut: 3000,
+            });
          }
       });
   }
