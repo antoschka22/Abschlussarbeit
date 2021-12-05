@@ -298,6 +298,15 @@ article {
 /* ------------- Main Content End ------------- */
 /* ------------- Contact Form ------------- */
 
+.line-bottom {
+  border-bottom: 2px solid gold;
+  // padding-top: 15px;
+}
+
+.line-right {
+  border-right: 2px solid gold;
+}
+
 // Font imports
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
@@ -493,6 +502,7 @@ form {
 
 .footerBGC {
   background-color:#262626 ;
+  height: 15vh;
 }
 
 #footerH3 {
@@ -566,18 +576,28 @@ body,h1,h2,h3,h4 {
   @media (max-width: 550px) {
     .small-50 {
       width: 50%;  
+      height: 100%;
     }
     .footer-col:nth-child(2) {
       border: none;
+    }
+    .footerBGC {
+      background-color:#262626 ;
+      height: 35vh;
     }
   }
   
   @media (max-width: 300px) {
     .tiny-100 {
       width: 100%;
+      height: auto;
     }
     .footer-col { 
       border: none;
+    }
+    .footerBGC {
+      background-color:#262626 ;
+      height: 50vh;
     }
   }  
 
