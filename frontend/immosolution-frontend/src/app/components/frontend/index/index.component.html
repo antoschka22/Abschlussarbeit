@@ -1,62 +1,115 @@
+<script>
+
+  // -------------------------- Navbar Burger Menue JS --------------------------
+
+  (function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+
+// -------------------------- Sticky Navbar JS --------------------------
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+} 
+</script>
 <head>
   <link rel="icon" href="assets/images/Logo.ico">
 </head>
-<body>
+<div>
   <!-- --------------------------------------- Header --------------------------------------- -->
-    <section class="navigation">
-      <div class="nav-container">
-        <div class="brand">
-        <a href="#">Immosolution</a>
-        </div>
-        <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li>
-          <a href="#">Home</a>
-          </li>
-          <li>
-          <a href="#about">Über uns</a>
-          </li>
-          <li>
-          <a href="#team">Team</a>
-          </li>
-          <li>
-          <a href="#project">Projekte</a>
-          <ul class="nav-dropdown">
+    <body>
+      <section class="navigation">
+        <div class="nav-container" id="navbar">
+          <div class="brand">
+          <a href="#" id="home">Immosolution</a>
+          </div>
+          <nav>
+          <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+          <ul class="nav-list">
             <li>
-            <a href="#">Projekt 1</a>
+            <a href="#home">Home</a>
             </li>
             <li>
-            <a href="#">Projekt 2</a>
+            <a href="#about">Über uns</a>
             </li>
             <li>
-            <a href="#">Projekt 3</a>
+            <a href="#team">Team</a>
+            </li>
+            <!-- <li>
+            <a href="#project">Projekte</a>
+            <ul class="nav-dropdown">
+              <li>
+              <a href="#">Projekt 1</a>
+              </li>
+              <li>
+              <a href="#">Projekt 2</a>
+              </li>
+              <li>
+              <a href="#">Projekt 3</a>
+              </li>
+            </ul>
+            </li> -->
+            <li>
+              <a href="#project">Projekte</a>
+              </li>
+            <li>
+            <a href="#partner">Partner</a>
             </li>
           </ul>
-          </li>
-          <li>
-          <a href="#partner">Partner</a>
-          </li>
-        </ul>
-        </nav>
-      </div>
-      </section>
-  <!-- --------------------------------------- BG Video / BG Picture --------------------------------------- -->
+          </nav>
+        </div>
+        </section>
+  <!-- --------------------------------------- BG Video / BG Pic --------------------------------------- -->
     
   <div class="col-xl-12 bg-color-bg-pic">
     <img class="transperancy" src="./assets/images/bg-picture-2.jpg">
   </div>
-  
-  <!-- --------------------------------------- Footer --------------------------------------- -->
-  <div class="main">
 
-    <br>
+  <!-- --------------------------------------- BG Video / BG Pic End --------------------------------------- -->
+  
+  <!-- --------------------------------------- Main --------------------------------------- -->
+
+  
     <div div class="black-placeholder">
       <h1 class="text-center color-h1">Test</h1>
     </div>
     <br>
 
-
+    <div class="main">
     <div class="grey-bg">
       <div class="feld1 row" id="about">
         <div class="col-xl-9 text-align-left">	
@@ -67,121 +120,166 @@
           <p class="about" id="p1">{{ infos.gruedung }}</p>
         </div>
         <div class="col-xl-3 text-align-right">
-          <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
+          <img width="250px" height="auto" src="./assets/images/pic-4.jpg">
         </div>
       </div>
     </div>
-    <br>
-
-
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
-    </div>
-    <br>
-
-
-    <div class="feld2 row" id="team">
-      <div class="col-xl-3">
-        <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
-      </div>
-      <div class="col-xl-9">
-        <h1 style="color: #000">Team</h1>
-        <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
-      </div>
-    </div>
-    <br>
-
-
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
-    </div>
-    <br>
-
-    <div class="grey-bg">
-      <div class="feld3 row" id="project">
-        <div class="col-xl-9">
-          <h1 style="color: #000">Projekte</h1>
-          <p class="project" id="p1">{{ infos.referenzprojekte }}</p>
-        </div>
-        <div class="col-xl-3">
-          <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
-        </div>
-      </div>
-    </div>
-    <br>
-
-
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
-    </div>
-    <br>
-
-    <div class="feld3 row" id="partner">
-      <div class="col-xl-3">
-        <img width="200px" height="auto" src="./assets/images/placeholder-black.jpg">
-      </div>
-      <div class="col-xl-9">
-        <h1 style="color: #000">Partner</h1>
-        <p class="partner" id="p1">{{ infos.privatkunden }}</p>
-      </div>
-    </div>
-
   </div> 
-  <!-- --------------------------------------- Footer --------------------------------------- -->
-    <div class="footerBGC">
-    
-  
-    <footer>
-    <div class="footer-content-wrapper">
-      <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
-        <h3 class="text-center" id="footerH3">Adresse</h3>
-        <p>Österreich</p>
-        <p>Lemböckgasse 47, 1230 Wien</p>
-      </div>
-      <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
-        <h3 class="footerH3">Kontakt:</h3>
-          <p>Tel: 01 66273300</p>
-          <p>eMail:</p>
-      </div>
-      <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
-        <h3 class="footerH3">Kontakt</h3>
-        <button type="button" class="btn btn-light">Anmelden</button>
-      </div>
-      <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
-        <h3 class="footerH3">Kontakt</h3>
-        <button type="button" class="btn btn-light">Anmelden</button>
+    <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+    <div class="main">
+      <div class="feld2 row" id="team">
+        <div class="col-xl-3">
+          <img width="250px" height="auto" src="./assets/images/pic-5.jpg">
+        </div>
+        <div class="col-xl-9">
+          <h1 style="color: #000">Team</h1>
+          <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
+        </div>
       </div>
     </div>
-    <div class="clearfix"></div>
-  </footer>
+      <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+    <div class="main">
+      <div class="grey-bg">
+        <div class="feld3 row" id="project">
+          <div class="col-xl-9">
+            <h1 style="color: #000">Projekte</h1>
+            <p class="project" id="p1">{{ infos.referenzprojekte }}</p>
+          </div>
+          <div class="col-xl-3">
+            <img width="250px" height="auto" src="./assets/images/pic-34.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+      <br>
+
+
+    <div class="black-placeholder">
+      <h1 class="text-center color-h1">Test</h1>
+    </div>
+    <br>
+
+    <div class="main">
+      <div class="feld3 row" id="partner">
+        <div class="col-xl-3">
+          <img width="250px" height="auto" src="./assets/images/pic-35.jpg">
+        </div>
+        <div class="col-xl-9">
+          <h1 style="color: #000">Partner</h1>
+          <p class="partner" id="p1">{{ infos.privatkunden }}</p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <!-- --------------------------------------- Contact Form --------------------------------------- -->
+
+  <div class="main">
+    <div class="container">
+      <div class="row header">
+        <img height="200px" width="auto" src="./assets/images/contact-form-pic.jpg">
+        <h1>CONTACT US &nbsp;</h1>
+        <h3>Fill out the form below to learn more!</h3>
+      </div>
+      <div class="row body">
+        <form action="#">
+          <ul>
+            
+            <li>
+              <p class="left">
+                <label for="first_name">first name</label>
+                <input type="text" name="first_name" placeholder="John" />
+              </p>
+              <p class="pull-right">
+                <label for="last_name">last name</label>
+                <input type="text" name="last_name" placeholder="Smith" />      
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                <label for="email">email <span class="req">*</span></label>
+                <input type="email" name="email" placeholder="john.smith@gmail.com" />
+              </p>
+            </li>        
+            <li><div class="divider"></div></li>
+            <li>
+              <label for="comments">comments</label>
+              <textarea cols="46" rows="3" name="comments"></textarea>
+            </li>
+            
+            <li>
+              <input class="btn btn-submit" type="submit" value="Submit" />
+              <small>or press <strong>enter</strong></small>
+            </li>
+            
+          </ul>
+        </form>  
+      </div>
+    </div>
   </div>
+  <!-- --------------------------------------- Contact Form End --------------------------------------- -->
+  <!-- --------------------------------------- Main End --------------------------------------- -->
+  <!-- --------------------------------------- Footer --------------------------------------- -->
+    <!-- <div class="footerBGC">
+      <footer>
+        <div class="footer-content-wrapper">
+          <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
+            <h3 class="text-center" id="footerH3">Adresse</h3>
+            <p>Österreich</p>
+            <p>Lemböckgasse 47, 1230 Wien</p>
+          </div>
+          <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
+            <h3 class="footerH3">Kontakt:</h3>
+              <p>Tel: 01 66273300</p>
+              <p>eMail:</p>
+          </div>
+          <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
+            <h3 class="footerH3">Kontakt</h3>
+            <button type="button" class="btn btn-light">Anmelden</button>
+          </div>
+          <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
+            <h3 class="footerH3">Kontakt</h3>
+            <button type="button" class="btn btn-light">Anmelden</button>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+    </div> -->
+
     
-    
-    
-  
-    <script>
-      (function($) { // Begin jQuery
-      $(function() { // DOM ready
-        // If a link has a dropdown, add sub menu toggle.
-        $('nav ul li a:not(:only-child)').click(function(e) {
-          $(this).siblings('.nav-dropdown').toggle();
-          // Close one dropdown when selecting another
-          $('.nav-dropdown').not($(this).siblings()).hide();
-          e.stopPropagation();
-        });
-        // Clicking away from dropdown will remove the dropdown class
-        $('html').click(function() {
-          $('.nav-dropdown').hide();
-        });
-        // Toggle open and close nav styles on click
-        $('#nav-toggle').click(function() {
-          $('nav ul').slideToggle();
-        });
-        // Hamburger to X toggle
-        $('#nav-toggle').on('click', function() {
-          this.classList.toggle('active');
-        });
-      }); // end DOM ready
-    })(jQuery); // end jQuery
-    </script>
+    <div class="footerBGC">
+      <div class="main">
+        <div class="row">
+          <div class="col-sm-4">
+            <h2>Adresse:</h2>
+            <p>Lemböckgasse 47</p>
+            <p>Österreich, 1230 Wien</p>
+          </div>
+          <div class="col-sm-4">
+            <h2>Kontakt:</h2>
+            <p>Tel: 01 66273300</p>
+            <p>eMail:</p>
+          </div>
+          <div class="col-sm-4">
+            <h2>Anmelden:</h2>
+            <button type="button" class="btn btn-light">Anmelden</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
