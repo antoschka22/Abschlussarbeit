@@ -44,8 +44,8 @@ export class DashboardComponent implements OnInit {
         {
           if (response.authResponse)
           {
-            this.facebookService.setTokenFacebook(response.authResponse.accessToken, true)
             this.toastr.success('login successful', 'Success!');
+            this.facebookService.setTokenFacebook(response.authResponse.accessToken, true)
           }
            else
            {
