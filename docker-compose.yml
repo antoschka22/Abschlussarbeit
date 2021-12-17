@@ -13,7 +13,7 @@ services:
   container_name: immosolution_database
   image:  postgres:13-alpine
   volumes: 
-   - D:\Abschlussarbeit\abschlussarbeit\database\data:/var/lib/postgresql/data
+   - D:\abschlussarbeit\database\data:/var/lib/postgresql/data
   restart: always
   ports:
    - 5431:5432

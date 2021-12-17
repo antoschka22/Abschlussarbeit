@@ -9,7 +9,7 @@ RUN rm /usr/share/nginx/html/index.html
 RUN rm /usr/share/nginx/html/50x.html
 # removes the standard index.html of nginx
 
-COPY immosolution-frontend/dist/immosolution-frontend /usr/share/nginx/html
+# COPY immosolution-frontend/dist/immosolution-frontend /usr/share/nginx/html
 # copies the immosolution_frontend folder
 # and adds them to the filesystem of the container at the path (/usr/share/nginx/html)
 # this is a nginx norm, whatever is in the nginx/html folder is shown when communicating with the webserver

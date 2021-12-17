@@ -30,8 +30,12 @@ export class LoginComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    // this.hash();
   }
 
+  // hash(){
+  //   console.log(this.userService.hashIt("test"))
+  // }
 
   loginModel: loginModel = new loginModel("", "")
   onSubmit(){

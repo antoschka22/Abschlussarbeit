@@ -87,6 +87,7 @@ export class AuthService {
   }
 
   private setToken(authResponse: string, keepLogin: boolean){
+    authResponse = authResponse.replace(/['"]+/g, '')
     if(keepLogin){
       localStorage.setItem('authToken', authResponse);
     }else{
