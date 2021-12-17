@@ -11,6 +11,7 @@ import { FacebookComponent } from './components/admin/facebook/facebook.componen
 import { ToastrModule } from 'ngx-toastr';
 import { IndexComponent } from './components/frontend/index/index.component';
 import { LoginComponent } from './components/admin/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoginComponent } from './components/admin/login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],

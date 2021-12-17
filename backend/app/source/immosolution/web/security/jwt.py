@@ -8,7 +8,7 @@ import time
 import os as os
 import six
 from werkzeug.exceptions import Unauthorized
-from dao.dao_user import get_user_by_credentials
+from dao.dao_user import get_username_by_name_dao
 
 from jose import JWTError, jwt
 
@@ -22,14 +22,11 @@ def login(body):
     """"
         create a token if the username and password are correct
     """
-    if not 'password' in body or not 'username' in body:
-        return "Username and password are required", 403
+    user = get_username_by_name_dao(body['username'])
+    if user != None:
+        return generate_token(user['username'], user["role"])
     else:
-        user = get_user_by_credentials(body)
-        if user != None:
-            return generate_token(user['username'], user["role"])
-        else:
-            return "Username or password incorrect", 403
+        return "Username or password incorrect", 403    
         
 
 def generate_token(user_id, user_role):

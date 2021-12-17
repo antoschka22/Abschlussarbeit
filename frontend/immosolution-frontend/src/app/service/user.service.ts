@@ -13,6 +13,10 @@ export class UserService {
   
   constructor(private http: HttpClient, private globals: Globals) { }
 
+  getUserInfos(username: string){
+    return this.http.get(this.baseUri + "/user/" + username);
+  }
+
   hashIt(password: string){
     const salt = bcrypt.genSaltSync(10);
     const hashedPW = bcrypt.hashSync(password, salt);
@@ -20,14 +24,6 @@ export class UserService {
   }
 
   compareIt(password: string, hashedPassword): boolean{
-    return bcrypt.compare(password, hashedPassword, function (err, res){
-      if(res){
-        console.log("OK")
-        return true
-      }else{
-        console.log("Wrong")
-        return false
-      }
-    });
+    return bcrypt.compareSync(password, hashedPassword)
   }
 }

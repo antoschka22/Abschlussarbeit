@@ -77,7 +77,7 @@ export class AuthService {
   }
 
   // decodes the token and returns the id of the user
-  getIdFromToken(){
+  getUsernameFromToken(){
     let token = this.getToken();
     if(token != null){
       const decoded: any = jwt_decode(token);

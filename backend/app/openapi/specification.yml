@@ -98,6 +98,27 @@ paths:
             application/json:
               schema:
                 type: string
+
+  /user/{username}:
+    get:
+      tags:
+      - login
+      summary: get the infos of a user, by the username
+      operationId: web.controllers.user.get_username_by_name
+      parameters:
+      - name: username
+        in: path
+        description: the username of the user
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: username fetched
+          content:
+            application/json:
+              schema:
+                type: string
   
   /login:
     post:
@@ -154,15 +175,15 @@ components:
   schemas:
     LoginCredentials:
       required:
-      - password
       - username
+      - password
       type: object
       properties:
         username:
           type: string
-          description: email
+          description: username
         password:
           type: string
       example:
-        username: antonio@molina.com
+        username: admin
         password: password
