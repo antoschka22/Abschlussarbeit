@@ -175,7 +175,7 @@ def updateDatabase():
                     PRIMARY KEY (username)
                 );
                 INSERT INTO users (username, password, role)
-                VALUES ('admin', 'test', 'ADMIN');
+                VALUES ('admin', '$2a$10$EuMetZvSiZfX.TI33ohhhuqvld6WLby2LXqDIKU37EvmNbXiNi9oK', 'ADMIN');
             """)
         addVersion(0.4, 'create users table')
     

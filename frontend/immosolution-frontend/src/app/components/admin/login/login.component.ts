@@ -51,25 +51,25 @@ export class LoginComponent implements OnInit {
         if(this.userService.compareIt(this.loginModel.password, data.password)){
           this.authService.loginUser(this.loginModel, true).subscribe(data=>{
             this.toastr.success("Right credentials", 'Success', {
-              timeOut: 3000,
+              timeOut: 1500,
             });
             this.router.navigate(['/admin']);
           },
           (error) => {
             this.toastr.error(error.error, 'Login error', {
-              timeOut: 3000,
+              timeOut: 2000,
             });
           })
           return true
         }else{
           this.toastr.error("Wrong password", 'Login error', {
-            timeOut: 3000,
+            timeOut: 2000,
           });
           return false
         }
       }, (error)=>{
         this.toastr.error(error.error, 'Login error', {
-          timeOut: 3000,
+          timeOut: 2000,
         });
       })
     }

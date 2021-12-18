@@ -23,7 +23,7 @@ export class UserService {
     return hashedPW
   }
 
-  compareIt(password: string, hashedPassword): boolean{
+  compareIt(password: string, hashedPassword: string): boolean{
     return bcrypt.compareSync(password, hashedPassword)
   }
 }
