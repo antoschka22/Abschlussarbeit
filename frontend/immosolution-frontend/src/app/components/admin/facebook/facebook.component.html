@@ -1,1 +1,13 @@
-<p>facebook works!</p>
+<app-navbar (toggleMainEvent)="toggleMain($event)"></app-navbar>
+<div [ngClass]="{
+    'main-content-toggled': mainStyle === 0,
+    'main-content': mainStyle === 280
+}">
+
+
+<div class="container">
+    <img [src]="facebookUserInfo.picture.data.url" alt="">
+</div>
+
+
+</div>

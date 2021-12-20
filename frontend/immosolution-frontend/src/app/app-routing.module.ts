@@ -9,7 +9,8 @@ import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { MasterGuard } from './guards/master.guard';
 
 const routes: Routes = [
-  { path: 'admin', component: DashboardComponent}, // , canActivate: [MasterGuard], data: {guards: [AuthGuard], roles: ['ADMIN']}
+  { path: 'admin', component: DashboardComponent,
+  canActivate: [MasterGuard], data: {guards: [AuthGuard], roles: ['ADMIN']}},
   { path: 'facebook', component: FacebookComponent,
   canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
   { path: '', component: IndexComponent},
