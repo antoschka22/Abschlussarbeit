@@ -14,6 +14,9 @@ import { LoginComponent } from './components/admin/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SocialMediaCardsComponent } from './components/admin/social-media-cards/social-media-cards.component';
 import { BerechtigungenVerwaltenComponent } from './components/admin/berechtigungen-verwalten/berechtigungen-verwalten.component';
+import { LaufendeprojekteComponent } from './components/frontend/laufendeprojekte/laufendeprojekte.component';
+import { FertigeprojekteComponent } from './components/frontend/fertigeprojekte/fertigeprojekte.component';
+import { NavbarFrontendComponent } from './components/frontend/navbar-frontend/navbar-frontend.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { BerechtigungenVerwaltenComponent } from './components/admin/berechtigun
     LoginComponent,
     SocialMediaCardsComponent,
     BerechtigungenVerwaltenComponent,
+    LaufendeprojekteComponent,
+    FertigeprojekteComponent,
+    NavbarFrontendComponent,
   ],
   imports: [
     BrowserModule,

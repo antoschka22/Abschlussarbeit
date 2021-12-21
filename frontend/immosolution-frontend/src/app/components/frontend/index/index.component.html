@@ -28,106 +28,28 @@
 
 // -------------------------- Sticky Navbar JS --------------------------
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
-
-// Get the navbar
-var navbar = document.getElementById("navbar");
-
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-} 
-
-var mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
 </script>
 <div class="background-wallpaper">
+  <p id="home font-fam"></p>
   <head>
     <link rel="icon" href="assets/images/Logo.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel="stylesheet">
+                
   </head>
   <div>
     <!-- --------------------------------------- Header --------------------------------------- -->
     <body>
     
-    <div class="div-telnr-email">
-      <div class="telnr-email">
-        <p class="text-align-right" style="color: black;">+43  01 66273300 | office@immosolution.at</p>
-      </div>
-    </div>
-
-      <section class="navigation">
-        <div class="nav-container" id="navbar">
-          <div class="brand">
-          <a href="#" id="home"><img src="./assets/images/Logo-Signet.jpg" style="width: 13%;"></a>
-          </div>
-          <nav>
-          <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-          <ul class="nav-list">
-            <li>
-              <a href="#home" class="schrift">Home</a>
-            </li>
-            <li>
-              <a href="#about" class="schrift">Über uns</a>
-            </li>
-            <li>
-              <a href="#team" class="schrift">Team</a>
-            </li>
-            <!-- <li>
-            <a href="#project">Projekte</a>
-            <ul class="nav-dropdown">
-              <li>
-              <a href="#">Projekt 1</a>
-              </li>
-              <li>
-              <a href="#">Projekt 2</a>
-              </li>
-              <li>
-              <a href="#">Projekt 3</a>
-              </li>
-            </ul>
-            </li> -->
-            <li>
-              <a href="#project" class="schrift">Projekte</a>
-              </li>
-            <li>
-            <a href="#partner" class="schrift">Partner</a>
-            </li>
-            <li>
-              <a href="#kontakt" class="schrift">Kontaktformular</a>
-            </li>
-          </ul>
-          </nav>
-        </div>
-        </section>
+      <app-navbar-frontend></app-navbar-frontend>
+      
   <!-- --------------------------------------- BG Video / BG Pic --------------------------------------- -->
     
   <div class="col-xl-12 bg-color-bg-pic">
-    <img class="transperancy" src="./assets/images/bg-picture-3.5.jpg">
-  </div>
+    <img class="transperancy" src="./assets/images/bg-picture-4.5.jpg">
+    <h3 class="centered" id="font-fam">Sehr geehrte Damen und Herren,<br> Unser Betrieb ist über die Weihnachtsfeiertage vom 24.12.2021 bis inkl. 09.01.2022 geschlossen.  Wir wünschen frohe Weihnachten und einen guten Rutsch ins neue Jahr!  Vielen Dank für Ihre Treue und bleiben Sie gesund!</h3><br>
+    </div>
 
   <!-- --------------------------------------- BG Video / BG Pic End --------------------------------------- -->
   
@@ -135,49 +57,43 @@ function topFunction() {
 
     <div class="stats">
         <div class="row">
-          <div class="col-xl-4" id="style">
-            <h2 class="style">Öffnungszeiten</h2>
-            <span class="glyphicon glyphicon-time"></span>
+          <div class="col-xl-4 text-center" id="style">
+            <br><h2 class="style" id="font-fam">Öffnungszeiten</h2><br>
+            <span class="glyphicon glyphicon-time"></span><br><br>
+            <p class="farbe-icon-text" id="font-fam">Mo-Do 8:00-16:00 Uhr</p>
+            <p class="farbe-icon-text" id="font-fam">Fr 8:00-12:00 Uhr</p><br>
           </div>
-          <div class="col-xl-4" id="style">
-            <h2 class="style">Standort</h2>
-            <span class="glyphicon glyphicon-map-marker"></span>
+          <div class="col-xl-4 text-center" id="style">
+            <br><h2 class="style" id="font-fam">Standort</h2><br>
+            <span class="glyphicon glyphicon-map-marker"></span><br><br>
+            <p class="farbe-icon-text" id="font-fam">Lemböckgasse 47, 1230 Wien Österreich</p><br>
           </div>
-          <div class="col-xl-4" id="style">
-            <h2 class="style">Kontakt</h2>
-            <span class="glyphicon glyphicon-user"></span>
+          <div class="col-xl-4 text-center" id="style">
+            <br><h2 class="style" id="font-fam">Kontakt</h2><br>
+            <span class="glyphicon glyphicon-user"></span><br><br>
+            <p class="farbe-icon-text" id="font-fam">Tel: +43 01 66273300</p><br>
           </div>
         </div>
     </div>
 
     <div class="black-placeholder"  id="about">
-      <img src="./assets/images/parallax-1.jpg">
+      <img src="./assets/images/parallax-1.jpg" class="transperancy">
       <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
       <div class="centered"><p class="color-h1 text-center">Über uns</p></div>
     </div>
     <br>
 
-    <!-- <div class="placeholder">
-      <img src="./assets/images/parallax-1.jpg">
-      <p class="color-h1 text-center">Test</p>
-    </div> -->
-
-    <!-- <div class="container">
-      <img src="./assets/images/parallax-1.jpg" alt="Snow">
-      <div class="centered">Centered</div>
-    </div> -->
-
     <div id="content"></div>
 
     <div class="main">
-    <div class="grey-bg">
+    <div class="gray-bg">
       <div class="feld1 row">
-        <div class="col-xl-9 text-align-left">	
+        <div class="col-xl-9">	
           <!-- <h1 style="color: #000"></h1> -->
-          <p class="about" id="p1">{{ infos.angebot }}</p>
+          <br><br><p class="about" id="p1">{{ infos.angebot }}</p>
           <br>
           <h3 style="color: #000">Gründung</h3>
-          <p class="about" id="p1">{{ infos.gruedung }}</p>
+          <p class="about" id="p1">{{ infos.gruedung }}</p><br><br>
         </div>
         <div class="col-xl-3 text-align-right">
           <!-- <img width="250px" height="auto" src="./assets/images/pic-4.jpg"> -->
@@ -185,35 +101,22 @@ function topFunction() {
       </div>
     </div>
   </div> 
-    <br>
+  <br>
 
 
     <div class="black-placeholder" id="team">
-      <img src="./assets/images/parallax-2.jpg">
+      <img src="./assets/images/parallax-2.jpg" class="transperancy">
       <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
       <div class="centered"><p class="color-h1 text-center">Team</p></div>
     </div>
     <br>
-
-    <!-- <div class="main">
-      <div class="feld2 row" >
-        <div class="col-xl-3"> -->
-          <!-- <img width="250px" height="auto" src="./assets/images/pic-5.jpg"> -->
-        <!-- </div>
-        <div class="col-xl-9"> -->
-          <!-- <h1 style="color: #000"></h1> -->
-          <!-- <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
-        </div>
-      </div>
-    </div>
-      <br> -->
       
       <div class="main">
         <div class="grey-bg">
           <div class="feld3 row" >
             <div class="col-xl-9">
               <!-- <h1 style="color: #000"></h1> -->
-              <p class="project" id="p1">{{ infos.mitarbeiter }}</p>
+              <br><br><p class="project" id="p1">{{ infos.mitarbeiter }}</p><br><br>
             </div>
             <div class="col-xl-3">
               <!-- <img width="250px" height="auto" src="./assets/images/pic-34.jpg"> -->
@@ -223,9 +126,13 @@ function topFunction() {
       </div>
         <br>
 
+      <!-- <div class="col-xl-12">
+        <p class="text-center"><img src="./assets/images/group-pic.jpg"></p><br><br>
+      </div> -->
+
 
       <div class="black-placeholder" id="project">
-        <img src="./assets/images/parallax-3.jpg">
+        <img src="./assets/images/parallax-3.jpg" class="transperancy">
         <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
         <div class="centered"><p class="color-h1 text-center">Projekte</p></div>
       </div>
@@ -236,19 +143,26 @@ function topFunction() {
         <div class="feld3 row" >
           <div class="col-xl-9">
             <!-- <h1 style="color: #000"></h1> -->
-            <p class="project" id="p1">{{ infos.referenzprojekte }}</p>
+            <br><br><p class="project" id="p1">{{ infos.referenzprojekte }}</p><br><br><br><br>
           </div>
-          <div class="col-xl-3">
-            <!-- <img width="250px" height="auto" src="./assets/images/pic-34.jpg"> -->
+          <div class="row">
+            <div class="col-xl-6">
+              <h2 class="center-align" style="color:black; ">Laufende Projekte</h2>
+              <p class="text-center"><a [routerLink]="'/laufendeprojekte'"><button type="button" class="btn btn-dark">Laufende Projekte</button></a></p>
+            </div>
+            <div class="col-xl-6">
+              <h2 class="text-center" style="color:black;">Fertige Projekte</h2>
+              <p class="text-center"><a [routerLink]="'/fertigeprojekte'"><button type="button" class="btn btn-dark">Fertige Projekte</button></a></p><br><br>
+            </div>
           </div>
         </div>
       </div>
     </div>
-      <br>
+    <br>
 
 
       <div class="black-placeholder" id="partner">
-        <img src="./assets/images/parallax-4.jpg">
+        <img src="./assets/images/parallax-4.jpg" class="transperancy">
         <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
         <div class="centered"><p class="color-h1 text-center">Partner</p></div>
       </div>
@@ -259,18 +173,18 @@ function topFunction() {
         <div class="col-xl-3">
           <!-- <img width="250px" height="auto" src="./assets/images/pic-35.jpg"> -->
         </div>
-        <div class="col-xl-9">
+        <div class="col-xl-12">
           <!-- <h1 style="color: #000"></h1> -->
-          <p class="partner" id="p1">{{ infos.privatkunden }}</p>
+          <br><br><p class="partner" id="p1">{{ infos.privatkunden }}</p><br><br>
         </div>
       </div>
     </div>
     <br>
 
     <div class="black-placeholder">
-      <img src="./assets/images/parallax-5.jpg">
+      <img src="./assets/images/parallax-5.jpg" class="transperancy">
       <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
-      <div class="centered"><p class="color-h1 text-center">Test</p></div>
+      <div class="centered"><p class="color-h1 text-center">Kontaktformular</p></div>
     </div>
     <br>
 
@@ -281,10 +195,9 @@ function topFunction() {
       <div class="row header">
         <img height="auto" width="auto" src="./assets/images/contact-form-pic-2.png">
         <h1 class="text-center" style="color: black; z-index: 999;">Kontaktiere uns! &nbsp;</h1>
-        <h3 class="text-center" style="color: black; z-index: 999;">Schreib uns eine Nachricht!</h3>
       </div>
       <div class="row body">
-        <form action="#">
+        <form action="MailThis.to/lktuna@hotmail.com" method="POST">
           <ul>
             
             <li>
@@ -324,33 +237,8 @@ function topFunction() {
   <!-- --------------------------------------- Contact Form End --------------------------------------- -->
   <!-- --------------------------------------- Main End --------------------------------------- -->
   <!-- --------------------------------------- Footer --------------------------------------- -->
-    <!-- <div class="footerBGC">
-      <footer>
-        <div class="footer-content-wrapper">
-          <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
-            <h3 class="text-center" id="footerH3">Adresse</h3>
-            <p>Österreich</p>
-            <p>Lemböckgasse 47, 1230 Wien</p>
-          </div>
-          <div class="footer-col large-25 small-50 tiny-100 ta-l flt">
-            <h3 class="footerH3">Kontakt:</h3>
-              <p>Tel: 01 66273300</p>
-              <p>eMail:</p>
-          </div>
-          <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
-            <h3 class="footerH3">Kontakt</h3>
-            <button type="button" class="btn btn-light">Anmelden</button>
-          </div>
-          <div class="footer-col large-25 small-55 tiny-100 ta-l flt">
-            <h3 class="footerH3">Kontakt</h3>
-            <button type="button" class="btn btn-light">Anmelden</button>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </footer>
-    </div> -->
 
-    <button type="button" class="btn btn-info" id="myBtn">Info</button>
+  <a href="#home"><button type="button" class="btn btn-secondary" id="rauf-button">&uarr;</button></a>
     
     <div class="footerBGC">
       <div class="main">
@@ -367,7 +255,7 @@ function topFunction() {
           </div>
           <div class="col-sm-4 line-bottom schrift-footer">
             <h2 class="schrift-footer">Anmelden:</h2>
-            <button type="button" class="btn btn-light" id="größe" [routerLink]="'/login'">Anmelden</button>
+            <button type="button" class="btn btn-light" id="größe" [routerLink]="'/login'">Anmelden</button><br><br>
           </div>
         </div>
       </div>
