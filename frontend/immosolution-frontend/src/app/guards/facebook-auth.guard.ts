@@ -33,6 +33,7 @@ export class FacebookAuthGuard implements CanActivate {
         return false
       }
     }else if(!this.facebookAuth.isLoggedIn()){
+      this.router.navigate(['/admin'])
       this.toastr.error("You need to login with facebook", "Facebook login error", {
         timeOut: 4000
       });

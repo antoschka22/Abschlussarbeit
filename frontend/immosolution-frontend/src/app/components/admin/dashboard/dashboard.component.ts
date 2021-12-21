@@ -42,18 +42,20 @@ export class DashboardComponent implements OnInit {
     // FB.login();
     FB.login((response: any)=>
         {
-          if (response.authResponse)
-          {
+          if (response.authResponse){
             this.toastr.success('login successful', 'Success!');
+
+            localStorage.setItem('facebookAuthTokenEXPdate', response.authResponse.expiresIn);
             this.facebookService.setTokenFacebook(response.authResponse.accessToken, true)
-          }
-           else
-           {
+            
+            window.location.reload()
+            // console.log(response.authResponse)
+          }else{
             this.toastr.error('Login error', 'Error', {
               timeOut: 3000,
             });
          }
-      });
+      }, { auth_type: 'reauthorize' });
   }
 
   mainStyle: number = 280

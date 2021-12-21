@@ -34,5 +34,11 @@ export class FacebookAuthService {
     }
   }
 
+  logoutUser(): void {
+    // console.log('Logout');
+    localStorage.removeItem('facebookAuthToken');
+    sessionStorage.removeItem('facebookAuthToken')
+  }
+
 
 }

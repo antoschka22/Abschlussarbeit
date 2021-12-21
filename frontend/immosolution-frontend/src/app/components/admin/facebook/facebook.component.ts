@@ -23,7 +23,11 @@ export class FacebookComponent implements OnInit {
     this.facebookToken = this.facebookAuthService.getToken()
     this.facebookService.getUserInfos(this.facebookToken).subscribe((data) =>{
       this.facebookUserInfo = data
-      console.log(this.facebookUserInfo.picture.data.url)
+      console.log(this.facebookUserInfo)
+    },
+    (error)=>{
+      this.facebookAuthService.logoutUser()
+      window.location.reload()
     })
   }
 

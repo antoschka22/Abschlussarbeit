@@ -1,0 +1,20 @@
+<div class="analytics-card">
+    <div class="analytics-head">
+        <h3>Berechtigungen verwalten</h3>
+        <span class="las la-ellipsis-h"></span>
+    </div>
+
+    <div class="analytics-chart">
+        <div class="analytics-note">
+            <small>Sie sind bis <b>{{expirationDate}}</b> als Admin angemeldet</small>
+            <small *ngIf="FacebookExpirationDateMS != ''">Die Berechtigungen von Facebook gelten noch bis {{FacebookExpirationDate}}</small>
+            <small *ngIf="FacebookExpirationDateMS == ''">Sie sind noch nicht mit Facebook angemeldet</small>
+        </div>
+    </div>
+
+    <div class="analytics-btn">
+        <button (click)="AddAccessTokenTime()">Adminzeit erhöhen</button><br>
+        <button (click)="AddAccessTokenTime()">Facebook erhöhen</button><br>
+        <button (click)="logOut()" class="mb-3">Ausloggen</button>
+    </div>
+</div>

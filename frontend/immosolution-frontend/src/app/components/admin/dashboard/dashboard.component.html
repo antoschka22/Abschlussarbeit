@@ -12,7 +12,7 @@
             </div>
 
             <div class="header-actions">
-                <button (click)="submitLogin()">
+                <button (click)="submitLogin()" class="mb-4">
                     <span class="las la-file-export"></span>
                     Facebook anmelden
                 </button>
@@ -23,79 +23,12 @@
             </div>
         </div>
 
-        <div class="cards">
-            <div class="card-single" [routerLink]="'/facebook'">
-                <div class="card-flex">
-                    <div class="card-info">
-                        <div class="card-head">
-                            <span>Facebook</span>
-                            <small>Facebook-Account verwalten</small>
-                        </div>
-
-                        <h2>17,663</h2>
-                        <small>Text</small>
-                    </div>
-                    <div class="card-chart danger">
-                        <span class="las la-chart-line"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-single">
-                <div class="card-flex">
-                    <div class="card-info">
-                        <div class="card-head">
-                            <span>Instagram</span>
-                            <small>Instagram-Account verwalten</small>
-                        </div>
-
-                        <h2>4,523.11</h2>
-                        <small>text</small>
-                    </div>
-                    <div class="card-chart success">
-                        <span class="las la-chart-line"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-single">
-                <div class="card-flex">
-                    <div class="card-info">
-                        <div class="card-head">
-                            <span>Mitarbeiter</span>
-                            <small>Übersicht der Mitarbeiter</small>
-                        </div>
-
-                        <h2>46,085</h2>
-                        <small>text</small>
-                    </div>
-                    <div class="card-chart yellow">
-                        <span class="las la-chart-line"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <app-social-media-cards></app-social-media-cards>
 
         <div class="jobs-grid">
-            <div class="analytics-card">
-                <div class="analytics-head">
-                    <h3>Actions needed</h3>
-                    <span class="las la-ellipsis-h"></span>
-                </div>
 
-                <div class="analytics-chart">
-                    <div class="chart-circle">
-                        <h1>74%</h1>
-                    </div>
-                    
-                    <div class="analytics-note">
-                        <small>None: Current sprint requires stakeholders</small>
-                    </div>
-                </div>
+            <app-berechtigungen-verwalten></app-berechtigungen-verwalten>
 
-                <div class="analytics-btn">
-                    <button>Generate report</button>
-                </div>
-            </div>
-            
             <div class="jobs">
                 <h2>Jobs <small>See all jobs <span class="las la-arrow-right"></span></small></h2>
                 <div class="table-responsive">

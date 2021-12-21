@@ -12,6 +12,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { IndexComponent } from './components/frontend/index/index.component';
 import { LoginComponent } from './components/admin/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { SocialMediaCardsComponent } from './components/admin/social-media-cards/social-media-cards.component';
+import { BerechtigungenVerwaltenComponent } from './components/admin/berechtigungen-verwalten/berechtigungen-verwalten.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent,
     FacebookComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    SocialMediaCardsComponent,
+    BerechtigungenVerwaltenComponent,
   ],
   imports: [
     BrowserModule,

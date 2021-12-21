@@ -19,7 +19,7 @@ export class IndexComponent implements OnInit {
   getInfos(){
     this.frontend.getAllInfos().subscribe((data: any)=>{
       this.infos = data
-      console.log(data)
+      // console.log(data)
     })
   }
 
