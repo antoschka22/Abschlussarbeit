@@ -45,29 +45,56 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 } 
+
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 </script>
-<head>
-  <link rel="icon" href="assets/images/Logo.ico">
-</head>
-<div>
-  <!-- --------------------------------------- Header --------------------------------------- -->
+<div class="background-wallpaper">
+  <head>
+    <link rel="icon" href="assets/images/Logo.ico">
+  </head>
+  <div>
+    <!-- --------------------------------------- Header --------------------------------------- -->
     <body>
+    
+    <div class="div-telnr-email">
+      <div class="telnr-email">
+        <p class="text-align-right" style="color: black;">+43  01 66273300 | office@immosolution.at</p>
+      </div>
+    </div>
+
       <section class="navigation">
         <div class="nav-container" id="navbar">
           <div class="brand">
-          <a href="#" id="home">Immosolution</a>
+          <a href="#" id="home"><img src="./assets/images/Logo-Signet.jpg" style="width: 13%;"></a>
           </div>
           <nav>
           <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
           <ul class="nav-list">
             <li>
-            <a href="#home">Home</a>
+              <a href="#home" class="schrift">Home</a>
             </li>
             <li>
-            <a href="#about">Über uns</a>
+              <a href="#about" class="schrift">Über uns</a>
             </li>
             <li>
-            <a href="#team">Team</a>
+              <a href="#team" class="schrift">Team</a>
             </li>
             <!-- <li>
             <a href="#project">Projekte</a>
@@ -84,10 +111,13 @@ function myFunction() {
             </ul>
             </li> -->
             <li>
-              <a href="#project">Projekte</a>
+              <a href="#project" class="schrift">Projekte</a>
               </li>
             <li>
-            <a href="#partner">Partner</a>
+            <a href="#partner" class="schrift">Partner</a>
+            </li>
+            <li>
+              <a href="#kontakt" class="schrift">Kontaktformular</a>
             </li>
           </ul>
           </nav>
@@ -96,31 +126,61 @@ function myFunction() {
   <!-- --------------------------------------- BG Video / BG Pic --------------------------------------- -->
     
   <div class="col-xl-12 bg-color-bg-pic">
-    <img class="transperancy" src="./assets/images/bg-picture-2.jpg">
+    <img class="transperancy" src="./assets/images/bg-picture-3.5.jpg">
   </div>
 
   <!-- --------------------------------------- BG Video / BG Pic End --------------------------------------- -->
   
   <!-- --------------------------------------- Main --------------------------------------- -->
 
-  
-    <div div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
+    <div class="stats">
+        <div class="row">
+          <div class="col-xl-4" id="style">
+            <h2 class="style">Öffnungszeiten</h2>
+            <span class="glyphicon glyphicon-time"></span>
+          </div>
+          <div class="col-xl-4" id="style">
+            <h2 class="style">Standort</h2>
+            <span class="glyphicon glyphicon-map-marker"></span>
+          </div>
+          <div class="col-xl-4" id="style">
+            <h2 class="style">Kontakt</h2>
+            <span class="glyphicon glyphicon-user"></span>
+          </div>
+        </div>
+    </div>
+
+    <div class="black-placeholder"  id="about">
+      <img src="./assets/images/parallax-1.jpg">
+      <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
+      <div class="centered"><p class="color-h1 text-center">Über uns</p></div>
     </div>
     <br>
 
+    <!-- <div class="placeholder">
+      <img src="./assets/images/parallax-1.jpg">
+      <p class="color-h1 text-center">Test</p>
+    </div> -->
+
+    <!-- <div class="container">
+      <img src="./assets/images/parallax-1.jpg" alt="Snow">
+      <div class="centered">Centered</div>
+    </div> -->
+
+    <div id="content"></div>
+
     <div class="main">
     <div class="grey-bg">
-      <div class="feld1 row" id="about">
+      <div class="feld1 row">
         <div class="col-xl-9 text-align-left">	
-          <h1 style="color: #000">Über uns</h1>
+          <!-- <h1 style="color: #000"></h1> -->
           <p class="about" id="p1">{{ infos.angebot }}</p>
           <br>
           <h3 style="color: #000">Gründung</h3>
           <p class="about" id="p1">{{ infos.gruedung }}</p>
         </div>
         <div class="col-xl-3 text-align-right">
-          <img width="250px" height="auto" src="./assets/images/pic-4.jpg">
+          <!-- <img width="250px" height="auto" src="./assets/images/pic-4.jpg"> -->
         </div>
       </div>
     </div>
@@ -128,39 +188,58 @@ function myFunction() {
     <br>
 
 
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
+    <div class="black-placeholder" id="team">
+      <img src="./assets/images/parallax-2.jpg">
+      <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
+      <div class="centered"><p class="color-h1 text-center">Team</p></div>
     </div>
     <br>
 
-    <div class="main">
-      <div class="feld2 row" id="team">
-        <div class="col-xl-3">
-          <img width="250px" height="auto" src="./assets/images/pic-5.jpg">
-        </div>
-        <div class="col-xl-9">
-          <h1 style="color: #000">Team</h1>
-          <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
+    <!-- <div class="main">
+      <div class="feld2 row" >
+        <div class="col-xl-3"> -->
+          <!-- <img width="250px" height="auto" src="./assets/images/pic-5.jpg"> -->
+        <!-- </div>
+        <div class="col-xl-9"> -->
+          <!-- <h1 style="color: #000"></h1> -->
+          <!-- <p class="team" id="p1">{{ infos.mitarbeiter }}</p>
         </div>
       </div>
     </div>
+      <br> -->
+      
+      <div class="main">
+        <div class="grey-bg">
+          <div class="feld3 row" >
+            <div class="col-xl-9">
+              <!-- <h1 style="color: #000"></h1> -->
+              <p class="project" id="p1">{{ infos.mitarbeiter }}</p>
+            </div>
+            <div class="col-xl-3">
+              <!-- <img width="250px" height="auto" src="./assets/images/pic-34.jpg"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+        <br>
+
+
+      <div class="black-placeholder" id="project">
+        <img src="./assets/images/parallax-3.jpg">
+        <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
+        <div class="centered"><p class="color-h1 text-center">Projekte</p></div>
+      </div>
       <br>
-
-
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
-    </div>
-    <br>
 
     <div class="main">
       <div class="grey-bg">
-        <div class="feld3 row" id="project">
+        <div class="feld3 row" >
           <div class="col-xl-9">
-            <h1 style="color: #000">Projekte</h1>
+            <!-- <h1 style="color: #000"></h1> -->
             <p class="project" id="p1">{{ infos.referenzprojekte }}</p>
           </div>
           <div class="col-xl-3">
-            <img width="250px" height="auto" src="./assets/images/pic-34.jpg">
+            <!-- <img width="250px" height="auto" src="./assets/images/pic-34.jpg"> -->
           </div>
         </div>
       </div>
@@ -168,18 +247,20 @@ function myFunction() {
       <br>
 
 
-    <div class="black-placeholder">
-      <h1 class="text-center color-h1">Test</h1>
-    </div>
-    <br>
+      <div class="black-placeholder" id="partner">
+        <img src="./assets/images/parallax-4.jpg">
+        <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
+        <div class="centered"><p class="color-h1 text-center">Partner</p></div>
+      </div>
+      <br>
 
     <div class="main">
-      <div class="feld3 row" id="partner">
+      <div class="feld3 row" >
         <div class="col-xl-3">
-          <img width="250px" height="auto" src="./assets/images/pic-35.jpg">
+          <!-- <img width="250px" height="auto" src="./assets/images/pic-35.jpg"> -->
         </div>
         <div class="col-xl-9">
-          <h1 style="color: #000">Partner</h1>
+          <!-- <h1 style="color: #000"></h1> -->
           <p class="partner" id="p1">{{ infos.privatkunden }}</p>
         </div>
       </div>
@@ -187,18 +268,20 @@ function myFunction() {
     <br>
 
     <div class="black-placeholder">
-      <h1 class="text-center color-h1">Kontaktformular</h1>
+      <img src="./assets/images/parallax-5.jpg">
+      <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
+      <div class="centered"><p class="color-h1 text-center">Test</p></div>
     </div>
     <br>
 
     <!-- --------------------------------------- Contact Form --------------------------------------- -->
 
-  <div class="main">
+  <div class="main" id="kontakt">
     <div class="container">
       <div class="row header">
         <img height="auto" width="auto" src="./assets/images/contact-form-pic-2.png">
-        <h1 class="text-center" style="color: black; z-index: 999;">CONTACT US &nbsp;</h1>
-        <h3 class="text-center" style="color: black; z-index: 999;">Fill out the form below to learn more!</h3>
+        <h1 class="text-center" style="color: black; z-index: 999;">Kontaktiere uns! &nbsp;</h1>
+        <h3 class="text-center" style="color: black; z-index: 999;">Schreib uns eine Nachricht!</h3>
       </div>
       <div class="row body">
         <form action="#">
@@ -206,30 +289,30 @@ function myFunction() {
             
             <li>
               <p class="left">
-                <label for="first_name">first name</label>
-                <input type="text" name="first_name" placeholder="John" />
+                <label for="first_name">Vorname</label>
+                <input type="text" name="first_name" placeholder="Max" />
               </p>
               <p class="pull-right">
-                <label for="last_name">last name</label>
-                <input type="text" name="last_name" placeholder="Smith" />      
+                <label for="last_name">Nachname</label>
+                <input type="text" name="last_name" placeholder="Mustermann" />      
               </p>
             </li>
             
             <li>
               <p>
-                <label for="email">email <span class="req">*</span></label>
-                <input type="email" name="email" placeholder="john.smith@gmail.com" />
+                <label for="email">eMail<span class="req">*</span></label>
+                <input type="email" name="email" placeholder="max.mustermann@gmail.com" />
               </p>
             </li>        
             <li><div class="divider"></div></li>
             <li>
-              <label for="comments">comments</label>
+              <label for="comments">Nachricht</label>
               <textarea cols="46" rows="3" name="comments"></textarea>
             </li>
             
             <li>
-              <input style="color: white;" class="btn btn-submit" type="submit" value="Submit" />
-              <small>or press <strong>enter</strong></small>
+              <input style="color: white;" class="btn btn-submit" type="submit" value="Abschicken" />
+              <small>oder <strong>Eingabe</strong><small>drücken</small></small>
             </li>
             
           </ul>
@@ -267,25 +350,27 @@ function myFunction() {
       </footer>
     </div> -->
 
+    <button type="button" class="btn btn-info" id="myBtn">Info</button>
     
     <div class="footerBGC">
       <div class="main">
         <div class="row">
-          <div class="col-sm-4  line-bottom">
-            <h2>Adresse:</h2>
-            <p>Lemböckgasse 47</p>
-            <p>Österreich, 1230 Wien</p>
+          <div class="col-sm-4  line-bottom schrift-footer">
+            <h2 class="schrift-footer">Adresse:</h2>
+            <p class="schrift-footer">Lemböckgasse 47</p>
+            <p class="schrift-footer">Österreich, 1230 Wien</p>
           </div>
-          <div class="col-sm-4 line-bottom">
-            <h2>Kontakt:</h2>
-            <p>Tel: 01 66273300</p>
-            <p>eMail:</p>
+          <div class="col-sm-4 line-bottom schrift-footer">
+            <h2 class="schrift-footer">Kontakt:</h2>
+            <p class="schrift-footer">Tel: 01 66273300</p>
+            <p class="schrift-footer">eMail:</p>
           </div>
-          <div class="col-sm-4 line-bottom">
-            <h2>Anmelden:</h2>
+          <div class="col-sm-4 line-bottom schrift-footer">
+            <h2 class="schrift-footer">Anmelden:</h2>
             <button type="button" class="btn btn-light" id="größe" [routerLink]="'/login'">Anmelden</button>
           </div>
         </div>
       </div>
     </div>
   </body>
+</div>
