@@ -154,16 +154,9 @@ def updateDatabase():
                 ('Privatstiftung zur Unterstützung und Bildung von Arbeitnehmer/Innen', '1060', 'Wien', 'Kaunitzgasse 2/8'),
                 ('Brix Zaun + Tor GmbH', '7201', 'Neudörfl', 'Fabriksgelände'),
                 ('Diverse Ordinationen und Apotheken', 'Wien und Niederösterreich', 'Wien und Niederösterreich', 'Wien und Niederösterreich');
-                
-                INSERT INTO Projekte (projektname, herzeigeprojekte, kunden_kundenname)
-                VALUES
-                ('DG Ausbau', true, 'DG-Ausbau'),
-                ('Austausch der Klimaanlage', true, 'Manner Shop'),
-                ('Solar- und Heizungsanlage', true, 'Wohnhausanlage samt Solar/Heizung'),
-                ('Eigenheim-Sanierung', true, 'Sanierung eines Privathauses'),
-                ('Sanierung von Gaskesselanlage auf Fernwärmestation', true, 'Wohnhausanlage Vöslauerstraße 74');
             """)
         addVersion(0.3, 'Kunden implementiert')
+        
     if lastVersionId["max"] < 0.4:
         with get_db_cursor() as cursor:
             cursor.execute("""
@@ -178,4 +171,97 @@ def updateDatabase():
                 VALUES ('admin', '$2a$10$EuMetZvSiZfX.TI33ohhhuqvld6WLby2LXqDIKU37EvmNbXiNi9oK', 'ADMIN');
             """)
         addVersion(0.4, 'create users table')
+    
+    if lastVersionId["max"] < 0.5:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                INSERT INTO projekte (projektname, herzeigeprojekte, kunden_kundenname)
+                VALUES 
+                ('Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt', true, 'Fleck Elektroinstallationen GmbH'),
+                ('Eigenheim Sanierung samt Errichtung der haustechnischen anlagen in Salzburg', true, 'WEVIG Wohnungseigentumsverwaltungs- und Immobilientreuhand GmbH'),
+                ('Errichtung der kältetechnischen Anlage für ein Bürogebäude am Wiener Neubaugürtel', true, 'WIEBE Wiener Bauträger- und EntwicklungsgesmbH'),
+                ('Errichtung einer Solaranlage auf dem Dach einer Wohnhausanlage in Wien Donaustadt', true, 'Familienwohnbau gemeinnützige Bau- und Siedlungsgesellschaft m.b.H.'),
+                ('Montage einer Fußbodenheizung in einer Wohnung in Simmering', true, 'Hottinger Bruel & Kjaer Austria GmbH'),
+                ('Sanierung Zinshaus samt Dachgeschossausbau am Ring', true, 'Institut für medizinische u. chemische Labordiagnostik Gesellschaft m.b.H'),
+                ('Neu Errichtung einer Wohnhausanlage mit 19 Wohneinheiten in Hernals', false, 'BHB Boutique Hotel Betriebs GmbH THE GUEST HOUSE VIENNA'),
+                ('Sanierung von 5 Operationssälen im Militärkrankenhaus in Ulaanbaatar', false, 'Zentralverband der Hausbesitzer – Hausbesitzerhilfsverein'),
+                ('Umbau der gasbetriebenen Heizhausanlage auf Fernwärmeversorgung einer Wohnhausanlage in Baden bei Wien', false, 'Hofer Richard GmbH'),
+                ('Zubau am Bürogebäude der Firma Fleck', false, 'DG-Ausbau');
+            """)
+        addVersion(0.5, 'insert all the images')
+    if lastVersionId["max"] < 0.6:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                INSERT INTO bilder (projektbilder, projekt_id)
+                VALUES 
+                ('1.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('2.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('3.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('4.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('5.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('6.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('7.jpg', 'c5849770-6114-4571-b2f8-5f0b92818c35'),
+                ('1.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('2.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('5.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('6.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('7.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('8.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('9.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('10.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('11.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('12.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('13.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('14.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('15.jpg', 'e963083f-20af-4dfa-a532-d34b1243148a'),
+                ('2.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('4.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('6.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('7.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('8.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('9.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('10.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('11.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('12.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('13.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('14.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('15.jpg', 'c374d4d7-1739-4ce1-bb16-8125d66d6a93'),
+                ('1.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('2.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('3.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('4.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('5.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('6.jpg', 'f8604130-96ff-4ec4-80ea-fa26d5013633'),
+                ('1.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('2.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('3.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('4.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('5.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('6.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('7.jpg', 'ed9f447d-bd8d-489f-9c36-9c1f0c867bb8'),
+                ('1.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('2.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('3.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('4.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('5.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('6.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('7.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('8.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('9.jpg', 'c8db8253-8f34-4e42-9f62-a5ea38afb731'),
+                ('1.jpg', '08bde1e5-8fb8-4f7f-9779-2b98257e002d'),
+                ('2.jpg', '08bde1e5-8fb8-4f7f-9779-2b98257e002d'),
+                ('3.jpg', '08bde1e5-8fb8-4f7f-9779-2b98257e002d'),
+                ('4.jpg', '08bde1e5-8fb8-4f7f-9779-2b98257e002d'),
+                ('5.jpg', '08bde1e5-8fb8-4f7f-9779-2b98257e002d'),
+                ('1.jpg', 'a63acf02-4726-46a1-aa1a-ff413d1e61b1'),
+                ('2.jpg', 'a63acf02-4726-46a1-aa1a-ff413d1e61b1'),
+                ('3.jpg', 'a63acf02-4726-46a1-aa1a-ff413d1e61b1'),
+                ('4.jpg', 'a63acf02-4726-46a1-aa1a-ff413d1e61b1'),
+                ('1.jpg', '5877aed5-d7a3-4c96-af09-ee227b7667fe'),
+                ('2.jpg', '5877aed5-d7a3-4c96-af09-ee227b7667fe'),
+                ('1.jpg', '820f493f-ae1a-43c5-b5bd-6d8d024e83f5'),
+                ('2.jpg', '820f493f-ae1a-43c5-b5bd-6d8d024e83f5')
+                ;
+            """)
+        addVersion(0.6, 'insert all the images')
     

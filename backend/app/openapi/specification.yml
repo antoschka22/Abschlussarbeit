@@ -5,6 +5,34 @@ info:
 servers:
 - url: /api/v1
 paths:
+  /projectsInWork:
+    get:
+      tags:
+      - projects
+      summary: get all the projects that are in work
+      operationId: web.controllers.projects.get_projects_undone
+      responses:
+        200:
+          description: projects in work fetched
+          content:
+            application/json:
+              schema:
+                type: string
+  
+  /doneProjects:
+    get:
+      tags:
+      - projects
+      summary: get all the projects that are in work
+      operationId: web.controllers.projects.get_projects_done
+      responses:
+        200:
+          description: projects in work fetched
+          content:
+            application/json:
+              schema:
+                type: string
+
   /healthcheck:
     get:
       tags:
