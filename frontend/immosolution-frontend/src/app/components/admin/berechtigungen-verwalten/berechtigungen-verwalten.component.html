@@ -7,14 +7,17 @@
     <div class="analytics-chart">
         <div class="analytics-note">
             <small>Sie sind bis <b>{{expirationDate}}</b> als Admin angemeldet</small>
-            <small *ngIf="FacebookExpirationDateMS != ''">Die Berechtigungen von Facebook gelten noch bis {{FacebookExpirationDate}}</small>
-            <small *ngIf="FacebookExpirationDateMS == ''">Sie sind noch nicht mit Facebook angemeldet</small>
+            <small *ngIf="FacebookExpirationDate">Die Berechtigungen von Facebook gelten noch bis {{FacebookExpirationDate}}</small>
+            <small *ngIf="!FacebookExpirationDate">Sie sind noch nicht mit Facebook angemeldet</small>
         </div>
     </div>
 
+    <div class="actions">
+        <h3>Verwaltungsknöpfe</h3><br>
+    </div>
+    
     <div class="analytics-btn">
         <button (click)="AddAccessTokenTime()">Adminzeit erhöhen</button><br>
-        <button (click)="AddAccessTokenTime()">Facebook erhöhen</button><br>
         <button (click)="logOut()" class="mb-3">Ausloggen</button>
     </div>
 </div>

@@ -5,9 +5,40 @@
 }">
 
 
-<div class="container">
-    <img [src]="facebookUserInfo.picture.data.url" alt="">
-</div>
+<div class="container" *ngIf="facebookUserInfo">
+    <div class="d-flex justify-content-center">
+        <div></div>
+        <div>
+            <h1>Facebook Account <small style="color:white">ssdg</small></h1>
+        </div>
+        <div></div>
+    </div>
+    <div class="d-flex justify-content-between mt-5" style="font-weight: bold;">
+        <div>
+            {{facebookUserInfo.name}}
+        </div>
+        <div>
+            <img [src]="facebookUserInfo.picture.data.url" alt="" class="rounded-circle">
+        </div>
+        <div class="div">
+            {{facebookUserInfo.email}}
+        </div>
+    </div>
 
-
 </div>
+    <br><br>
+    <div class="row" *ngIf="facebookInfoPic">
+        <div class="col-md-4 col-sm-12" *ngFor="let singlePictureInfo of facebookInfoPic['data']">
+          <div class="card">
+            <div class="card-body">
+                <a [href]="singlePictureInfo.link" target="_blank">
+                  <img [src]="singlePictureInfo.source" style="width:100%">
+                </a>
+                  <div class="card-text d-flex justify-content-between mt-3">
+                    <p>{{singlePictureInfo.comments.summary.total_count}} <i class="las la-comment"></i></p>
+                    <p>{{singlePictureInfo.likes.summary.total_count}} <i class="las la-heart"></i></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>

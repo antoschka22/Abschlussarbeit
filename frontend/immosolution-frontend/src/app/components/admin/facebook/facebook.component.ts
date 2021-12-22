@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { FacebookService } from 'src/app/service/facebook.service';
+import { facebookImage } from 'src/global/facebookImage';
 
 declare var FB: any;
 @Component({
@@ -10,24 +11,31 @@ declare var FB: any;
 })
 export class FacebookComponent implements OnInit {
 
+  facebookToken: string
+  facebookUserInfo: any
+  facebookInfoPic: facebookImage[]
+
   constructor(private facebookService: FacebookService,
               private facebookAuthService: FacebookAuthService) { }
 
   ngOnInit(): void {
-    this.getFacebookUserInfo()
+    this.getFacebookUserInfo();
   }
 
-  facebookToken: string
-  facebookUserInfo: any
   getFacebookUserInfo(){
     this.facebookToken = this.facebookAuthService.getToken()
     this.facebookService.getUserInfos(this.facebookToken).subscribe((data) =>{
       this.facebookUserInfo = data
-      console.log(this.facebookUserInfo)
+      // console.log(this.facebookUserInfo)
     },
     (error)=>{
       this.facebookAuthService.logoutUser()
       window.location.reload()
+    })
+
+    this.facebookService.getImagesWithInfo(this.facebookToken).subscribe((data: facebookImage[])=>{
+      this.facebookInfoPic = data
+      // console.log(this.facebookInfoPic['data'])
     })
   }
 

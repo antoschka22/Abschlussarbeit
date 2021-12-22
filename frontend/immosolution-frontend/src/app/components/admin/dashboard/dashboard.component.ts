@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
-import { InstagramService } from 'src/app/service/instagram.service';
+
 
 declare var FB: any;
 @Component({
@@ -11,8 +11,10 @@ declare var FB: any;
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private instaService: InstagramService,
-              private toastr: ToastrService,
+  FacebookExpirationDate: any
+
+
+  constructor(private toastr: ToastrService,
               private facebookService: FacebookAuthService) { }
 
   ngOnInit(): void {
@@ -39,16 +41,19 @@ export class DashboardComponent implements OnInit {
 
   submitLogin(){
     // console.log("submit login to facebook");
-    // FB.login();
-    FB.login((response: any)=>
-        {
+    FB.login((response: any)=>{
           if (response.authResponse){
-            this.toastr.success('login successful', 'Success!');
+            this.toastr.success('login successful', 'Success!', {
+              timeOut: 1500,
+            });
 
             localStorage.setItem('facebookAuthTokenEXPdate', response.authResponse.expiresIn);
-            this.facebookService.setTokenFacebook(response.authResponse.accessToken, true)
+            this.facebookService.setTokenFacebook(response.authResponse.accessToken, true);
             
-            window.location.reload()
+            this.getFB_ATExpirationDate();
+
+            
+            // window.location.reload()
             // console.log(response.authResponse)
           }else{
             this.toastr.error('Login error', 'Error', {
@@ -58,6 +63,12 @@ export class DashboardComponent implements OnInit {
       }, { auth_type: 'reauthorize' });
   }
 
+  getFB_ATExpirationDate(){
+    this.facebookService.getFB_ATExpirationDate()
+    this.FacebookExpirationDate = localStorage.getItem("facebookAuthTokenEXPdate")
+  }
+
+  
   mainStyle: number = 280
   toggleMain(answer: boolean){
     if(answer){

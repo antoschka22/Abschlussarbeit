@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
+import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { UserService } from 'src/app/service/user.service';
 import { AuthRequest } from 'src/models/AuthRequest';
 import Swal from 'sweetalert2';
@@ -25,20 +26,20 @@ export class BerechtigungenVerwaltenComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router,
               private toastr: ToastrService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private facebookService: FacebookAuthService) { }
 
   expirationDate: any
-  FacebookExpirationDateMS: any = ""
-  FacebookExpirationDate: any = new Date()
-  accessToken: string = this.authService.getToken()
+  @Input() FacebookExpirationDate: any
 
   userInfo: any = ""
   loginModel: loginModel
 
 
   ngOnInit(): void {
-    this.getATExpirationDate();
     this.getUser();
+    this.get_ATExpirationDate();
+    this.checkFacebookAT_EXPdate();
   }
 
   getUser(){
@@ -47,15 +48,24 @@ export class BerechtigungenVerwaltenComponent implements OnInit {
     })
   }
 
-  getATExpirationDate(){
-    this.expirationDate = this.authService.getTokenExpirationDate(this.accessToken).toString().split(" ")[4];
-
-    this.FacebookExpirationDateMS = localStorage.getItem('facebookAuthTokenEXPdate');
-    this.FacebookExpirationDate.setUTCSeconds(this.FacebookExpirationDateMS);
-    this.FacebookExpirationDate = this.FacebookExpirationDate.toString().split(" ")[4];
+  get_ATExpirationDate(){
+    this.expirationDate = this.facebookService.getATExpirationDate();
+    // console.log(this.expirationDate)
   }
 
 
+  /**
+   * check if the facebook access token has been fetched
+   * if not then the user needs to login with facebook
+   * the app will show a message with (Sie müssen sich mit facebook einloggen)
+   */
+  checkFacebookAT_EXPdate(){
+    if(localStorage.getItem("facebookAuthTokenEXPdate")){
+      this.FacebookExpirationDate = localStorage.getItem("facebookAuthTokenEXPdate")
+    }
+  }
+
+  
   AddAccessTokenTime(){
     this.loginModel = new loginModel(this.userInfo.username, this.userInfo.password)
 

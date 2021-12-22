@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,9 @@ import { Injectable } from '@angular/core';
 export class FacebookAuthService {
 
 
-  constructor() { }
+  accessToken: string = this.authService.getToken()
+
+  constructor(private authService: AuthService) { }
 
 
   isLoggedIn(): boolean{
@@ -37,7 +40,23 @@ export class FacebookAuthService {
   logoutUser(): void {
     // console.log('Logout');
     localStorage.removeItem('facebookAuthToken');
-    sessionStorage.removeItem('facebookAuthToken')
+    localStorage.removeItem('facebookAuthTokenEXPdate');
+    sessionStorage.removeItem('facebookAuthToken');
+  }
+
+
+  getFB_ATExpirationDate(){
+    let FacebookExpirationDateMS
+    let FacebookExpirationDate = new Date()
+    
+    FacebookExpirationDateMS = localStorage.getItem('facebookAuthTokenEXPdate');
+    FacebookExpirationDate.setUTCSeconds(FacebookExpirationDateMS);
+
+    localStorage.setItem("facebookAuthTokenEXPdate", FacebookExpirationDate.toString().split(" ")[4]);
+  }
+
+  getATExpirationDate(){
+    return this.authService.getTokenExpirationDate(this.accessToken).toString().split(" ")[4];
   }
 
 
