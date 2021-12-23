@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformular</title>
+</head>
+<body>
+
+<!-- --------------------------------------- Navbar --------------------------------------- -->
+
+    <app-navbar-frontend></app-navbar-frontend>
+
+<!-- --------------------------------------- Navbar End --------------------------------------- -->
+
+<!-- --------------------------------------- Contact Form --------------------------------------- -->
+
+  <div class="main" id="kontakt">
+    <div class="container">
+      <div class="row header">
+        <img height="auto" width="auto" src="./assets/images/contact-form-pic.jpg">
+        <h1 class="text-center" style="color: black; z-index: 999;">Kontaktiere uns! &nbsp;</h1>
+      </div>
+      <div class="row body">
+        <form action="MailThis.to/lktuna@hotmail.com" method="POST">
+          <ul>
+            
+            <li>
+              <p class="left">
+                <label for="first_name">Vorname</label>
+                <input type="text" name="first_name" placeholder="Max" />
+              </p>
+              <p class="pull-right">
+                <label for="last_name">Nachname</label>
+                <input type="text" name="last_name" placeholder="Mustermann" />      
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                <label for="email">eMail<span class="req">*</span></label>
+                <input type="email" name="email" placeholder="max.mustermann@gmail.com" />
+              </p>
+            </li>        
+            <li><div class="divider"></div></li>
+            <li>
+              <label for="comments">Nachricht</label>
+              <textarea cols="46" rows="3" name="comments"></textarea>
+            </li>
+            
+            <li>
+              <input style="color: white;" class="btn btn-submit" type="submit" value="Abschicken" />
+              <small>oder <strong>Eingabe</strong><small>drücken</small></small>
+            </li>
+            
+          </ul>
+        </form>  
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <!-- --------------------------------------- Contact Form End --------------------------------------- -->
+  <!-- --------------------------------------- Footer Start --------------------------------------- -->
+
+  <app-footer-index></app-footer-index>
+
+  <!-- --------------------------------------- Footer End --------------------------------------- -->
+</body>
+</html>

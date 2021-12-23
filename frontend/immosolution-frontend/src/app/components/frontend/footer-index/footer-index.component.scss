@@ -1,0 +1,139 @@
+.footerBGC {
+  background-color:#eaeaea ;
+  height: 15vh;
+  border-top: solid 1px #000;
+}
+
+.glyphicons-class {
+  color: black;
+  font-size: 3rem;
+}
+
+
+.schrift-footer {
+  color: black;
+}
+
+#footerH3 {
+  color: #fff;
+}
+
+body,h1,h2,h3,h4 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1,h2,h3,h4,p,a {
+    text-decoration: none;
+    color: #fff;
+    font-family: PT Sans, sans-serif;
+  }
+
+  h3 {
+    color: #fff;
+  }
+  
+  .footer-col a {
+    //color: rgba(0,0,0,0.75);
+    color: #fff;
+  }
+  
+  .content {
+    height: 80vh;
+    background: #ccc;
+  }
+  
+  .footer-content-wrapper {
+    width: 80%;
+    margin: 1em auto;  
+  }
+  
+  .footer-col {
+    display: inline-block;
+    padding: 0.5em 0.1em 0.5em 1em;
+    box-sizing: border-box;
+    border-right: solid 1px #bbb;
+  }
+  .footer-col:nth-child(4) {
+    border: none;
+  }
+  
+  .ta-l {
+    text-align: left;
+  }
+  .flt {
+    float: left;
+  }
+  
+  .flt:nth-child(4):after {
+     content: " "; 
+     visibility: hidden; 
+     display: block; 
+     height: 1em; 
+     clear: both;
+  }
+  
+  .large-25 {
+    width: 25%;
+  }
+  
+  .footer-col a {
+    display: block;
+    margin: 0.3em 0;
+  }
+  
+  @media (max-width: 1920px) {
+    .small-50 {
+      width: 50%;  
+      height: 100%;
+    }
+    .footer-col:nth-child(2) {
+      border: none;
+    }
+    .footerBGC {
+      background-color:#eaeaea ;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .small-50 {
+      width: 50%;  
+      height: 100%;
+    }
+    .footer-col:nth-child(2) {
+      border: none;
+    }
+    .footerBGC {
+      background-color:#eaeaea ;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .small-50 {
+      width: 50%;  
+      height: 100%;
+    }
+    .footer-col:nth-child(2) {
+      border: none;
+    }
+    .footerBGC {
+      background-color:#eaeaea ;
+      height: 100%;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .tiny-100 {
+      width: 100%;
+      height: auto;
+    }
+    .footer-col { 
+      border: none;
+    }
+    .footerBGC {
+      background-color:#eaeaea ;
+      height: 100%;
+    }
+  } 

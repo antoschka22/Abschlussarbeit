@@ -7,7 +7,7 @@ export class Globals{
     readonly backendUri: string = this.findBackendUrl();
 
     private findBackendUrl(): string{
-        if(window.location.port === '4200'){
+        if(window.location.port === '4200' || window.location.port === '8080'){
             // local 'ng serve'
             return window.location.protocol + '//' + window.location.hostname + ':5050/api/v1';
         }else{

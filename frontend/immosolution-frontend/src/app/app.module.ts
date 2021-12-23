@@ -17,6 +17,8 @@ import { BerechtigungenVerwaltenComponent } from './components/admin/berechtigun
 import { LaufendeprojekteComponent } from './components/frontend/laufendeprojekte/laufendeprojekte.component';
 import { FertigeprojekteComponent } from './components/frontend/fertigeprojekte/fertigeprojekte.component';
 import { NavbarFrontendComponent } from './components/frontend/navbar-frontend/navbar-frontend.component';
+import { ContactFormComponent } from './components/frontend/contact-form/contact-form.component';
+import { FooterIndexComponent } from './components/frontend/footer-index/footer-index.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { NavbarFrontendComponent } from './components/frontend/navbar-frontend/n
     LaufendeprojekteComponent,
     FertigeprojekteComponent,
     NavbarFrontendComponent,
+    ContactFormComponent,
+    FooterIndexComponent,
   ],
   imports: [
     BrowserModule,
