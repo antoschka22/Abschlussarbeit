@@ -75,7 +75,7 @@
 
 .main {
   margin: auto;
-  width: 1750px;
+  width: 1337px;
 }
 
 /* ------------- Main End ------------- */
@@ -130,9 +130,16 @@
   }
   .main {
     margin: auto;
-    width: 100%;
+    width: 1337px;
   }
 } 
+
+@media (max-width: 1370px) {
+  .main {
+    margin: auto;
+    width: 100%;
+  }
+}
 
 @media (max-width: 767px) {
   .video {
@@ -142,6 +149,10 @@
 	// background: url("./assets/images/coding-bg.jpg");
     background-size: auto auto;
     background-repeat: no-repeat;
+  }
+  .main {
+    margin: auto;
+    width: 100%;
   }
 }
 
@@ -321,6 +332,7 @@ article {
   margin: 0 auto;
   padding: 10px;
 }
+
 
 /* ------------- Header End ------------- */
 

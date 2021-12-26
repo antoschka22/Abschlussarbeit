@@ -2,29 +2,15 @@
 
   // -------------------------- Navbar Burger Menue JS --------------------------
 
-  (function($) { // Begin jQuery
-  $(function() { // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
-    $('nav ul li a:not(:only-child)').click(function(e) {
-      $(this).siblings('.nav-dropdown').toggle();
-      // Close one dropdown when selecting another
-      $('.nav-dropdown').not($(this).siblings()).hide();
-      e.stopPropagation();
-    });
-    // Clicking away from dropdown will remove the dropdown class
-    $('html').click(function() {
-      $('.nav-dropdown').hide();
-    });
-    // Toggle open and close nav styles on click
-    $('#nav-toggle').click(function() {
-      $('nav ul').slideToggle();
-    });
-    // Hamburger to X toggle
-    $('#nav-toggle').on('click', function() {
-      this.classList.toggle('active');
-    });
-  }); // end DOM ready
-})(jQuery); // end jQuery
+  $(window).scroll(function () {
+	var sc = $(window).scrollTop()
+	if (sc > 150) {
+		$("#main-navbar").addClass("navbar-scroll")
+	} 
+	else {
+		$("#main-navbar").removeClass("navbar-scroll")
+	}
+});
 
 // -------------------------- Sticky Navbar JS --------------------------
 
@@ -32,17 +18,17 @@
 <div class="background-wallpaper">
   <p id="home font-fam"></p>
   <head>
-    <link rel="icon" href="assets/images/Logo.ico">
+    <link rel="icon" href="assets/images/Logo-Signet-Transparent-BG.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                 
   </head>
-  <div>
+  
     <!-- --------------------------------------- Header --------------------------------------- -->
-    <body>
-    
-      <app-navbar-frontend></app-navbar-frontend>
-      
+
+
+    <app-navbar-frontend></app-navbar-frontend>
+
   <!-- --------------------------------------- BG Video / BG Pic --------------------------------------- -->
     
   <div class="col-xl-12 bg-color-bg-pic">
@@ -87,16 +73,16 @@
     <div class="main">
     <div class="gray-bg">
       <div class="feld1 row">
-        <div class="col-xl-9">	
+        <div class="col-md-12">	
           <!-- <h1 style="color: #000"></h1> -->
           <br><br><p class="about" id="p1">{{ infos.angebot }}</p>
           <br>
           <h3 style="color: #000">Gründung</h3>
           <p class="about" id="p1">{{ infos.gruedung }}</p><br><br>
         </div>
-        <div class="col-xl-3 text-align-right">
-          <!-- <img width="250px" height="auto" src="./assets/images/pic-4.jpg"> -->
-        </div>
+        <!-- <div class="col-xl-3 text-align-right">
+          <img width="250px" height="auto" src="./assets/images/pic-4.jpg">
+        </div> -->
       </div>
     </div>
   </div> 
@@ -113,11 +99,11 @@
       <div class="main">
         <div class="grey-bg">
           <div class="feld3 row" >
-            <div class="col-xl-9">
+            <div class="col-md-9">
               <!-- <h1 style="color: #000"></h1> -->
               <br><br><p class="project" id="p1">{{ infos.mitarbeiter }}</p><br><br>
             </div>
-            <div class="col-xl-3">
+            <div class="col-md-3">
               <!-- <img width="250px" height="auto" src="./assets/images/pic-34.jpg"> -->
             </div>
           </div>
@@ -140,23 +126,23 @@
     <div class="main">
       <div class="grey-bg">
         <div class="feld3 row" >
-          <div class="col-xl-9">
+          <div class="col-md-9">
             <!-- <h1 style="color: #000"></h1> -->
             <br><br><p class="project" id="p1">{{ infos.referenzprojekte }}</p><br><br><br><br>
           </div>
           <div class="row">
-            <div class="col-xl-6">
+            <div class="col-md-6">
               <h2 class="center-align" style="color:black; ">Laufende Projekte</h2><br>
-              <p class="text-center"><a [routerLink]="'/laufendeprojekte'"><button type="button" class="btn btn-dark">Laufende Projekte</button></a></p>
+              <p class="text-center"><a [routerLink]="'/laufendeprojekte'"><button type="button" class="btn btn-dark">Laufende Projekte</button></a></p><br><br>
             </div>
-            <div class="col-xl-6">
+            <div class="col-md-6">
               <h2 class="text-center" style="color:black;">Abgeschlossene Projekte</h2><br>
-              <p class="text-center"><a [routerLink]="'/fertigeprojekte'"><button type="button" class="btn btn-dark">Abgeschlossene Projekte</button></a></p><br><br>
-            </div>
+              <p class="text-center"><a [routerLink]="'/fertigeprojekte'"><button type="button" class="btn btn-dark">Abgeschlossene Projekte</button></a></p><br><br><br>
           </div>
         </div>
       </div>
     </div>
+  </div>
     <br>
 
 
@@ -169,10 +155,10 @@
 
     <div class="main">
       <div class="feld3 row" >
-        <div class="col-xl-3">
+        <div class="col-md-3">
           <!-- <img width="250px" height="auto" src="./assets/images/pic-35.jpg"> -->
         </div>
-        <div class="col-xl-12">
+        <div class="col-md-12">
           <!-- <h1 style="color: #000"></h1> -->
           <br><br><p class="partner" id="p1">{{ infos.privatkunden }}</p><br><br>
         </div>
@@ -199,25 +185,25 @@
         <br><h2 class="schrift-footer">Adresse:</h2><br>
         <p class="schrift-footer">Lemböckgasse 47</p>
         <p class="schrift-footer">1230 Wien</p>
-        <p class="schrift-footer">Österreich</p>
+        <p class="schrift-footer">Österreich</p><br>
       </div>
       <div class="col-xl-3 schrift-footer text-center">
         <br><h2 class="schrift-footer">Kontakt:</h2><br>
         <p class="schrift-footer">Tel: +43 01 66273300</p>
-        <p class="schrift-footer">eMail: office@immosolution.at</p>
+        <p class="schrift-footer">eMail: office@immosolution.at</p><br>
       </div>
       <div class="col-xl-3 schrift-footer text-center">
         <br><h2 class="schrift-footer">Anmelden:</h2>
         <!-- <button type="button" class="btn btn-dark" id="größe" [routerLink]="'/login'">Anmelden</button><br><br> -->
-        <br><button type="button" class="btn btn-dark" [routerLink]="'/login'">Anmelden</button>
+        <br><button type="button" class="btn btn-dark" [routerLink]="'/login'">Anmelden</button><br>
       </div>
       <div class="col-xl-3 schrift-footer text-center">
         <br><h2 class="schrift-footer">Social Media:</h2>
         <br><a href="https://www.instagram.com/immosolution.at/"><i class="lab la-instagram glyphicons-class"></i></a>&nbsp;
-        <a href="https://www.facebook.com/Immosolution-Immobilien-Facility-Management-GmbH-100697512430535"><i class="lab la-facebook glyphicons-class"></i></a>
+        <a href="https://www.facebook.com/Immosolution-Immobilien-Facility-Management-GmbH-100697512430535"><i class="lab la-facebook glyphicons-class"></i></a><br>
       </div>
     </div>
   </div>
 
-  </body>
+
 </div>
