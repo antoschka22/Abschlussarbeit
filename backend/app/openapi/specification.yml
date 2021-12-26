@@ -5,6 +5,19 @@ info:
 servers:
 - url: /api/v1
 paths:
+  /healthcheck:
+    get:
+      tags:
+      - healthcheck
+      summary: Healthcheck should return OK
+      operationId: web.controllers.healthcheck.healthcheck
+      responses:
+        200:
+          description: Application is running
+          content:
+            application/json:
+              schema:
+                type: string
   /projectsInWork:
     get:
       tags:
@@ -33,20 +46,6 @@ paths:
               schema:
                 type: string
 
-  /healthcheck:
-    get:
-      tags:
-      - healthcheck
-      summary: Healthcheck should return OK
-      operationId: web.controllers.healthcheck.healthcheck
-      responses:
-        200:
-          description: Application is running
-          content:
-            application/json:
-              schema:
-                type: string
-
   /infos/all:
     get:  
       tags:
@@ -61,7 +60,7 @@ paths:
               schema:
                 type: string
                 
-  /infos/angebot:
+  /infos/ueberUns:
     get:
       tags:
       - infos
@@ -74,6 +73,29 @@ paths:
             application/json:
               schema:
                 type: string
+    put:
+      tags:
+      - infos
+      summary: change the über uns Text
+      operationId: web.controllers.infos.update_angebot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ueberUns'
+              x-body-name: info
+        required: true
+      responses:
+        200:
+          description: Successfully updated text
+          content: {}
+        404:
+          description: Text does not exist
+          content: {}
+      x-codegen-request-body-name: info
+      security:
+      - jwt: []
+
   /infos/gruendung:
     get:
       tags:
@@ -87,7 +109,7 @@ paths:
             application/json:
               schema:
                 type: string
-  /infos/referenzprojekte:
+  /infos/projekte:
     get:
       tags:
       - infos
@@ -100,7 +122,7 @@ paths:
             application/json:
               schema:
                 type: string
-  /infos/mitarbeiter:
+  /infos/team:
     get:
       tags:
       - infos
@@ -190,7 +212,7 @@ paths:
               schema:
                 type: string
       security:
-      - jwt: ['secret']
+      - jwt: []
 
 components:
   securitySchemes:
@@ -215,3 +237,14 @@ components:
       example:
         username: admin
         password: password
+
+    ueberUns:
+      required:
+       - UberUnsText
+      type: object
+      properties:
+        UberUnsText: 
+          type: string
+          description: Über uns Text
+      example:
+        UberUnsText: Dies ist unser Angebot

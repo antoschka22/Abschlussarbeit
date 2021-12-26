@@ -1,4 +1,5 @@
 from dao.dao_infos import *
+from core.security import *
 
 def get_angebot():
     """
@@ -53,3 +54,9 @@ def get_all_infos():
         return dao_get_all_infos(), 200
     except:
         return "An error ocurred while fetching all the infos", 404
+    
+def update_angebot(info, token_info):
+    if is_admin(token_info):
+        return "true"
+    else:
+        return token_info
