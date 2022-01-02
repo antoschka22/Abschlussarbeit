@@ -18,6 +18,31 @@ paths:
             application/json:
               schema:
                 type: string
+
+  /projects:
+    post:
+      tags:
+      - projects
+      summary: add a new project in work
+      operationId: web.controllers.projects.add_project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project'
+              x-body-name: project
+        required: false
+      responses:
+        201:
+          description: New project created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+      x-codegen-request-body-name: project
+      security:
+      - jwt: []
+
   /projectsInWork:
     get:
       tags:
@@ -31,7 +56,7 @@ paths:
             application/json:
               schema:
                 type: string
-  
+
   /doneProjects:
     get:
       tags:
@@ -73,10 +98,11 @@ paths:
             application/json:
               schema:
                 type: string
+
     put:
       tags:
       - infos
-      summary: change the über uns Text
+      summary: change the "Über uns" Text
       operationId: web.controllers.infos.update_angebot
       requestBody:
         content:
@@ -88,7 +114,10 @@ paths:
       responses:
         200:
           description: Successfully updated text
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/infos'
         404:
           description: Text does not exist
           content: {}
@@ -109,6 +138,33 @@ paths:
             application/json:
               schema:
                 type: string
+
+    put:
+      tags:
+      - infos
+      summary: change the "Gründung" Text
+      operationId: web.controllers.infos.update_gruedung
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/gruendung'
+              x-body-name: info
+        required: true
+      responses:
+        200:
+          description: Successfully updated text
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/infos'
+        404:
+          description: Text does not exist
+          content: {}
+      x-codegen-request-body-name: info
+      security:
+      - jwt: []
+
   /infos/projekte:
     get:
       tags:
@@ -122,6 +178,33 @@ paths:
             application/json:
               schema:
                 type: string
+  
+    put:
+      tags:
+      - infos
+      summary: change the "Projekte" Text
+      operationId: web.controllers.infos.update_referenzprojekte
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/referenzprojekte'
+              x-body-name: info
+        required: true
+      responses:
+        200:
+          description: Successfully updated text
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/infos'
+        404:
+          description: Text does not exist
+          content: {}
+      x-codegen-request-body-name: info
+      security:
+      - jwt: []
+
   /infos/team:
     get:
       tags:
@@ -135,6 +218,33 @@ paths:
             application/json:
               schema:
                 type: string
+              
+    put:
+      tags:
+      - infos
+      summary: change the "Team" Text
+      operationId: web.controllers.infos.update_team
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/team'
+              x-body-name: info
+        required: true
+      responses:
+        200:
+          description: Successfully updated text
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/infos'
+        404:
+          description: Text does not exist
+          content: {}
+      x-codegen-request-body-name: info
+      security:
+      - jwt: []
+
   /infos/privatkunden:
     get:
       tags:
@@ -148,6 +258,32 @@ paths:
             application/json:
               schema:
                 type: string
+            
+    put:
+      tags:
+      - infos
+      summary: change the "Privatkunden" Text
+      operationId: web.controllers.infos.update_privatkunden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/privatkunden'
+              x-body-name: info
+        required: true
+      responses:
+        200:
+          description: Successfully updated text
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/infos'
+        404:
+          description: Text does not exist
+          content: {}
+      x-codegen-request-body-name: info
+      security:
+      - jwt: []
 
   /user/{username}:
     get:
@@ -245,6 +381,104 @@ components:
       properties:
         UberUnsText: 
           type: string
-          description: Über uns Text
+          description: Text, der "Über uns" verändern wird
       example:
-        UberUnsText: Dies ist unser Angebot
+        UberUnsText: Als kompetentes und motiviertes Unternehmen bieten wir all unseren Kunden sorgsam abgestimmte Lösungen im Bereich Gebäudemanagement und Gebäudetechnik an. Daher liegen unsere Kernkompetenzen in der Planung und Installation sowie im Betrieb und in der Wartung von gebäudetechnischen Anlagen in den Bereichen Heizung, Kälte/Klima, Lüftung und Sanitär.
+
+    gruendung:
+      required:
+      - gruendungText
+      type: object
+      properties:
+        gruendungText:
+          type: string
+          description: Text, der "Gründung" verändern wird
+      example: 
+        gruendungText: Seit der Gründung des Unternehmens im Jahr 2002 steht Immosolution für Service und Dienstleistungen in Handschlagqualität. Als junges und dynamisches Team, werden wir nun seit Anfang 2020 in neuer Konstellation erfolgreich den gewohnten Ansprüchen aller Bestands- und Neukunden gerecht
+
+    privatkunden:
+      required:
+      - privatkundenText
+      type: object
+      properties:
+        privatkundenText:
+          type: string
+          description: Text, der "Privatkunden" verändern wird
+      example: 
+        privatkundenText: Neben Privatkunden betreuen wir auch diverse Industrie- und Gewerbeunternehmen wie Hotels und Gastronomie-Betriebe. Gerade deshalb stehen unsere Kunden als Mensch und Geschäftspartner im Mittelpunkt.
+
+    team:
+      required:
+      - teamText
+      type: object
+      properties:
+        teamText:
+          type: string
+          description: Text, der "Team" verändern wird
+      example:
+        teamText: Ein Unternehmen ist nur so gut wie seine Mitarbeiter, weshalb bei uns fachliche Qualifikation und hohes persönliches Leistungs- und Qualitätsbewusstsein an erster Stelle stehen.
+
+    referenzprojekte:
+      required:
+      - referenzprojekteText
+      type: object
+      properties:
+        referenzprojekteText:
+          type: string
+          description: Text, der "Referenzprojekte" verändern wird
+      example:
+        referenzprojekteText: ferenzprojekte sind immer der beste und zuverlässigste Beweis für die Leistungsfähigkeit eines Unternehmens. Einige ausgewählte Beispiele zeigen unsere umgesetzten Projekte, die das Ergebnis intensiver, professioneller und kundenorientierte Arbeit darstellen.
+
+    infos:
+      type: object
+      properties:
+        id: 
+          type: string
+          description: uuid
+        gruedung:
+          type: string
+          description: Text zum Thema "Gründung"
+        angebot:
+          type: string
+          description: Text zum Thema "Angebot"
+        mitarbeiter:
+          type: string
+          description: Text zum Thema "Mitarbeiter"
+        privatkunden:
+          type: string
+          description: Text zum Thema "Privatkunden"
+        referenzprojekte:
+          type: string
+          description: Text zum Thema "Referenzprojekte"
+      example:
+        id: c6033d08-ce72-4d7e-a923-de2ddca8f8a2
+        gruedung: Seit der Gründung des Unternehmens im Jahr 2002 steht Immosolution für Service und Dienstleistungen in Handschlagqualität. Als junges und dynamisches Team, werden wir nun seit Anfang 2020 in neuer Konstellation erfolgreich den gewohnten Ansprüchen aller Bestands- und Neukunden gerecht
+        mitarbeiter: Ein Unternehmen ist nur so gut wie seine Mitarbeiter, weshalb bei uns fachliche Qualifikation und hohes persönliches Leistungs- und Qualitätsbewusstsein an erster Stelle stehen. 
+        privatkunden: Neben Privatkunden betreuen wir auch diverse Industrie- und Gewerbeunternehmen wie Hotels und Gastronomie-Betriebe. Gerade deshalb stehen unsere Kunden als Mensch und Geschäftspartner im Mittelpunkt.
+        angebot: Als kompetentes und motiviertes Unternehmen bieten wir all unseren Kunden sorgsam abgestimmte Lösungen im Bereich Gebäudemanagement und Gebäudetechnik an. Daher liegen unsere Kernkompetenzen in der Planung und Installation sowie im Betrieb und in der Wartung von gebäudetechnischen Anlagen in den Bereichen Heizung, Kälte/Klima, Lüftung und Sanitär.
+        referenzprojekte: ferenzprojekte sind immer der beste und zuverlässigste Beweis für die Leistungsfähigkeit eines Unternehmens. Einige ausgewählte Beispiele zeigen unsere umgesetzten Projekte, die das Ergebnis intensiver, professioneller und kundenorientierte Arbeit darstellen.
+
+    project:
+      required:
+      - projektname
+      - herzeigeprojekte
+      type: object
+      properties:
+        projektname:
+          type: string
+          description:  Der Name der Projekts
+        herzeigeprojekte:
+          type: boolean
+          description: True wenn das Projekt fertig ist und False wenn nicht
+        manuellerPost:
+          type: boolean
+          description: True wenn das Projekt im Dashboard erstellt wurde und False wenn nicht
+        kunden_kundenname:
+          type: string
+          description: Der Name der Firma, die das Projekt gehört
+      example:
+        herzeigeprojekte: true
+        manuellerPost: true
+        kunden_kundenname: DG-Ausbau
+        projektname: Zubau am Bürogebäude der Firma Fleck
+

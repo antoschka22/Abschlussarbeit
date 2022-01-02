@@ -31,6 +31,7 @@ export class FacebookComponent implements OnInit {
     (error)=>{
       this.facebookAuthService.logoutUser()
       window.location.reload()
+      console.log(error.error)
     })
 
     this.facebookService.getImagesWithInfo(this.facebookToken).subscribe((data: facebookImage[])=>{

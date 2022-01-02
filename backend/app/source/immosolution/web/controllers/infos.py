@@ -56,7 +56,47 @@ def get_all_infos():
         return "An error ocurred while fetching all the infos", 404
     
 def update_angebot(info, token_info):
+    """
+        pass the info and your token, if you are an admin the "Angebot" text will be changed
+    """
     if is_admin(token_info):
-        return "true"
+        return dao_update_angebot(info), 200
     else:
-        return token_info
+        return "Wrong credentials", 401
+
+
+def update_gruedung(info, token_info):
+    """
+        pass the info and your token, if you are an admin the "Gründung" text will be changed
+    """
+    if is_admin(token_info):
+        return dao_update_gruedung(info), 200
+    else:
+        return "Wrong credentials", 401
+
+def update_referenzprojekte(info, token_info):
+    """
+        pass the info and your token, if you are an admin the "Refernzprojekte" text will be changed
+    """
+    if is_admin(token_info):
+        return dao_update_referenzprojekte(info), 200
+    else:
+        return "Wrong credentials", 401
+
+def update_team(info, token_info):
+    """
+        pass the info and your token, if you are an admin the "Team" text will be changed
+    """
+    if is_admin(token_info):
+        return dao_update_team(info), 200
+    else:
+        return "Wrong credentials", 401
+
+def update_privatkunden(info, token_info):
+    """
+        pass the info and your token, if you are an admin the "Privatkunden" text will be changed
+    """
+    if is_admin(token_info):
+        return dao_update_privatkunden(info), 200
+    else:
+        return "Wrong credentials", 401

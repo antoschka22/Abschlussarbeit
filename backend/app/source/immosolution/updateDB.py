@@ -264,3 +264,10 @@ def updateDatabase():
             """)
         addVersion(0.6, 'insert all the images')
     
+    if lastVersionId["max"] < 0.7:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                ADD manuellerPost BOOLEAN DEFAULT false;
+            """)
+        addVersion(0.7, 'check if the project was created manually(true) or with postgres(false)')

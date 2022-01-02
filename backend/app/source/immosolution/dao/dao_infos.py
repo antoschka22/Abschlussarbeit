@@ -47,3 +47,28 @@ def dao_get_all_infos():
     with get_db_cursor() as cursor:
         cursor.execute("SELECT * FROM infos")
         return cursor.fetchone()
+    
+def dao_update_angebot(info):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET angebot=%s returning *", [info['UberUnsText']])
+        return cursor.fetchone()
+    
+def dao_update_gruedung(info):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET gruedung=%s returning *", [info['gruendungText']])
+        return cursor.fetchone()
+    
+def dao_update_referenzprojekte(info):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET referenzprojekte=%s returning *", [info['referenzprojekteText']])
+        return cursor.fetchone()
+    
+def dao_update_team(info):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET mitarbeiter=%s returning *", [info['teamText']])
+        return cursor.fetchone()
+    
+def dao_update_privatkunden(info):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET privatkunden=%s returning *", [info['privatkundenText']])
+        return cursor.fetchone()
