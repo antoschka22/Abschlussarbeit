@@ -11,11 +11,14 @@ import { ContactFormComponent } from './components/frontend/contact-form/contact
 import { AuthGuard } from './guards/auth.guard';
 import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { MasterGuard } from './guards/master.guard';
+import { InstagramComponent } from './components/admin/instagram/instagram.component';
 
 const routes: Routes = [
   { path: 'admin', component: DashboardComponent,
   canActivate: [MasterGuard], data: {guards: [AuthGuard], roles: ['ADMIN']}},
   { path: 'facebook', component: FacebookComponent,
+  canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
+  { path: 'instagram', component: InstagramComponent,
   canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
   { path: '', component: IndexComponent},
   { path: 'login', component: LoginComponent},

@@ -19,6 +19,7 @@ import { FertigeprojekteComponent } from './components/frontend/fertigeprojekte/
 import { NavbarFrontendComponent } from './components/frontend/navbar-frontend/navbar-frontend.component';
 import { ContactFormComponent } from './components/frontend/contact-form/contact-form.component';
 import { FooterIndexComponent } from './components/frontend/footer-index/footer-index.component';
+import { InstagramComponent } from './components/admin/instagram/instagram.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FooterIndexComponent } from './components/frontend/footer-index/footer-
     NavbarFrontendComponent,
     ContactFormComponent,
     FooterIndexComponent,
+    InstagramComponent,
   ],
   imports: [
     BrowserModule,
