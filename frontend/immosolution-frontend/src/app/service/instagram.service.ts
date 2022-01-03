@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Globals } from 'src/global/global';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstagramService {
 
-  private baseUri: string = this.globals.backendUri
+  private facebookDomain: string = "https://graph.facebook.com/v3.2/"
 
-  constructor(private http: HttpClient, private globals: Globals) { }
+  private InstagramId: string = "17841450119482663"
 
-  getAllBoxes(id: string) {
-    return this.http.get('https://tetris.armstrongconsulting.com/api/v1/boxes/' + id);
+  constructor(private http: HttpClient) { }
+
+  getBasicInstagramInfo(access_token: string) {
+    return this.http.get(this.facebookDomain+this.InstagramId+'?fields=biography,id,username,website,followers_count,follows_count,media_count,profile_picture_url&access_token='+access_token);
   }
 
 }

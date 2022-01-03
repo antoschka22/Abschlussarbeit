@@ -1,1 +1,18 @@
-<p>instagram works!</p>
+<app-navbar (toggleMainEvent)="toggleMain($event)"></app-navbar>
+<div [ngClass]="{
+    'main-content-toggled': mainStyle === 0,
+    'main-content': mainStyle === 280
+}">
+
+<div class="container" *ngIf="infos">
+    <div class="row">
+        <div class="col-3">
+            <img [src]="infos.profile_picture_url" class="img-fluid rounded-circle" width="150px">
+        </div>
+        <div class="col-9">
+            <div class="d-inline ">
+                <p class="username">{{infos.username}}</p>
+            </div>
+        </div>
+    </div>
+</div>

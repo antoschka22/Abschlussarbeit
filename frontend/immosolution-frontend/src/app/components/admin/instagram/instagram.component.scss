@@ -1,0 +1,18 @@
+.container{
+    margin-top: 95px;
+    padding: 0 180px;
+}
+
+img{
+    border:1px solid black;
+}
+
+.username{
+    
+}
+
+@media screen and (max-width: 992px) {
+    .container{
+        padding: 0 0 0 50px;
+    }
+}
