@@ -15,4 +15,12 @@ export class FrontendService {
   getAllInfos(){
     return this.http.get(this.baseUri + '/infos/all');
   }
+
+  getUndoneProjects(){
+    return this.http.get(this.baseUri + '/projectsInWork');
+  }
+
+  getDoneProjects(){
+    return this.http.get(this.baseUri + '/doneProjects');
+  }
 }
