@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
+import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 
 declare var FB: any;
@@ -15,7 +17,9 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private toastr: ToastrService,
-              private facebookService: FacebookAuthService) { }
+              private facebookService: FacebookAuthService,
+              private instagramAuth: IntagramAuthService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
     (window as any).fbAsyncInit = function() {
@@ -37,6 +41,8 @@ export class DashboardComponent implements OnInit {
         fjs.parentNode.insertBefore(js, fjs);
       }
   }(document, 'script', 'facebook-jssdk')); 
+
+  this.setTokenInstagram()
   }
 
   submitLogin(){
@@ -47,10 +53,9 @@ export class DashboardComponent implements OnInit {
               timeOut: 1500,
             });
 
-            localStorage.setItem('facebookAuthTokenEXPdate', response.authResponse.expiresIn);
             this.facebookService.setTokenFacebook(response.authResponse.accessToken, true);
             
-            this.getFB_ATExpirationDate();
+            this.getFB_ATExpirationDate(response.authResponse.expiresIn);
 
             
             // window.location.reload()
@@ -63,9 +68,19 @@ export class DashboardComponent implements OnInit {
       }, { auth_type: 'reauthorize' });
   }
 
-  getFB_ATExpirationDate(){
-    this.facebookService.getFB_ATExpirationDate()
+  getFB_ATExpirationDate(FacebookExpirationDateMS: number){
+    this.facebookService.getFB_ATExpirationDate(FacebookExpirationDateMS)
     this.FacebookExpirationDate = localStorage.getItem("facebookAuthTokenEXPdate")
+  }
+
+  setTokenInstagram(){
+    let token 
+    this.userService.getUserInfos("admin").subscribe((data)=>{
+      token = data['instagram_at']
+    })
+    setTimeout(() => {
+      this.instagramAuth.setTokenInstagram(token, true)
+    }, 700);
   }
 
   

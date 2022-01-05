@@ -7,12 +7,28 @@ img{
     border:1px solid black;
 }
 
+.col-9{
+    max-width: 430px;
+}
+
 .username{
-    
+    font-size: 24px;
+}
+
+.bioNums{
+    font-weight: bold;
 }
 
 @media screen and (max-width: 992px) {
     .container{
         padding: 0 0 0 50px;
+    }
+
+    .username{
+        font-size: 20px;
+    }
+
+    .bio{
+        display: none;
     }
 }

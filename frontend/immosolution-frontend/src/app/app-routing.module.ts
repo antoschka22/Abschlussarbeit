@@ -12,6 +12,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { MasterGuard } from './guards/master.guard';
 import { InstagramComponent } from './components/admin/instagram/instagram.component';
+import { InstagramAuthGuard } from './guards/instagram-auth.guard';
 
 const routes: Routes = [
   { path: 'admin', component: DashboardComponent,
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'facebook', component: FacebookComponent,
   canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
   { path: 'instagram', component: InstagramComponent,
-  canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
+  canActivate: [MasterGuard], data: {guards: [InstagramAuthGuard], roles:['ADMIN']}},
   { path: '', component: IndexComponent},
   { path: 'login', component: LoginComponent},
   { path: 'laufendeprojekte', component: LaufendeprojekteComponent},

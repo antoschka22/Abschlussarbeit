@@ -6,13 +6,35 @@
 
 <div class="container" *ngIf="infos">
     <div class="row">
+
         <div class="col-3">
             <img [src]="infos.profile_picture_url" class="img-fluid rounded-circle" width="150px">
         </div>
+
         <div class="col-9">
-            <div class="d-inline ">
+
+            <div class="d-inline">
                 <p class="username">{{infos.username}}</p>
             </div>
+
+            <div class="d-inline">
+                <small class="bioNums">{{infos.media_count}} </small> posts &nbsp;&nbsp;
+            </div>
+
+            <div class="d-inline">
+                <small class="bioNums">{{infos.followers_count}} </small> followers &nbsp;&nbsp;
+            </div>
+
+            <div class="d-inline">
+                <small class="bioNums">{{infos.follows_count}} </small> following
+            </div>
+
+            <p class="bio mt-2">{{infos.biography}}</p>
+            
         </div>
+
     </div>
+
+
+    
 </div>

@@ -26,4 +26,8 @@ export class UserService {
   compareIt(password: string, hashedPassword: string): boolean{
     return bcrypt.compareSync(password, hashedPassword)
   }
+
+  updateInstagramAccessToken(username: string, token){
+    return this.http.put(this.baseUri + "/user/" + username, token)
+  }
 }

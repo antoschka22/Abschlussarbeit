@@ -305,6 +305,33 @@ paths:
             application/json:
               schema:
                 type: string
+
+    put:
+      tags:
+      - login
+      summary: update the instagram access token
+      operationId: web.controllers.user.update_user_access_token
+      parameters:
+      - name: username
+        in: path
+        description: the username of the user
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/token'
+              x-body-name: token
+      responses:
+        200:
+          description: username fetched
+          content:
+            application/json:
+              schema:
+                type: string
+      x-codegen-request-body-name: token
   
   /login:
     post:
@@ -359,6 +386,14 @@ components:
         x-bearerInfoFunc: web.security.jwt.decode_token
         
   schemas:
+    token:
+      type: object
+      properties:
+        token: 
+          type: string
+          description: the instagram token
+      example:
+        token: IGQVJYblMzSVB5RjZAXUWVRUkZAhU0ZAtNUNVVGIzS2NIc3FiQ3VTOVgwY2E5YThuRkZAMZAHJBTUhmc1RFWFJ3c09acjViS1Vwc0RCS1NaQXEwMTdWQkM5U0FWSTBWbUZADTWptYlJYbmNB
     LoginCredentials:
       required:
       - username

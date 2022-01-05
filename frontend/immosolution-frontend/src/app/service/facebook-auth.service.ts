@@ -45,11 +45,9 @@ export class FacebookAuthService {
   }
 
 
-  getFB_ATExpirationDate(){
-    let FacebookExpirationDateMS
+  getFB_ATExpirationDate(FacebookExpirationDateMS){
     let FacebookExpirationDate = new Date()
     
-    FacebookExpirationDateMS = localStorage.getItem('facebookAuthTokenEXPdate');
     FacebookExpirationDate.setUTCSeconds(FacebookExpirationDateMS);
 
     localStorage.setItem("facebookAuthTokenEXPdate", FacebookExpirationDate.toString().split(" ")[4]);

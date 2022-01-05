@@ -69,8 +69,6 @@ export class AuthService {
       // console.log(authInfo);
       if(authInfo.includes('ADMIN')){
         return 'ADMIN'
-      } else if(authInfo.includes('user')){
-        return 'USER';
       }
     }
     return 'UNDEFINED'

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InstagramService } from 'src/app/service/instagram.service';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { instagramInfos } from 'src/global/instagramInfos'
+import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
 
 @Component({
   selector: 'app-instagram',
@@ -14,7 +15,8 @@ export class InstagramComponent implements OnInit {
   infos: instagramInfos
 
   constructor(private instagramService: InstagramService,
-              private FacebookAuthService: FacebookAuthService) { }
+              private FacebookAuthService: FacebookAuthService,
+              private instagramAuthService: IntagramAuthService) { }
 
   ngOnInit(): void {
     this.getInstagramInfos()
@@ -23,6 +25,12 @@ export class InstagramComponent implements OnInit {
   getInstagramInfos(){
     this.instagramService.getBasicInstagramInfo(this.accessToken).subscribe((data: instagramInfos)=>{
       this.infos = data
+      // console.log(data)
+    },
+    (error)=>{
+      this.instagramAuthService.logoutUser()
+      window.location.reload()
+      console.log(error.error)
     })
   }
 

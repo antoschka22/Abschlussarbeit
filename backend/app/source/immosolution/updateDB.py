@@ -271,3 +271,11 @@ def updateDatabase():
                 ADD manuellerPost BOOLEAN DEFAULT false;
             """)
         addVersion(0.7, 'check if the project was created manually(true) or with postgres(false)')
+        
+    if lastVersionId["max"] < 0.8:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE users
+                ADD instagram_AT VARCHAR(255) DEFAULT 'IGQVJYblMzSVB5RjZAXUWVRUkZAhU0ZAtNUNVVGIzS2NIc3FiQ3VTOVgwY2E5YThuRkZAMZAHJBTUhmc1RFWFJ3c09acjViS1Vwc0RCS1NaQXEwMTdWQkM5U0FWSTBWbUZADTWptYlJYbmNB';
+            """)
+        addVersion(0.8, 'add instagram access token column')
