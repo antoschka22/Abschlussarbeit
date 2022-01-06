@@ -8,7 +8,9 @@
     <div class="row">
 
         <div class="col-3">
-            <img [src]="infos.profile_picture_url" class="img-fluid rounded-circle" width="150px">
+            <a href="https://instagram.com/{{infos.username}}">
+                <img [src]="infos.profile_picture_url" class="img-fluid rounded-circle" width="150px">
+            </a>
         </div>
 
         <div class="col-9">
@@ -34,7 +36,18 @@
         </div>
 
     </div>
-
-
     
+</div>
+
+<div class="row p-4" *ngIf="media">
+    <div class="col-md-4 col-sm-12 mb-3" *ngFor="let singlePictureInfo of media['data']">
+      <div class="card">
+        <div class="card-body">
+            <img [src]="singlePictureInfo.media_url" class="img-fluid">
+            <div class="card-text d-flex justify-content-between mt-3">
+                <p><i class="las la-comment"></i> {{singlePictureInfo.caption}}</p>
+            </div>
+          </div>
+      </div>
+    </div>
 </div>

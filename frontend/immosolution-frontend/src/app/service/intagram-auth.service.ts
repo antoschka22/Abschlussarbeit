@@ -40,7 +40,6 @@ export class IntagramAuthService {
   logoutUser(): void {
     // console.log('Logout');
     localStorage.removeItem('instagramAuthToken');
-    localStorage.removeItem('facebookAuthTokenEXPdate');
     sessionStorage.removeItem('instagramAuthToken');
   }
 

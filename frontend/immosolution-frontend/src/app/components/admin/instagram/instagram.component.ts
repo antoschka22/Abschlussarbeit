@@ -3,6 +3,7 @@ import { InstagramService } from 'src/app/service/instagram.service';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { instagramInfos } from 'src/global/instagramInfos'
 import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
+import { instagramMedia } from 'src/global/instagramMedia';
 
 @Component({
   selector: 'app-instagram',
@@ -11,8 +12,10 @@ import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
 })
 export class InstagramComponent implements OnInit {
 
-  accessToken: string = this.FacebookAuthService.getToken()
+  FBaccessToken: string = this.FacebookAuthService.getToken()
+  INaccessToken: string = this.instagramAuthService.getToken()
   infos: instagramInfos
+  media: instagramMedia
 
   constructor(private instagramService: InstagramService,
               private FacebookAuthService: FacebookAuthService,
@@ -23,7 +26,7 @@ export class InstagramComponent implements OnInit {
   }
 
   getInstagramInfos(){
-    this.instagramService.getBasicInstagramInfo(this.accessToken).subscribe((data: instagramInfos)=>{
+    this.instagramService.getBasicInstagramInfo(this.FBaccessToken).subscribe((data: instagramInfos)=>{
       this.infos = data
       // console.log(data)
     },
@@ -31,6 +34,11 @@ export class InstagramComponent implements OnInit {
       this.instagramAuthService.logoutUser()
       window.location.reload()
       console.log(error.error)
+    })
+
+    this.instagramService.getInstagramMedias(this.INaccessToken).subscribe((data: instagramMedia)=>{
+      this.media = data
+      console.log(data)
     })
   }
 
