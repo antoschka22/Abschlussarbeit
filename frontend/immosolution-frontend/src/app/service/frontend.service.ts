@@ -16,6 +16,26 @@ export class FrontendService {
     return this.http.get(this.baseUri + '/infos/all');
   }
 
+  getgruendung(){
+    return this.http.get(this.baseUri + '/infos/gruendung');
+  }
+
+  getprivatkunden(){
+    return this.http.get(this.baseUri + '/infos/privatkunden');
+  }
+  
+  getprojekte(){
+    return this.http.get(this.baseUri + '/infos/projekte');
+  }
+
+  getteam(){
+    return this.http.get(this.baseUri + '/infos/team');
+  }
+
+  getueberUns(){
+    return this.http.get(this.baseUri + '/infos/ueberUns');
+  }
+
   getUndoneProjects(){
     return this.http.get(this.baseUri + '/projectsInWork');
   }

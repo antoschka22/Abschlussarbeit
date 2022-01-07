@@ -20,6 +20,9 @@ import { NavbarFrontendComponent } from './components/frontend/navbar-frontend/n
 import { ContactFormComponent } from './components/frontend/contact-form/contact-form.component';
 import { FooterIndexComponent } from './components/frontend/footer-index/footer-index.component';
 import { InstagramComponent } from './components/admin/instagram/instagram.component';
+import { WebseiteVerwaltenComponent } from './components/admin/webseite-verwalten/webseite-verwalten.component';
+import { AnkuendigungModalComponent } from './components/admin/ankuendigung-modal/ankuendigung-modal.component';
+import { UeberUnsModalComponent } from './components/admin/ueber-uns-modal/ueber-uns-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { InstagramComponent } from './components/admin/instagram/instagram.compo
     ContactFormComponent,
     FooterIndexComponent,
     InstagramComponent,
+    WebseiteVerwaltenComponent,
+    AnkuendigungModalComponent,
+    UeberUnsModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -279,3 +279,13 @@ def updateDatabase():
                 ADD instagram_AT VARCHAR(255) DEFAULT 'IGQVJYblMzSVB5RjZAXUWVRUkZAhU0ZAtNUNVVGIzS2NIc3FiQ3VTOVgwY2E5YThuRkZAMZAHJBTUhmc1RFWFJ3c09acjViS1Vwc0RCS1NaQXEwMTdWQkM5U0FWSTBWbUZADTWptYlJYbmNB';
             """)
         addVersion(0.8, 'add instagram access token column')
+        
+    if lastVersionId['max'] < 0.9:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                SET standard_conforming_strings = on;
+                
+                ALTER TABLE infos
+                ADD ankuendigung VARCHAR(65535) NOT NULL DEFAULT 'Unser Betrieb ist über die Weihnachtsfeiertage vom 24.12.2021 bis inkl. 09.01.2022 geschlossen. Wir wünschen frohe Weihnachten und einen guten Rutsch ins neue Jahr!'              
+            """)
+        addVersion(0.9, "add the table Ankündigung")

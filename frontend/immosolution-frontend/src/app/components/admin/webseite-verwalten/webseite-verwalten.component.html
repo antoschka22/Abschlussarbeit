@@ -1,0 +1,154 @@
+<div class="jobs">
+    <h2> Webseite Inhalte ändern
+        <!-- <small>See all jobs <span class="las la-arrow-right"></span></small> -->
+    </h2>
+    <div class="table-responsive">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td>
+                        <div>
+                            <span class="indicator"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Ankündigung
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Ankündigung verwalten
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button data-bs-toggle="modal" data-bs-target="#ankuendigung" (click)="ankuendigungFetch()">
+                                ändern
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <span class="indicator even"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Über uns
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            der Bereich "Über uns" ändern 
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button data-bs-toggle="modal" data-bs-target="#ueberUns" (click)="ueberUns()">ändern</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <span class="indicator"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Team
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            der Bereich "Team" ändern
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button>ändern</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <span class="indicator even"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Projekte
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            alle Projekte verwalten
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button>
+                                Projekte ändern
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<app-ueber-uns-modal
+    [privatkundenText]=privatkundenText
+    [ueberUnsText]=ueberUnsText
+    [gruendungText]=gruendungText
+></app-ueber-uns-modal>
+
+<app-ankuendigung-modal>
+</app-ankuendigung-modal>
