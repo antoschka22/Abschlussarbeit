@@ -16,4 +16,8 @@ export class AnkuendigungModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggle(event){
+    console.log(event.srcElement.attributes.role.ownerElement.checked)
+  }
+
 }
