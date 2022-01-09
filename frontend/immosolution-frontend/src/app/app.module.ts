@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,7 @@ import { InstagramComponent } from './components/admin/instagram/instagram.compo
 import { WebseiteVerwaltenComponent } from './components/admin/webseite-verwalten/webseite-verwalten.component';
 import { AnkuendigungModalComponent } from './components/admin/ankuendigung-modal/ankuendigung-modal.component';
 import { UeberUnsModalComponent } from './components/admin/ueber-uns-modal/ueber-uns-modal.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { UeberUnsModalComponent } from './components/admin/ueber-uns-modal/ueber
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

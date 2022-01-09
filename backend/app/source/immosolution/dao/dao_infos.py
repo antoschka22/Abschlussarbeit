@@ -72,3 +72,13 @@ def dao_update_privatkunden(info):
     with get_db_cursor() as cursor:
         cursor.execute("UPDATE infos SET privatkunden=%s returning *", [info['privatkundenText']])
         return cursor.fetchone()
+    
+def dao_get_ankuendigungen():
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT switchankuendigung, ankuendigung FROM infos")
+        return cursor.fetchone()
+    
+def dao_update_ankuendigung(ankeundigung):
+    with get_db_cursor() as cursor:
+        cursor.execute("UPDATE infos SET ankuendigung=%s, switchankuendigung=%s returning ankuendigung,switchankuendigung", [ankeundigung['ankuendigung'], ankeundigung['switchAnkuendigung']])
+        return cursor.fetchone()

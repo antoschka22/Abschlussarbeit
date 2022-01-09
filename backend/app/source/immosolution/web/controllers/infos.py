@@ -100,3 +100,24 @@ def update_privatkunden(info, token_info):
         return dao_update_privatkunden(info), 200
     else:
         return "Wrong credentials", 401
+    
+def get_ankuendigungen():
+    """
+        get all the information about the "Ankündigung"
+    """
+    try:
+        return dao_get_ankuendigungen(), 200
+    except:
+        return "An error ocurred", 404
+    
+def update_ankuendigung(ankuendigung, token_info):
+    """
+        update all the text "Ankündigung" and the activate/deactivate the Ankündigungen
+    """
+    if(is_admin(token_info)):
+        try:
+            return dao_update_ankuendigung(ankuendigung), 200
+        except:
+            return "An error ocurred", 404
+    else:
+        return "Wrong credentials", 401

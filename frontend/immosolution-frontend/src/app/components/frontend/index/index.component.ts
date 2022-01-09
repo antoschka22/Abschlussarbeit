@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FrontendService } from 'src/app/service/frontend.service';
 import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
+import { UpdateWebsiteService } from 'src/app/service/update-website.service';
 import { UserService } from 'src/app/service/user.service';
+import { ankuendigung } from 'src/global/ankuendigungen';
 
 class token_class {
   constructor(
@@ -18,14 +20,19 @@ export class IndexComponent implements OnInit {
 
   infos: any = ""
 
+  showAnkuendigung: boolean
 
   constructor(private frontend: FrontendService,
               private instagramAuth: IntagramAuthService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private updateWebsiteService: UpdateWebsiteService) { }
 
   ngOnInit(): void {
     this.getInfos();
+
+    //Luka ignoriere diesen Code
     this.refreshInstagramAccessToken();
+    this.getAnkuendigungen();
   }
 
   getInfos(){
@@ -56,5 +63,13 @@ export class IndexComponent implements OnInit {
     }, 700);
   }
 
+  getAnkuendigungen(){
+    this.frontend.getAnkuendigungen().subscribe((data:ankuendigung)=>{
+      let ankuendigung: boolean = data['switchankuendigung']
+      
+      this.showAnkuendigung = ankuendigung
+      this.updateWebsiteService.setAnkuendigung(String(ankuendigung))
+    })
+  }
 
 }

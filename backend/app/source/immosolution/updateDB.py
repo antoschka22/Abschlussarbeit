@@ -289,3 +289,11 @@ def updateDatabase():
                 ADD ankuendigung VARCHAR(65535) NOT NULL DEFAULT 'Unser Betrieb ist über die Weihnachtsfeiertage vom 24.12.2021 bis inkl. 09.01.2022 geschlossen. Wir wünschen frohe Weihnachten und einen guten Rutsch ins neue Jahr!'              
             """)
         addVersion(0.9, "add the table Ankündigung")
+    
+    if lastVersionId['max'] < 1.0:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE infos
+                ADD SwitchAnkuendigung BOOLEAN NOT NULL DEFAULT false;
+            """)
+        addVersion(1.0, "add Ankündigung an/aus")

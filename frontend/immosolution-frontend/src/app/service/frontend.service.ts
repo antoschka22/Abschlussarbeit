@@ -43,4 +43,8 @@ export class FrontendService {
   getDoneProjects(){
     return this.http.get(this.baseUri + '/doneProjects');
   }
+
+  getAnkuendigungen(){
+    return this.http.get(this.baseUri + '/infos/ankuendigung');
+  }
 }
