@@ -2,17 +2,66 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Über uns Bereich verwalten</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          {{ueberUnsText}}
-          {{privatkundenText}}
-          {{gruendungText}}
+
+          <div class="row">
+            <div class="col-4">
+              <div class="d-grid gap-2 mt-4">
+                <button type="button" class="btn button" (click)="openUeberUns()">
+                    über uns
+                </button>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="d-grid gap-2 mt-4">
+                <button type="button" class="btn button" (click)="openPrivatkunden()">
+                    Privatkunden
+                </button>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="d-grid gap-2 mt-4">
+                <button type="button" class="btn button" (click)="openGruendung()" style="width: 100%;">
+                    Gründung
+                </button>
+              </div>
+            </div>
+            <div class="col-12 my-2">
+              <div class="d-grid gap-2">
+                <button type="button" class="btn button" (click)="openImage()">
+                  Bild ändern
+                </button>
+              </div>
+            </div>
+          </div>
+          <h3 *ngIf="showUeberUns" class="text-center"> Über uns </h3>
+          <div *ngIf="showUeberUns" contenteditable class="text p-2">
+            <p #text>
+              {{ueberUnsText}}
+            </p>
+          </div>
+
+          <h3 *ngIf="showPrivatkunden" class="text-center"> Privatkunden </h3>
+          <div *ngIf="showPrivatkunden" contenteditable class="text p-2">
+            {{privatkundenText}}
+          </div>
+          
+          <h3 *ngIf="showGruendung" class="text-center"> Gründung </h3>
+          <div *ngIf="showGruendung" contenteditable class="text p-2">
+            {{gruendungText}}
+          </div>
+
+          <div *ngIf="showImage" class="">
+            <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="showImage" (click)="selectedImage()" style="font-size: 1.2rem;"></i>
+          </div>
+
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn button-primary" [disabled]="!disableButton">Save changes</button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ export class UpdateWebsiteService {
     localStorage.setItem('switchAnkuendigung', ankuendigungSwitch);
   }
 
-  getAnkuendigung(): string | null {
+  getSwitchAnkuendigung(): string | null {
     return localStorage.getItem('switchAnkuendigung');
   }
 

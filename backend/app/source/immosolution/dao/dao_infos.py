@@ -50,35 +50,35 @@ def dao_get_all_infos():
     
 def dao_update_angebot(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET angebot=%s returning *", [info['UberUnsText']])
+        cursor.execute("UPDATE infos SET angebot=%s, ueberuns_image=%s returning angebot, ueberuns_image", [info['UberUnsText'], info['UberUnsImage']])
         return cursor.fetchone()
     
 def dao_update_gruedung(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET gruedung=%s returning *", [info['gruendungText']])
+        cursor.execute("UPDATE infos SET gruedung=%s returning gruedung", [info['gruendungText']])
         return cursor.fetchone()
     
 def dao_update_referenzprojekte(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET referenzprojekte=%s returning *", [info['referenzprojekteText']])
+        cursor.execute("UPDATE infos SET referenzprojekte=%s returning referenzprojekte", [info['referenzprojekteText']])
         return cursor.fetchone()
     
 def dao_update_team(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET mitarbeiter=%s returning *", [info['teamText']])
+        cursor.execute("UPDATE infos SET mitarbeiter=%s returning mitarbeiter", [info['teamText']])
         return cursor.fetchone()
     
 def dao_update_privatkunden(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET privatkunden=%s returning *", [info['privatkundenText']])
+        cursor.execute("UPDATE infos SET privatkunden=%s returning privatkunden", [info['privatkundenText']])
         return cursor.fetchone()
     
 def dao_get_ankuendigungen():
     with get_db_cursor() as cursor:
-        cursor.execute("SELECT switchankuendigung, ankuendigung FROM infos")
+        cursor.execute("SELECT switchankuendigung, ankuendigung, ankuendigung_image FROM infos")
         return cursor.fetchone()
     
 def dao_update_ankuendigung(ankeundigung):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET ankuendigung=%s, switchankuendigung=%s returning ankuendigung,switchankuendigung", [ankeundigung['ankuendigung'], ankeundigung['switchAnkuendigung']])
+        cursor.execute("UPDATE infos SET ankuendigung=%s, switchankuendigung=%s, ankuendigung_image=%s returning ankuendigung,switchankuendigung,ankuendigung_image", [ankeundigung['ankuendigung'], ankeundigung['switchAnkuendigung'], ankeundigung['ankuendigung_image']])
         return cursor.fetchone()

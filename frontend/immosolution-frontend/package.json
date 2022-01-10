@@ -18,6 +18,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^11.0.0",
+    "@popperjs/core": "^2.11.2",
     "@types/facebook-js-sdk": "^3.3.5",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",

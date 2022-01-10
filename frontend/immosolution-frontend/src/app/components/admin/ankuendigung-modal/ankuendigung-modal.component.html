@@ -14,13 +14,13 @@
 
             <!-- Text toggle -->
             <div class="d-grid gap-2 mt-4" *ngIf="!showText">
-              <button type="button" class="btn btn-outline-primary" (click)="showTextUpdate()">
-                  Text verändern
+              <button type="button" class="btn button" (click)="showTextUpdate()">
+                  Text/Bild verändern
               </button>
             </div>
             <div class="d-grid gap-2 mt-4" *ngIf="showText">
-              <button type="button" class="btn btn-outline-primary" (click)="showTextUpdate()">
-                  Textfeld schließen
+              <button type="button" class="btn button" (click)="showTextUpdate()">
+                  Text- und Bildfeld schließen
               </button>
             </div>
 
@@ -29,12 +29,17 @@
                 {{ankuendigungen.ankuendigung}}
               </p>
             </div>
-
-            <input type="file" (change)="onChange($event)">
+            <div class="mt-2" *ngIf="showText">
+              <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="filename" (click)="showImage()" style="font-size: 1.2rem;"></i>
+            </div>
+            <div class="mt-2"*ngIf="showSelectedImage">
+              <img class="transperancy" src="./assets/images/{{filename}}" width="100%">
+            </div>
+            
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" *ngIf="showText" (click)="changeText()">Save changes</button>
+          <button type="button" class="btn btn-primary" *ngIf="showText" (click)="changeContent()">Save changes</button>
         </div>
       </div>
     </div>

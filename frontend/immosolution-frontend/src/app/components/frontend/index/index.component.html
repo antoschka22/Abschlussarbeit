@@ -32,7 +32,7 @@
   <!-- --------------------------------------- BG Video / BG Pic --------------------------------------- -->
     
   <div class="col-xl-12 bg-color-bg-pic">
-    <img class="transperancy" src="./assets/images/bg-picture-4.5.jpg">
+    <img class="transperancy" src="./assets/images/{{infos.ankuendigung_image}}" style="width: 100%; height: 650px;">
     <h3 class="centered" id="font-fam" *ngIf="showAnkuendigung">
       Sehr geehrte Damen und Herren,<br>
       {{infos.ankuendigung}}<br>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="black-placeholder"  id="about">
-      <img src="./assets/images/parallax-5.jpg" class="transperancy">
+      <img src="./assets/images/{{infos.ueberuns_image}}" class="transperancy">
       <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
       <div class="centered"><p class="color-h1 text-center">Über uns</p></div>
     </div>
@@ -95,7 +95,7 @@
 
 
     <div class="black-placeholder" id="team">
-      <img src="./assets/images/parallax-2.jpg" class="transperancy">
+      <img src="./assets/images/{{infos.team_image}}" class="transperancy">
       <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
       <div class="centered"><p class="color-h1 text-center">Team</p></div>
     </div>
@@ -122,7 +122,7 @@
 
 
       <div class="black-placeholder" id="project">
-        <img src="./assets/images/parallax-6.jpg" class="transperancy">
+        <img src="./assets/images/{{infos.projekte_image}}" class="transperancy">
         <!-- <p style="visibility: hidden; font-size: 1.5rem;">p</p><br> -->
         <div class="centered"><p class="color-h1 text-center">Projekte</p></div>
       </div>

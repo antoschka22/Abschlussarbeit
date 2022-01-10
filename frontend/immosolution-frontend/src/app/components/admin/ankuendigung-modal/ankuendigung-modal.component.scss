@@ -2,3 +2,14 @@
     border: 1px solid black;
     border-radius: 10px;
 }
+
+.button{
+    border: solid 1px #5850EC;
+    border-radius: 10px;
+    color: #5850EC;
+}
+
+.button:hover{
+    background: #5850EC;
+    color: white;
+}

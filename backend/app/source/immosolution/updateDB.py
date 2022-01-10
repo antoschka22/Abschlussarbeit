@@ -297,3 +297,14 @@ def updateDatabase():
                 ADD SwitchAnkuendigung BOOLEAN NOT NULL DEFAULT false;
             """)
         addVersion(1.0, "add Ankündigung an/aus")
+        
+    if lastVersionId['max'] < 1.1:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE infos
+                ADD ankuendigung_image VARCHAR(65535) NOT NULL DEFAULT 'bg-picture-4.5.jpg',
+                ADD ueberuns_image VARCHAR(65535) NOT NULL DEFAULT 'parallax-5.jpg',
+                ADD team_image VARCHAR(65535) NOT NULL DEFAULT 'parallax-2.jpg',
+                ADD projekte_image VARCHAR(65535) NOT NULL DEFAULT 'parallax-6.jpg';
+            """)
+        addVersion(1.1, "add images to the infos")

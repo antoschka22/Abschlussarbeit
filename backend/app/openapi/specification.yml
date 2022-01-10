@@ -157,7 +157,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/infos'
+                $ref: '#/components/schemas/ueberUns'
         404:
           description: Text does not exist
           content: {}
@@ -454,6 +454,7 @@ components:
       required:
       - ankuendigung
       - switchAnkuendigung
+      - ankuendigung_image
       type: object
       properties:
         ankuendigung:
@@ -462,20 +463,29 @@ components:
         switchAnkuendigung:
           type: boolean
           description: Should the "Ankündigungen" be displayed
+        ankuendigung_image:
+          type: string
+          description: the name of the image
       example:
         ankuendigung: Unser Betrieb ist momentar geschlossen
         switchAnkuendigung: true
+        ankuendigung_image: bg-picture-4.5.jpg
 
     ueberUns:
       required:
        - UberUnsText
+       - UberUnsImage
       type: object
       properties:
         UberUnsText: 
           type: string
           description: Text, der "Über uns" verändern wird
+        UberUnsImage:
+          type: string
+          description: Dateiname des Bildes, das sich im bereich "Über uns" befindet
       example:
         UberUnsText: Als kompetentes und motiviertes Unternehmen bieten wir all unseren Kunden sorgsam abgestimmte Lösungen im Bereich Gebäudemanagement und Gebäudetechnik an. Daher liegen unsere Kernkompetenzen in der Planung und Installation sowie im Betrieb und in der Wartung von gebäudetechnischen Anlagen in den Bereichen Heizung, Kälte/Klima, Lüftung und Sanitär.
+        UberUnsImage: parallax-5.jpg
 
     gruendung:
       required:
