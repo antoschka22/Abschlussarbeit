@@ -5,7 +5,7 @@ def dao_get_angebot():
         get the angebot text stored in the db
     """
     with get_db_cursor() as cursor:
-        cursor.execute("SELECT angebot FROM infos")
+        cursor.execute("SELECT angebot, ueberuns_image FROM infos")
         return cursor.fetchone()
 
 def dao_get_gruendung():

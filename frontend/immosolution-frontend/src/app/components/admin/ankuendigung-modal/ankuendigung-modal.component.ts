@@ -30,8 +30,7 @@ export class AnkuendigungModalComponent implements OnInit {
 
   constructor(private frontendService: FrontendService,
               private updateWebsiteService: UpdateWebsiteService,
-              private toastr: ToastrService,
-              private router: Router) { }
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAnkuendigungen();
@@ -93,8 +92,8 @@ export class AnkuendigungModalComponent implements OnInit {
 
         this.updateWebsiteService.updateAnkuendigung(this.updateAnkuendigung).subscribe((data: ankuendigung)=>{
           this.ankuendigungen = data
-          this.toastr.success('Text wurder verändert ', 'Erfolg!', {
-            timeOut: 1000,
+          this.toastr.success('Text/Bild wurder verändert ', 'Erfolg!', {
+            timeOut: 1500,
           });
     
         }, (error)=>{

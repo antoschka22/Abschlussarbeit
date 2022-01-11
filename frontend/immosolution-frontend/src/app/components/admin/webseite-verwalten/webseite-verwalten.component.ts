@@ -13,6 +13,7 @@ export class WebseiteVerwaltenComponent implements OnInit {
   ueberUnsText: string
   privatkundenText: string
   gruendungText: string
+  ueberUnsImage: string
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class WebseiteVerwaltenComponent implements OnInit {
   ueberUns(){
     this.frontendService.getueberUns().subscribe((data)=>{
       this.ueberUnsText = data['angebot']
+      this.ueberUnsImage = data['ueberuns_image']
 
       this.frontendService.getprivatkunden().subscribe((data)=>{
         this.privatkundenText = data['privatkunden']

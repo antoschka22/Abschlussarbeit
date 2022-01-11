@@ -10,58 +10,60 @@
           <div class="row">
             <div class="col-4">
               <div class="d-grid gap-2 mt-4">
-                <button type="button" class="btn button" (click)="openUeberUns()">
+                <button type="button" class="btn button" (click)="showText('ueberUns')">
                     über uns
                 </button>
               </div>
             </div>
             <div class="col-4">
               <div class="d-grid gap-2 mt-4">
-                <button type="button" class="btn button" (click)="openPrivatkunden()">
+                <button type="button" class="btn button" (click)="showText('privatkunden')">
                     Privatkunden
                 </button>
               </div>
             </div>
             <div class="col-4">
-              <div class="d-grid gap-2 mt-4">
-                <button type="button" class="btn button" (click)="openGruendung()" style="width: 100%;">
+              <div class="d-grid gap-2 mt-4 mb-3">
+                <button type="button" class="btn button" (click)="showText('gruendung')" style="width: 100%;">
                     Gründung
                 </button>
               </div>
             </div>
-            <div class="col-12 my-2">
-              <div class="d-grid gap-2">
-                <button type="button" class="btn button" (click)="openImage()">
-                  Bild ändern
-                </button>
-              </div>
-            </div>
           </div>
+          
           <h3 *ngIf="showUeberUns" class="text-center"> Über uns </h3>
           <div *ngIf="showUeberUns" contenteditable class="text p-2">
-            <p #text>
+            <p #inputUeberUnsText>
               {{ueberUnsText}}
             </p>
+          </div>
+          <div class="mt-3" *ngIf="showUeberUns">
+            <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="fileName" (click)="showText('image')" style="font-size: 1.2rem;"></i>
+          </div>
+          <div *ngIf="showSelectedImage">
+            <img class="transperancy mt-2" src="./assets/images/{{fileName}}" width="100%">
           </div>
 
           <h3 *ngIf="showPrivatkunden" class="text-center"> Privatkunden </h3>
           <div *ngIf="showPrivatkunden" contenteditable class="text p-2">
-            {{privatkundenText}}
+            <p #inputPrivatkundenText>
+              {{privatkundenText}}
+            </p>
           </div>
           
           <h3 *ngIf="showGruendung" class="text-center"> Gründung </h3>
           <div *ngIf="showGruendung" contenteditable class="text p-2">
-            {{gruendungText}}
-          </div>
-
-          <div *ngIf="showImage" class="">
-            <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="showImage" (click)="selectedImage()" style="font-size: 1.2rem;"></i>
+            <p #inputGruendungText>
+              {{gruendungText}}
+            </p>
           </div>
 
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn button-primary" [disabled]="!disableButton">Save changes</button>
+          <button type="button" class="btn button-primary" *ngIf="this.showUeberUns" (click)="onSubmit('ueberUns')">Über uns speichern</button>
+          <button type="button" class="btn button-primary" *ngIf="this.showPrivatkunden" (click)="onSubmit('privatkunden')">Privatkunden speichern</button>
+          <button type="button" class="btn button-primary" *ngIf="this.showGruendung" (click)="onSubmit('gruendung')">Gründung speichern</button>
         </div>
       </div>
     </div>
