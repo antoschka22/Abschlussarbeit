@@ -24,6 +24,8 @@ import { WebseiteVerwaltenComponent } from './components/admin/webseite-verwalte
 import { AnkuendigungModalComponent } from './components/admin/ankuendigung-modal/ankuendigung-modal.component';
 import { UeberUnsModalComponent } from './components/admin/ueber-uns-modal/ueber-uns-modal.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { TeamModelComponent } from './components/admin/team-model/team-model.component';
+import { ProjekteModelComponent } from './components/admin/projekte-model/projekte-model.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     WebseiteVerwaltenComponent,
     AnkuendigungModalComponent,
     UeberUnsModalComponent,
+    TeamModelComponent,
+    ProjekteModelComponent,
   ],
   imports: [
     BrowserModule,

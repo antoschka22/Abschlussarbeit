@@ -1,0 +1,40 @@
+<div class="modal fade" id="projekte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Projekte verwalten</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="d-grid gap-2">
+                <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="!showText">
+                    Change Text/Image
+                </button>
+
+                <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="showText">
+                    Hide Text/Image
+                </button>
+            </div>
+
+            <div *ngIf="showText">
+                <div class="text mt-3 p-2" contenteditable>
+                    <p #text>
+                        {{projekteText}}
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <input id="file" type="file" (change)="selectedFile($event)">
+                    <i class="las la-info-circle" *ngIf="filename" (click)="showImage()" style="font-size: 1.2rem;"></i>
+                </div>
+                <div class="mt-2"*ngIf="showSelectedImage">
+                    <img class="transperancy" src="./assets/images/{{filename}}" width="100%">
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn button-primary" (click)="changeText()">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>

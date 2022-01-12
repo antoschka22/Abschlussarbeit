@@ -66,19 +66,22 @@ export class UeberUnsModalComponent implements OnInit {
 
 
   showText(area){
-    // immer kurz warten, dass der Text hochgeladen ist, sonst kommt ein Fehler
     if(area == "privatkunden"){
+      // before closing whats opened, get the latest data
       if(this.showUeberUns){
         this.submitUeberUnsText = this.inputUeberUnsText.nativeElement.firstChild['data'].trim()
       }else if(this.showGruendung){
         this.submitGruendungText = this.inputGruendungText.nativeElement.firstChild['data'].trim()
       }
+
+      // open the content if the other texts have not been opened yet
       if(!this.submitGruendungText && !this.submitUeberUnsText){
         this.showPrivatkunden = true;
         this.showUeberUns = false;
         this.showGruendung = false;
         this.showSelectedImage = false;
-        // trim, um die Abstände am Anfang und Ende zu löschen
+        // trim, to remove the spaces at the beginning and end of the string
+        // some browsers tend to add spaces at the beginning and end of a string
         setTimeout(() => {
           this.submitPrivatkundenText = this.inputPrivatkundenText.nativeElement.firstChild['data'].trim()
         }, 200);
@@ -389,7 +392,6 @@ export class UeberUnsModalComponent implements OnInit {
         });
       }
     }
-
   }
 
   checkFileWasUploaded(){

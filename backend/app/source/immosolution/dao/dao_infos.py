@@ -21,7 +21,7 @@ def dao_get_referenzprojekte():
         get the referenzprojekte text stored in the db
     """
     with get_db_cursor() as cursor:
-        cursor.execute("SELECT referenzprojekte FROM infos")
+        cursor.execute("SELECT referenzprojekte, projekte_image FROM infos")
         return cursor.fetchone()
 
 def dao_get_mitarbeiter():
@@ -29,7 +29,7 @@ def dao_get_mitarbeiter():
         get the mitarbeiter text stored in the db
     """
     with get_db_cursor() as cursor:
-        cursor.execute("SELECT mitarbeiter FROM infos")
+        cursor.execute("SELECT mitarbeiter, team_image FROM infos")
         return cursor.fetchone()
 
 def dao_get_privatkunden():
@@ -60,12 +60,12 @@ def dao_update_gruedung(info):
     
 def dao_update_referenzprojekte(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET referenzprojekte=%s returning referenzprojekte", [info['referenzprojekteText']])
+        cursor.execute("UPDATE infos SET referenzprojekte=%s, projekte_image=%s returning referenzprojekte, projekte_image", [info['referenzprojekte'], info['projekte_image']])
         return cursor.fetchone()
     
 def dao_update_team(info):
     with get_db_cursor() as cursor:
-        cursor.execute("UPDATE infos SET mitarbeiter=%s returning mitarbeiter", [info['teamText']])
+        cursor.execute("UPDATE infos SET mitarbeiter=%s, team_image=%s returning mitarbeiter, team_image", [info['mitarbeiter'], info['team_image']])
         return cursor.fetchone()
     
 def dao_update_privatkunden(info):

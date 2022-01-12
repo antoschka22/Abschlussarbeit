@@ -67,47 +67,74 @@ export class AnkuendigungModalComponent implements OnInit {
     })
   }
 
-  showTextUpdate(){
-    this.showText = !this.showText
+  showTextUpdate(){    
+    if(!this.showText){
+      this.showText = !this.showText
+    }else if(this.showText && this.text.nativeElement.firstChild['data'].trim() != this.ankuendigungen['ankuendigung']){
+      Swal.fire({
+        title: 'Ihr Text bzw. Bild wird nicht gespeichert',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ignorieren',
+        cancelButtonText: 'zurück',
+      }).then((result) => {
+  
+        if (result.isConfirmed) {
+
+          this.showText = !this.showText
+        
+        } else if (result.isDismissed) {
+          
+        }
+      })
+    }else{
+      this.showText = !this.showText
+    }
   }
 
   changeContent(){
-    const text = this.text.nativeElement.firstChild['data']
+    const text = this.text.nativeElement.firstChild['data'].trim()
     const switchAnkuendigung = this.updateWebsiteService.getSwitchAnkuendigung()
-    if(!this.filename){
+    
+    if(!this.filename && text != this.ankuendigungen['ankuendigung']){
       this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.ankuendigungen['ankuendigung_image'])
-    }else{
+    }else if(this.filename && text == this.ankuendigungen['ankuendigung']){ 
       this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.filename)
+    }else{
+      this.updateAnkuendigung = undefined
     }
 
-    Swal.fire({
-      title: 'Wollen Sie wirklich den Text bzw. das Bild ändern',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Ja, ändern',
-      cancelButtonText: 'Nein',
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-
-        this.updateWebsiteService.updateAnkuendigung(this.updateAnkuendigung).subscribe((data: ankuendigung)=>{
-          this.ankuendigungen = data
-          this.toastr.success('Text/Bild wurder verändert ', 'Erfolg!', {
-            timeOut: 1500,
-          });
-    
-        }, (error)=>{
-          this.toastr.error('Login error, '+error['statusText'], 'Error', {
-            timeOut: 3000,
-          });
-        })
-
-      } else if (result.isDismissed) {
-
-      }
-    })
+    if(this.updateAnkuendigung){
+      Swal.fire({
+        title: 'Wollen Sie wirklich den Text bzw. das Bild ändern',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ja, ändern',
+        cancelButtonText: 'Nein',
+      }).then((result) => {
+  
+        if (result.isConfirmed) {
+  
+          this.updateWebsiteService.updateAnkuendigung(this.updateAnkuendigung).subscribe((data: ankuendigung)=>{
+            this.ankuendigungen = data
+            this.toastr.success('Text/Bild wurder verändert ', 'Erfolg!', {
+              timeOut: 1500,
+            });
+      
+          }, (error)=>{
+            this.toastr.error('Login error, '+error['statusText'], 'Error', {
+              timeOut: 3000,
+            });
+          })
+  
+        } else if (result.isDismissed) {}
+      })
+    }else{
+      this.toastr.error('Sie haben nichts verändert', 'Error', {
+        timeOut: 3000,
+      });
+    }
   }
-
 
   selectedFile(event){
     // console.log(event)

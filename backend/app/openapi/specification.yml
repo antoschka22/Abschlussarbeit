@@ -217,7 +217,10 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/referenzprojekte'
+        404:
+          description: Text does not exist
+          content: {}
   
     put:
       tags:
@@ -257,7 +260,10 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/team'
+        404:
+          description: Text does not exist
+          content: {}
               
     put:
       tags:
@@ -298,6 +304,9 @@ paths:
             application/json:
               schema:
                 type: string
+        404:
+          description: Text does not exist
+          content: {}
             
     put:
       tags:
@@ -511,25 +520,35 @@ components:
 
     team:
       required:
-      - teamText
+      - mitarbeiter
+      - team_image
       type: object
       properties:
-        teamText:
+        mitarbeiter:
           type: string
           description: Text, der "Team" verändern wird
+        team_image:
+          type: string
+          description: Bildname der Datei
       example:
-        teamText: Ein Unternehmen ist nur so gut wie seine Mitarbeiter, weshalb bei uns fachliche Qualifikation und hohes persönliches Leistungs- und Qualitätsbewusstsein an erster Stelle stehen.
+        mitarbeiter: Ein Unternehmen ist nur so gut wie seine Mitarbeiter, weshalb bei uns fachliche Qualifikation und hohes persönliches Leistungs- und Qualitätsbewusstsein an erster Stelle stehen.
+        team_image: parallax-2.jpg
 
     referenzprojekte:
       required:
-      - referenzprojekteText
+      - referenzprojekte
+      - projekte_image
       type: object
       properties:
-        referenzprojekteText:
+        referenzprojekte:
           type: string
           description: Text, der "Referenzprojekte" verändern wird
+        projekte_image:
+          type: string
+          description: Bildname 
       example:
-        referenzprojekteText: ferenzprojekte sind immer der beste und zuverlässigste Beweis für die Leistungsfähigkeit eines Unternehmens. Einige ausgewählte Beispiele zeigen unsere umgesetzten Projekte, die das Ergebnis intensiver, professioneller und kundenorientierte Arbeit darstellen.
+        referenzprojekte: ferenzprojekte sind immer der beste und zuverlässigste Beweis für die Leistungsfähigkeit eines Unternehmens. Einige ausgewählte Beispiele zeigen unsere umgesetzten Projekte, die das Ergebnis intensiver, professioneller und kundenorientierte Arbeit darstellen.
+        projekte_image: parallax-6.jpg
 
     infos:
       type: object

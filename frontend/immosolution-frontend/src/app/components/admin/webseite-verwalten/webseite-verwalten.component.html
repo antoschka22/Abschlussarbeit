@@ -33,7 +33,7 @@
                     </td>
                     <td>
                         <div>
-                            <button data-bs-toggle="modal" data-bs-target="#ankuendigung" (click)="ankuendigungFetch()">
+                            <button data-bs-toggle="modal" data-bs-target="#ankuendigung">
                                 ändern
                             </button>
                         </div>
@@ -99,7 +99,7 @@
                     </td>
                     <td>
                         <div>
-                            <button>ändern</button>
+                            <button data-bs-toggle="modal" data-bs-target="#team" (click)="team()">ändern</button>
                         </div>
                     </td>
                 </tr>
@@ -131,7 +131,7 @@
                     </td>
                     <td>
                         <div>
-                            <button>
+                            <button data-bs-toggle="modal" data-bs-target="#projekte" (click)="projekte()">
                                 Projekte ändern
                             </button>
                         </div>
@@ -151,5 +151,14 @@
     [ueberUnsImage]=ueberUnsImage
 ></app-ueber-uns-modal>
 
-<app-ankuendigung-modal>
-</app-ankuendigung-modal>
+<app-ankuendigung-modal></app-ankuendigung-modal>
+
+<app-team-model
+    [teamText]=teamText
+    [teamImage]=teamImage>
+</app-team-model>
+
+<app-projekte-model
+    [projekteText]=projekteText
+    [projekteBild]=projekteBild>
+</app-projekte-model>

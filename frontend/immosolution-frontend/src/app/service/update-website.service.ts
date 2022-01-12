@@ -4,6 +4,8 @@ import { ankuendigung } from 'src/global/ankuendigungen';
 import { Globals } from 'src/global/global';
 import { gruendung } from 'src/global/gruendung';
 import { privatkunden } from 'src/global/privatkunden';
+import { projekte } from 'src/global/projekte';
+import { team } from 'src/global/team';
 import { ueberUns } from 'src/global/ueberUns';
 
 @Injectable({
@@ -39,5 +41,15 @@ export class UpdateWebsiteService {
   updateGruendung(gruendung: gruendung){
     return this.http.put(this.baseUri + '/infos/gruendung', gruendung);
   }
+
+  updateTeam(team: team){
+    return this.http.put(this.baseUri + '/infos/team', team);
+  }
+
+  updateProjektText(projektText: projekte){
+    return this.http.put(this.baseUri + '/infos/projekte', projektText)
+  }
+
+
 
 }
