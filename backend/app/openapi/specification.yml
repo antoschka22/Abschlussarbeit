@@ -19,32 +19,79 @@ paths:
               schema:
                 type: string
 
-  /projects/images/{image_id}:
+  /projects/images/{project_id}:
     delete:
-        tags:
-        - images
-        summary: remove projekt
-        operationId: web.controllers.bilder.remove_bild
-        requestBody:
+      tags:
+      - images
+      summary: remove projekt
+      operationId: web.controllers.bilder.remove_bild
+      parameters:
+        - name: project_id
+          in: path
+          description: the id of the image
+          required: true
+          schema:
+            type: string
+      responses:
+        202:
+          description: Successfully deleted image
+          content: {}
+        404:
+          description: Image doesnt exist
+          content: {}
+      security:
+      - jwt: []
+
+  /projects/images:
+    post:
+      tags:
+      - images
+      summary: add a new project in work
+      operationId: web.controllers.bilder.add_image
+      requestBody:
         content:
           application/json:
             schema:
-              type: object
-                properties:
-                  bilder: 
-                    type: string
-                    description: bilder id
-              x-body-name: bilder
-        responses:
-          202:
-            description: Successfully deleted image
-            content: {}
-          404:
-            description: Image doesnt exist
-            content: {}
-        security:
-        - jwt: []
-  
+              $ref: '#/components/schemas/bild'
+              x-body-name: bild
+        required: false
+      responses:
+        201:
+          description: New bild created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bild'
+      x-codegen-request-body-name: bild
+      security:
+      - jwt: []
+
+    put:
+      tags:
+      - images
+      summary: update an image
+      operationId: web.controllers.bilder.update_image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bild'
+              x-body-name: bild
+        required: true
+      responses:
+        200:
+          description: Successfully updated project
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bild'
+        404:
+          description: Bild does not exist
+          content: {}
+      x-codegen-request-body-name: bild
+      security:
+      - jwt: []
+
   /projects/{projektname}:
     delete:
         tags:
@@ -685,3 +732,24 @@ components:
         projektname: Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt
         herzeigeprojekte: true
         manuellerPost: true
+
+    bild:
+      required:
+      - projektbilder
+      - projektname
+      - id
+      type: object
+      properties:
+        projektbilder:
+          type: string
+          description: der Name der Bilddatei
+        projektname:
+          type: string
+          description: der Name der Projekts
+        id:
+          type: string
+          description: die ID der Bilder
+      example:
+        projektbilder: 1.jpg
+        projektname: Eigenheim Sanierung samt Errichtung der haustechnischen anlagen in Salzburg
+        id: 21860872-bd0b-4042-91ba-888f71275c51
