@@ -6,17 +6,38 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="d-grid gap-2">
-                <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="!showText">
-                    Change Text/Image
-                </button>
 
-                <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="showText">
-                    Hide Text/Image
-                </button>
+            <!-- buttons -->
+            <div *ngIf="!showText && (!showFertigeProjekte && !showLaufendeProjekte)">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn button" (click)="showTextUpdate()">
+                        Change Text/Image
+                    </button>
+                </div>
+                    
+                <div class="row mt-4">
+                    <div class="col-md-6" (click)="showProjekte('fertig')">
+                        <div class="col-md-12">
+                            fertige Projekte 
+                        </div>
+                    </div>
+                    <div class="col-md-6" (click)="showProjekte('laufend')">
+                        <div class="col-md-12">
+                            laufende Projekte
+                        </div>
+                    </div>
+                </div>     
             </div>
 
+
+            <!-- Text/image -->
             <div *ngIf="showText">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn button" (click)="showTextUpdate()">
+                        Hide Text/Image
+                    </button>
+                </div>
+
                 <div class="text mt-3 p-2" contenteditable>
                     <p #text>
                         {{projekteText}}
@@ -31,9 +52,22 @@
                 </div>
             </div>
 
+
+            <!-- fertige Projekte -->
+
+            <div *ngIf="showFertigeProjekte && !showText">
+                <app-projekte [showFertigeProjekte]=showFertigeProjekte (goBackOutput)="goBackOutput($event)"></app-projekte>
+            </div>
+
+
+            <!-- laufende Projekte -->
+            <div *ngIf="showLaufendeProjekte && !showText">
+                <app-projekte [showLaufendeProjekte]=showLaufendeProjekte (goBackOutput)="goBackOutput($event)"></app-projekte>
+            </div>
+
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn button-primary" (click)="changeText()">Save changes</button>
+            <button type="button" class="btn button-primary" (click)="changeText()" *ngIf="showText">Save changes</button>
         </div>
       </div>
     </div>

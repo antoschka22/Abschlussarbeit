@@ -18,3 +18,18 @@
     background: #5850EC;
     color: white;
 }
+
+.col-md-12{
+    border: #5850EC solid 1px;
+    border-radius: 10px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    color: #5850EC;
+    cursor: pointer;
+}
+
+.col-md-12:hover{
+    color: white;
+    background: #5850EC;
+}

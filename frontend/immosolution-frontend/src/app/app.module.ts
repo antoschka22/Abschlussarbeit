@@ -26,6 +26,8 @@ import { UeberUnsModalComponent } from './components/admin/ueber-uns-modal/ueber
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { TeamModelComponent } from './components/admin/team-model/team-model.component';
 import { ProjekteModelComponent } from './components/admin/projekte-model/projekte-model.component';
+import { ProjekteComponent } from './components/admin/projekte/projekte.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { ProjekteModelComponent } from './components/admin/projekte-model/projek
     UeberUnsModalComponent,
     TeamModelComponent,
     ProjekteModelComponent,
+    ProjekteComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

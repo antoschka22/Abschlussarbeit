@@ -50,6 +50,20 @@ export class UpdateWebsiteService {
     return this.http.put(this.baseUri + '/infos/projekte', projektText)
   }
 
+  getDoneProjects(){
+    return this.http.get(this.baseUri + '/doneProjects')
+  }
+
+  getUndoneProjects(){
+    return this.http.get(this.baseUri + '/projectsInWork')
+  }
+
+  deleteProject(projectName){
+    return this.http.delete(this.baseUri + '/projects/' + projectName)
+  }
+
+
+
 
 
 }

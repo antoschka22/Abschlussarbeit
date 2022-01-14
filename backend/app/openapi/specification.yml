@@ -19,6 +19,62 @@ paths:
               schema:
                 type: string
 
+  /projects/{projektname}:
+    delete:
+        tags:
+        - projects
+        summary: remove projekt
+        operationId: web.controllers.projects.remove_project
+        parameters:
+        - name: projektname
+          in: path
+          description: the name of the project
+          required: true
+          schema:
+            type: string
+        responses:
+          202:
+            description: Successfully deleted project
+            content: {}
+          404:
+            description: Project doesnt exist
+            content: {}
+        security:
+        - jwt: []
+
+    put:
+      tags:
+      - projects
+      summary: update a project (cant change manuellerPost)
+      operationId: web.controllers.projects.update_project
+      parameters:
+      - name: projektname
+        in: path
+        description: the name of the project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project'
+              x-body-name: project
+        required: true
+      responses:
+        200:
+          description: Successfully updated project
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project'
+        404:
+          description: Project does not exist
+          content: {}
+      x-codegen-request-body-name: project
+      security:
+      - jwt: []
+
   /projects:
     post:
       tags:
@@ -583,6 +639,7 @@ components:
       required:
       - projektname
       - herzeigeprojekte
+      - manuellerPost
       type: object
       properties:
         projektname:
@@ -593,13 +650,8 @@ components:
           description: True wenn das Projekt fertig ist und False wenn nicht
         manuellerPost:
           type: boolean
-          description: True wenn das Projekt im Dashboard erstellt wurde und False wenn nicht
-        kunden_kundenname:
-          type: string
-          description: Der Name der Firma, die das Projekt gehört
+          description: True wenn das Projekt über das Dashboard erzeugt wurde, fals wenn nicht
       example:
+        projektname: Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt
         herzeigeprojekte: true
         manuellerPost: true
-        kunden_kundenname: DG-Ausbau
-        projektname: Zubau am Bürogebäude der Firma Fleck
-

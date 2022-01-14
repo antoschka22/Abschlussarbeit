@@ -22,6 +22,8 @@ export class ProjekteModelComponent implements OnInit {
   @Input() projekteBild: string
 
   showText: boolean = false
+  showFertigeProjekte: boolean = false
+  showLaufendeProjekte: boolean = false
   filename: string
   showSelectedImage: boolean = false
   projektModel: changeProjekte
@@ -101,11 +103,27 @@ export class ProjekteModelComponent implements OnInit {
       this.showText = !this.showText
     }
   }
+
+
   selectedFile(event){
     this.filename = event.target.files[0].name
   }
   showImage(){
     this.showSelectedImage = !this.showSelectedImage
+  }
+
+
+  showProjekte(status){
+    if(status == 'fertig'){
+      this.showFertigeProjekte = true
+    }else if(status == 'laufend'){
+      this.showLaufendeProjekte = true
+    }
+  }
+
+  goBackOutput(response){
+    this.showFertigeProjekte = response
+    this.showLaufendeProjekte = response
   }
 
 }

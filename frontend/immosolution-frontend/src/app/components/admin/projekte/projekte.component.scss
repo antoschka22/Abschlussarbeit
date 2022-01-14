@@ -1,0 +1,90 @@
+.zurueck{
+    color: green;
+    cursor: pointer;
+    display: inline;
+}
+
+.wrapper{
+    max-height: 150px;
+    max-width: 415px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+}
+
+.wrapper .image{
+    min-width: 110px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.wrapper .image:last-child{
+    margin-right: 0px;
+}
+
+.p{
+    font-size: 6px;
+}
+
+#content {
+    min-width: 110px;
+    height: 110px;
+  
+    background:
+      linear-gradient(to right, #0C860C 4px, transparent 4px) 0 0,
+      linear-gradient(to right, #0C860C 4px, transparent 4px) 0 100%,
+      linear-gradient(to left, #0C860C 4px, transparent 4px) 100% 0,
+      linear-gradient(to left, #0C860C 4px, transparent 4px) 100% 100%,
+      linear-gradient(to bottom, #0C860C 4px, transparent 4px) 0 0,
+      linear-gradient(to bottom, #0C860C 4px, transparent 4px) 100% 0,
+      linear-gradient(to top, #0C860C 4px, transparent 4px) 0 100%,
+      linear-gradient(to top, #0C860C 4px, transparent 4px) 100% 100%;
+
+      
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+#content i{
+    margin-top: 39px;
+    // margin-bottom: -65px;
+    font-size: 25px;
+}
+
+#content:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.trash{
+    font-size: 30px;
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.trash:hover{
+    color: red;
+}
+
+.text{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.button{
+    border: solid 1px #5850EC;
+    border-radius: 10px;
+    color: #5850EC;
+}
+
+.button:hover{
+    background: #5850EC;
+    color: white;
+}
+
+.button-primary{
+    background: #5850EC;
+    color: white;
+}

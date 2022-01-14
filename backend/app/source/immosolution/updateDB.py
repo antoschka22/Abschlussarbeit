@@ -308,3 +308,41 @@ def updateDatabase():
                 ADD projekte_image VARCHAR(65535) NOT NULL DEFAULT 'parallax-6.jpg';
             """)
         addVersion(1.1, "add images to the infos")
+        
+    if lastVersionId['max'] < 1.2:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                DROP CONSTRAINT projekte_kunden_kundenname_fkey,
+                DROP COLUMN kunden_kundenname;
+                
+                DROP TABLE kunden;
+            """)
+        addVersion(1.2, "delete Kundenname")
+        
+    if lastVersionId['max'] < 1.3:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                DROP COLUMN manuellerpost;
+            """)
+        addVersion(1.3, "delete manueller Post, because we actually dont need it")
+        
+    if lastVersionId["max"] < 1.4:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                ADD manuellerPost BOOLEAN DEFAULT false;
+            """)
+        addVersion(1.4, 'if brauche doch den manuellen Post')
+        
+    if lastVersionId["max"] < 1.5:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE bilder
+                DROP CONSTRAINT bilder_projekt_id_fkey,
+                ADD CONSTRAINT bilder_projekt_id_fkey
+                FOREIGN KEY (projekt_id) REFERENCES projekte(projektname) ON DELETE CASCADE ON UPDATE CASCADE
+            """)
+        addVersion(1.5, 'foreign key ändern, damit er geupdatet wird, wenn sich der Name des Projekts ändert')
+        

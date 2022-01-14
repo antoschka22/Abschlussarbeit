@@ -1,0 +1,69 @@
+<p class="zurueck" (click)='goBack(false)'><i class="las la-arrow-left" style="font-size: 15px"></i> zurück</p>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">
+          <div class="row">
+              <div class="col-2">
+                <span *ngIf="showFertigeProjekte">Fertige Projekte</span>
+                <span *ngIf="showLaufendeProjekte">Laufende Projekte</span>
+              </div>
+              <div class="col-10">
+                <input type="text" class="form-control" placeholder="Search item" [(ngModel)]="filteredString">
+              </div>
+        </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="projects">
+      <tr *ngFor="let project of projects | filter:filteredString; index as i">
+        <td>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <div class="row">
+                    <div class="col-10">
+                        <h6 class="mb-0">
+                            <a style="text-decoration: none; color: black;" type="button" data-bs-toggle="collapse" attr.data-bs-target="#column{{i}}" aria-expanded="false" attr.aria-controls="column{{i}}">
+                            <span style="font-weight: bold; font-size:15px;">{{project.projektname}}</span>
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="col-1">
+                        <i class="las la-trash-alt trash" (click)="deleteProject(project.projektname)"></i>
+                    </div>
+                </div>
+
+              </div>
+              <div class="collapse" id="column{{i}}">
+                <div class="card-body">
+
+                    <div class="wrapper">
+                        <!-- {{bild.projektbilder}} -->
+                        <div class="image" *ngFor="let bild of project.projektbilder">
+                            <img class="transperancy" src="./assets/images/website/{{project.projektname}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;">
+                        </div>
+                        <div class="image" id="content">
+                            <i class="las la-plus-circle"></i>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="!changeProjectname">
+                            Projektname ändern
+                        </button>
+                        <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="changeProjectname">
+                            Textfeld verstecken
+                        </button>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

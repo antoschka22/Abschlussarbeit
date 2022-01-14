@@ -30,4 +30,20 @@ def add_project(project, token_info):
     else:
         return "Wrong credentials", 401
 
+def remove_project(projektname, token_info):
+    if is_admin(token_info):
+        try:
+            return dao_remove_project(projektname), 202
+        except:
+            return "An error ocurred", 404
+    else:
+        return "Wrong credentials", 401
     
+def update_project(project, projektname, token_info):
+    if is_admin(token_info):
+        try:
+            return dao_update_project(project, projektname), 200
+        except:
+            return "An error ocurred", 404
+    else:
+        return "Wrong credentials", 401
