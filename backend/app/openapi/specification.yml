@@ -19,6 +19,32 @@ paths:
               schema:
                 type: string
 
+  /projects/images/{image_id}:
+    delete:
+        tags:
+        - images
+        summary: remove projekt
+        operationId: web.controllers.bilder.remove_bild
+        requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+                properties:
+                  bilder: 
+                    type: string
+                    description: bilder id
+              x-body-name: bilder
+        responses:
+          202:
+            description: Successfully deleted image
+            content: {}
+          404:
+            description: Image doesnt exist
+            content: {}
+        security:
+        - jwt: []
+  
   /projects/{projektname}:
     delete:
         tags:
@@ -410,6 +436,8 @@ paths:
             application/json:
               schema:
                 type: string
+      security:
+        - jwt: []
 
     put:
       tags:
@@ -437,6 +465,8 @@ paths:
               schema:
                 type: string
       x-codegen-request-body-name: token
+      security:
+        - jwt: []
   
   /login:
     post:

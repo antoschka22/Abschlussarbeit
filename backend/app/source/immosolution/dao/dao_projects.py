@@ -24,7 +24,7 @@ def get_projects_done_dao():
 def get_images_by_project_dao(projektid: str):
     with get_db_cursor() as cursor:
         cursor.execute("""
-                    SELECT projektbilder FROM bilder WHERE projekt_id = %s
+                    SELECT projektbilder, id FROM bilder WHERE projekt_id = %s
                        """, [projektid])
         return cursor.fetchall()
 
