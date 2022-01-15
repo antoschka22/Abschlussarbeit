@@ -17,7 +17,45 @@
     border: solid 2px black;
 }
 
-.d-flex{
-    width: 1320px;
+// .d-flex{
+//     width: 1320px;
+//     overflow-x: scroll;
+// }
+
+// .wrapper {
+//     height: 100%;
+//     border: 1px solid #ddd;
+//     display: flex;
+//     overflow-x: auto;
+//     white-space: nowrap;
+// }
+
+// .wrapper::-webkit-scrollbar {
+//     height: 7px;
+//     background-color: #000;
+// }
+
+// .wrapper .item {
+//     min-width: 110px;
+//     min-height: auto;
+//     line-height: 110px;
+//     text-align: center;
+//     background-color: #ddd;
+//     margin-right: 2px;
+// }
+
+.img-css {
+    height: 300px;
+    width: auto;
+    border: solid 1px black;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 1920px;
+}
+
+.outer-wrapper {
     overflow-x: scroll;
 }

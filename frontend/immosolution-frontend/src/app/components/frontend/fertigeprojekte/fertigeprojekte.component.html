@@ -1,7 +1,7 @@
 <body>
     <app-navbar-frontend></app-navbar-frontend>
 
-    <div class="main">
+    <!-- <div class="main">
         <div class="container">
             <div class="col-xl-12"> <br><br> <h2 class="text-center">Laufende Projekte</h2><br><br>
                 <div *ngFor="let project of projects" class="mb-5" style="background: #eaeaea">
@@ -14,7 +14,64 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <br><br><br><br>
+    <!-- <div class="main">
+        <div *ngFor="let project of projects" class="mb-5" style="background: #eaeaea">
+            {{project.projektname}} <br><br>  
+            <div class="wrapper">
+                <div class="item">
+                    <div class="d-flex justify-content-between">
+                        <div *ngFor="let projektbild of project.projektbilder">
+                            <img src="./assets/images/website/{{project.projektname}}/{{projektbild.projektbilder}}" class="img-fluid img-css">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <div class="main">
+        <h2 class="text-center">Abgeschlossene Projekte</h2><br><br>
+        <div *ngFor="let project of projects" class="mb-5" style="background: #eaeaea">
+            {{project.projektname}} <br><br>  
+            <div class="outer-wrapper">
+                <div class="wrapper">
+                    <div class="item">
+                        <div class="d-flex justify-content-between">
+                            <div *ngFor="let projektbild of project.projektbilder">
+                                <img src="./assets/images/website/{{project.projektname}}/{{projektbild.projektbilder}}" class="img-fluid img-css">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- <div class="main">
+        <div class="outer-wrapper">
+            <div class="wrapper">
+                <div class="slide one">
+
+                </div>
+                <div class="slide two">
+
+                </div>
+                <div class="slide three">
+
+                </div>
+                <div class="slide four">
+
+                </div>
+            </div>
+        </div>
+    </div><br><br><br> -->
+
+
 
     <app-footer-index></app-footer-index>
 
