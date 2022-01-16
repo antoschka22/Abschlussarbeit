@@ -362,4 +362,43 @@ def updateDatabase():
                 DROP COLUMN manuellerpost;
             """)
         addVersion(1.7, "delete manueller Post, because we actually dont need it")
-        
+
+    if lastVersionId['max'] < 1.8:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                UPDATE projekte SET foldername = 1 WHERE projektname = 'Errichtung der kältetechnischen Anlage für ein Bürogebäude am Wiener Neubaugürtel';
+                UPDATE projekte SET foldername = 2 WHERE projektname = 'Errichtung einer Solaranlage auf dem Dach einer Wohnhausanlage in Wien Donaustad';
+                UPDATE projekte SET foldername = 3 WHERE projektname = 'Montage einer Fußbodenheizung in einer Wohnung in Simmering';
+                UPDATE projekte SET foldername = 4 WHERE projektname = 'Sanierung Zinshaus samt Dachgeschossausbau am Ring';
+                UPDATE projekte SET foldername = 5 WHERE projektname = 'Neu Errichtung einer Wohnhausanlage mit 19 Wohneinheiten in Hernals';
+                UPDATE projekte SET foldername = 6 WHERE projektname = 'Sanierung von 5 Operationssälen im Militärkrankenhaus in Ulaanbaatar';
+                UPDATE projekte SET foldername = 7 WHERE projektname = 'Umbau der gasbetriebenen Heizhausanlage auf Fernwärmeversorgung einer Wohnhausanlage in Baden bei Wien';
+                UPDATE projekte SET foldername = 8 WHERE projektname = 'Zubau am Bürogebäude der Firma Fleck';
+                UPDATE projekte SET foldername = 9 WHERE projektname = 'Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt';
+                UPDATE projekte SET foldername = 11 WHERE projektname = 'Eigenheim Sanierung samt Errichtung der haustechnischen anlagen in Salzburg';
+            """)
+        addVersion(1.8, "give specific foldername")
+
+    if lastVersionId['max'] < 1.9:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+
+                ALTER TABLE projekte
+                DROP COLUMN foldername;
+
+                ALTER TABLE projekte
+                ADD COLUMN foldername INT UNIQUE NULL;
+
+                UPDATE projekte SET foldername = 1 WHERE projektname = 'Errichtung der kältetechnischen Anlage für ein Bürogebäude am Wiener Neubaugürtel';
+                UPDATE projekte SET foldername = 2 WHERE projektname = 'Errichtung einer Solaranlage auf dem Dach einer Wohnhausanlage in Wien Donaustad';
+                UPDATE projekte SET foldername = 3 WHERE projektname = 'Montage einer Fußbodenheizung in einer Wohnung in Simmering';
+                UPDATE projekte SET foldername = 4 WHERE projektname = 'Sanierung Zinshaus samt Dachgeschossausbau am Ring';
+                UPDATE projekte SET foldername = 5 WHERE projektname = 'Neu Errichtung einer Wohnhausanlage mit 19 Wohneinheiten in Hernals';
+                UPDATE projekte SET foldername = 6 WHERE projektname = 'Sanierung von 5 Operationssälen im Militärkrankenhaus in Ulaanbaatar';
+                UPDATE projekte SET foldername = 7 WHERE projektname = 'Umbau der gasbetriebenen Heizhausanlage auf Fernwärmeversorgung einer Wohnhausanlage in Baden bei Wien';
+                UPDATE projekte SET foldername = 8 WHERE projektname = 'Zubau am Bürogebäude der Firma Fleck';
+                UPDATE projekte SET foldername = 9 WHERE projektname = 'Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt';
+                UPDATE projekte SET foldername = 11 WHERE projektname = 'Eigenheim Sanierung samt Errichtung der haustechnischen anlagen in Salzburg';
+
+            """)
+        addVersion(1.9, "fix bug")      

@@ -11,7 +11,7 @@ import { FacebookComponent } from './components/admin/facebook/facebook.componen
 import { ToastrModule } from 'ngx-toastr';
 import { IndexComponent } from './components/frontend/index/index.component';
 import { LoginComponent } from './components/admin/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialMediaCardsComponent } from './components/admin/social-media-cards/social-media-cards.component';
 import { BerechtigungenVerwaltenComponent } from './components/admin/berechtigungen-verwalten/berechtigungen-verwalten.component';
 import { LaufendeprojekteComponent } from './components/frontend/laufendeprojekte/laufendeprojekte.component';
@@ -30,6 +30,7 @@ import { ProjekteComponent } from './components/admin/projekte/projekte.componen
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddImageComponent } from './components/admin/add-image/add-image.component';
 import { AddProjectComponent } from './components/admin/add-project/add-project.component';
+import { ContactService } from './service/contact.service';
 
 @NgModule({
   declarations: [
@@ -64,10 +65,13 @@ import { AddProjectComponent } from './components/admin/add-project/add-project.
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ContactService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
