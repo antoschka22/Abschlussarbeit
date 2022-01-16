@@ -346,3 +346,20 @@ def updateDatabase():
             """)
         addVersion(1.5, 'foreign key ändern, damit er geupdatet wird, wenn sich der Name des Projekts ändert')
         
+    if lastVersionId["max"] < 1.6:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                ADD COLUMN foldername SERIAL
+                
+            """)
+        addVersion(1.6, 'foldername is stored, auto increment value')
+        
+    if lastVersionId['max'] < 1.7:
+        with get_db_cursor() as cursor:
+            cursor.execute("""
+                ALTER TABLE projekte
+                DROP COLUMN manuellerpost;
+            """)
+        addVersion(1.7, "delete manueller Post, because we actually dont need it")
+        

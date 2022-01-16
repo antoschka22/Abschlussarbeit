@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { InstagramService } from 'src/app/service/instagram.service';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
-import { instagramInfos } from 'src/global/instagramInfos'
+import { instagramInfos } from 'src/models/instagramInfos'
 import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
-import { instagramMedia } from 'src/global/instagramMedia';
+import { instagramMedia } from 'src/models/instagramMedia';
 
 @Component({
   selector: 'app-instagram',

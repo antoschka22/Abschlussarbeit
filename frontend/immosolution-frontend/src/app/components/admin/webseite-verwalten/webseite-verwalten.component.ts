@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FrontendService } from 'src/app/service/frontend.service';
-import { gruendung } from 'src/global/gruendung';
-import { privatkunden } from 'src/global/privatkunden';
-import { projekte } from 'src/global/projekte';
-import { team } from 'src/global/team';
-import { ueberUns } from 'src/global/ueberUns';
+import { gruendung } from 'src/models/gruendung';
+import { privatkunden } from 'src/models/privatkunden';
+import { projekte } from 'src/models/projekte';
+import { team } from 'src/models/team';
+import { ueberUns } from 'src/models/ueberUns';
 
 @Component({
   selector: 'app-webseite-verwalten',

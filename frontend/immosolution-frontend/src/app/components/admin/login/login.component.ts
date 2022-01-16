@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
-import { user } from 'src/global/user';
+import { user } from 'src/models/user';
 import { AuthRequest } from 'src/models/AuthRequest';
 
 class loginModel implements AuthRequest{

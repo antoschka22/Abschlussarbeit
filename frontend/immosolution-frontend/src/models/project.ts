@@ -1,10 +1,11 @@
 export interface project{
+    foldername: number,
     herzeigeprojekte: boolean,
-    manuellerpost: boolean,
-    projektbilder: projektbild[],
+    projektbilder?: projektbild[],
     projektname: string
 }
 
 export interface projektbild{
+    id: string
     projektbilder: string
 }

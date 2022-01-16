@@ -8,10 +8,10 @@
         <div class="modal-body">
 
             <!-- buttons -->
-            <div *ngIf="!showText && (!showFertigeProjekte && !showLaufendeProjekte)">
+            <div *ngIf="!showText && (!showFertigeProjekte && !showLaufendeProjekte) && !showAddProject">
                 <div class="d-grid gap-2">
                     <button type="button" class="btn button" (click)="showTextUpdate()">
-                        Change Text/Image
+                        Text/Image ändern
                     </button>
                 </div>
                     
@@ -63,6 +63,22 @@
             <!-- laufende Projekte -->
             <div *ngIf="showLaufendeProjekte && !showText">
                 <app-projekte [showLaufendeProjekte]=showLaufendeProjekte (goBackOutput)="goBackOutput($event)"></app-projekte>
+            </div>
+
+            <!-- Projekt hinzufügen knöpf -->
+            <div *ngIf="!showText && (!showFertigeProjekte && !showLaufendeProjekte) && !showAddProject" class="mt-4">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn button" (click)="showAddProjectSection()">
+                        Projekt hinzufügen
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projekt hinzufügen -->
+            <div *ngIf="showAddProject">
+                <p class="zurueck" (click)='showAddProjectSection()'><i class="las la-arrow-left" style="font-size: 15px"></i> zurück</p>
+
+                <app-add-project></app-add-project>
             </div>
 
         </div>

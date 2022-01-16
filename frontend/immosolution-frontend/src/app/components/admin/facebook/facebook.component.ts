@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FacebookAuthService } from 'src/app/service/facebook-auth.service';
 import { FacebookService } from 'src/app/service/facebook.service';
-import { facebookImage } from 'src/global/facebookImage';
+import { facebookImage } from 'src/models/facebookImage';
 
 declare var FB: any;
 @Component({

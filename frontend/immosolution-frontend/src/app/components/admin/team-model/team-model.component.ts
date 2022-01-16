@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
-import { team } from 'src/global/team';
+import { team } from 'src/models/team';
 import Swal from 'sweetalert2';
 
 

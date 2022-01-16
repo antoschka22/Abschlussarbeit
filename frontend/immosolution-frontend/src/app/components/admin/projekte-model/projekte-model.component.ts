@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
-import { projekte } from 'src/global/projekte';
+import { projekte } from 'src/models/projekte';
 import Swal from 'sweetalert2';
 
 class changeProjekte implements projekte {
@@ -27,6 +27,7 @@ export class ProjekteModelComponent implements OnInit {
   filename: string
   showSelectedImage: boolean = false
   projektModel: changeProjekte
+  showAddProject: boolean = false
   @ViewChild('text') text: ElementRef<HTMLElement>;
 
   constructor(private toastr: ToastrService,
@@ -126,4 +127,10 @@ export class ProjekteModelComponent implements OnInit {
     this.showLaufendeProjekte = response
   }
 
+  showAddProjectSection(){
+    this.showAddProject = !this.showAddProject
+    this.showText = false
+    this.showFertigeProjekte = false
+    this.showLaufendeProjekte = false
+  }
 }

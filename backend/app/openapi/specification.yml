@@ -483,9 +483,7 @@ paths:
             application/json:
               schema:
                 type: string
-      security:
-        - jwt: []
-
+                
     put:
       tags:
       - login
@@ -716,7 +714,7 @@ components:
       required:
       - projektname
       - herzeigeprojekte
-      - manuellerPost
+      - foldername
       type: object
       properties:
         projektname:
@@ -725,13 +723,13 @@ components:
         herzeigeprojekte:
           type: boolean
           description: True wenn das Projekt fertig ist und False wenn nicht
-        manuellerPost:
-          type: boolean
-          description: True wenn das Projekt über das Dashboard erzeugt wurde, fals wenn nicht
+        foldername:
+          type: number
+          description: Diese ID entspricht den Ordnername des Projekts
       example:
         projektname: Austausch der Kältetechnischen Anlage in einer großen Schokoladenmanufaktur in der Wiener Innenstadt
         herzeigeprojekte: true
-        manuellerPost: true
+        foldername: 1
 
     bild:
       required:

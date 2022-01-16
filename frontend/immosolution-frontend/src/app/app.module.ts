@@ -28,6 +28,8 @@ import { TeamModelComponent } from './components/admin/team-model/team-model.com
 import { ProjekteModelComponent } from './components/admin/projekte-model/projekte-model.component';
 import { ProjekteComponent } from './components/admin/projekte/projekte.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { AddImageComponent } from './components/admin/add-image/add-image.component';
+import { AddProjectComponent } from './components/admin/add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ProjekteModelComponent,
     ProjekteComponent,
     FilterPipe,
+    AddImageComponent,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,

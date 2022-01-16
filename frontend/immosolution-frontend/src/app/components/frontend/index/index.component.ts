@@ -3,7 +3,7 @@ import { FrontendService } from 'src/app/service/frontend.service';
 import { IntagramAuthService } from 'src/app/service/intagram-auth.service';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
 import { UserService } from 'src/app/service/user.service';
-import { ankuendigung } from 'src/global/ankuendigungen';
+import { ankuendigung } from 'src/models/ankuendigungen';
 
 class token_class {
   constructor(

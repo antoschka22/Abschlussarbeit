@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FrontendService } from 'src/app/service/frontend.service';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
-import { ankuendigung } from 'src/global/ankuendigungen';
+import { ankuendigung } from 'src/models/ankuendigungen';
 import Swal from 'sweetalert2';
 class changeAnkuendigung implements ankuendigung {
   constructor(

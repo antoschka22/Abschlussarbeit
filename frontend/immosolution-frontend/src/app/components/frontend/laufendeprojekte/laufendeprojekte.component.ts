@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FrontendService } from 'src/app/service/frontend.service';
-import { project } from 'src/global/project';
+import { project } from 'src/models/project';
 
 @Component({
   selector: 'app-laufendeprojekte',

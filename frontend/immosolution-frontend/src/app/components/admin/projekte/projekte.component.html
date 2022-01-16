@@ -24,9 +24,9 @@
               <div class="card-header" id="headingOne">
                 <div class="row">
                     <div class="col-10">
-                        <h6 class="mb-0">
+                        <h6 class="mb-0" (click)="closeText()">
                             <a style="text-decoration: none; color: black;" type="button" data-bs-toggle="collapse" attr.data-bs-target="#column{{i}}" aria-expanded="false" attr.aria-controls="column{{i}}">
-                            <span style="font-weight: bold; font-size:15px;">{{project.projektname}}</span>
+                            <span style="font-weight: bold; font-size:15px;" >{{project.projektname}}</span>
                             </a>
                         </h6>
                     </div>
@@ -42,22 +42,55 @@
                     <div class="wrapper">
                         <!-- {{bild.projektbilder}} -->
                         <div class="image" *ngFor="let bild of project.projektbilder">
-                            <img class="transperancy" src="./assets/images/website/{{project.projektname}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;">
+                            <img class="transperancy" src="./assets/images/website/{{project.foldername}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;">
                         </div>
-                        <div class="image" id="content">
+                        <div class="image" id="content" (click)="showInsertImage()">
                             <i class="las la-plus-circle"></i>
                         </div>
                     </div>
 
                     
                     <div class="d-grid gap-2 mt-3">
-                        <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="!changeProjectname">
+                        <button type="button" class="btn button" (click)="showTextUpdate(project.projektname)" *ngIf="!changeProjectname">
                             Projektname ändern
                         </button>
-                        <button type="button" class="btn button" (click)="showTextUpdate()" *ngIf="changeProjectname">
+                        <button type="button" class="btn button" (click)="showTextUpdate(project.projektname)" *ngIf="changeProjectname">
                             Textfeld verstecken
                         </button>
                     </div>
+
+
+                    <!-- change project name -->
+                    <div *ngIf="changeProjectname">
+
+                      <div class="mt-3">
+                        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(project.projektname, project.herzeigeprojekte, project.manuellerpost, f, project.foldername)">
+                          <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                              <textarea rows="3" cols="40"
+                              class="form-control"
+                              name="name"
+                              ngModel
+                              [(ngModel)] = "changeProjektname"
+                              required
+                              #name="ngModel"></textarea>
+                            </div>
+                          </div>
+                        <div class="d-grid gap-2 mt-3">
+                          <button type="submit" class="btn btn-success" [disabled]="f.invalid">Update</button>
+                        </div>
+                      </form>
+                      </div>
+
+                    </div>
+                    <!-- change project name END -->
+
+                    <!-- add a new image -->
+                    <div *ngIf="showInsertImageSection">
+                      <app-add-image [projectname]=project.projektname [foldername]=project.foldername (sendNewImage)="updateImageArray($event)"></app-add-image>
+                    </div>
+                    <!-- add a new image END -->
 
                 </div>
               </div>

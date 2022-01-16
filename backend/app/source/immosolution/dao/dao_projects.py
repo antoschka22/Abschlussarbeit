@@ -31,9 +31,9 @@ def get_images_by_project_dao(projektid: str):
 def dao_add_Project(project):
     with get_db_cursor() as cursor:
         cursor.execute("""
-                    INSERT INTO projekte (projektname, herzeigeprojekte, manuellerpost)
-                    VALUES (%s, %s, %s) returning *
-                       """, [project['projektname'], project['herzeigeprojekte'], project['manuellerPost']])
+                    INSERT INTO projekte (projektname, herzeigeprojekte)
+                    VALUES (%s, %s) returning *
+                       """, [project['projektname'], project['herzeigeprojekte']])
         return cursor.fetchone()
     
 def dao_remove_project(projektname: str):

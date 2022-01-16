@@ -1,9 +1,9 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
-import { gruendung } from 'src/global/gruendung';
-import { privatkunden } from 'src/global/privatkunden';
-import { ueberUns } from 'src/global/ueberUns';
+import { gruendung } from 'src/models/gruendung';
+import { privatkunden } from 'src/models/privatkunden';
+import { ueberUns } from 'src/models/ueberUns';
 import Swal from 'sweetalert2';
 
 class ueberUnsModel implements ueberUns{
