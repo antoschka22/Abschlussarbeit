@@ -13,6 +13,9 @@ import { FacebookAuthGuard } from './guards/facebook-auth.guard';
 import { MasterGuard } from './guards/master.guard';
 import { InstagramComponent } from './components/admin/instagram/instagram.component';
 import { InstagramAuthGuard } from './guards/instagram-auth.guard';
+import { AgbComponent } from './components/frontend/agb/agb.component';
+import { ImpressumComponent } from './components/frontend/impressum/impressum.component';
+import { DatenschutzComponent } from './components/frontend/datenschutz/datenschutz.component';
 
 const routes: Routes = [
   { path: 'admin', component: DashboardComponent,
@@ -25,7 +28,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'laufendeprojekte', component: LaufendeprojekteComponent},
   { path: 'fertigeprojekte', component: FertigeprojekteComponent},
-  { path: 'contact-form', component: ContactFormComponent}
+  { path: 'contact-form', component: ContactFormComponent},
+  { path: 'agb', component: AgbComponent},
+  { path: 'impressum', component: ImpressumComponent},
+  { path: 'datenschutz', component: DatenschutzComponent}
 ];
 
 @NgModule({

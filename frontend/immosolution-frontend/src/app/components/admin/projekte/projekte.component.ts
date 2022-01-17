@@ -115,7 +115,7 @@ export class ProjekteComponent implements OnInit {
       title: 'Wollen Sie wirklich dieses Projekt löschen',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'ignorieren',
+      confirmButtonText: 'ja',
       cancelButtonText: 'zurück',
     }).then((result) => {
 

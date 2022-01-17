@@ -33,6 +33,9 @@ import { AddProjectComponent } from './components/admin/add-project/add-project.
 import { ContactService } from './service/contact.service';
 import { DeleteProjectImagesComponent } from './components/admin/delete-project-images/delete-project-images.component';
 import { UpdateUserComponent } from './components/admin/update-user/update-user.component';
+import { AgbComponent } from './components/frontend/agb/agb.component';
+import { ImpressumComponent } from './components/frontend/impressum/impressum.component';
+import { DatenschutzComponent } from './components/frontend/datenschutz/datenschutz.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { UpdateUserComponent } from './components/admin/update-user/update-user.
     AddProjectComponent,
     DeleteProjectImagesComponent,
     UpdateUserComponent,
+    AgbComponent,
+    ImpressumComponent,
+    DatenschutzComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +75,7 @@ import { UpdateUserComponent } from './components/admin/update-user/update-user.
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -43,7 +43,7 @@
     <div class="col-md-3 col-sm-12 mb-3" *ngFor="let singlePictureInfo of media['data']">
       <div class="card">
         <div class="card-body">
-            <img [src]="singlePictureInfo.media_url" class="img-fluid" style="height: 350px;">
+            <img [src]="singlePictureInfo.media_url" class="img-fluid">
             <div class="card-text d-flex justify-content-between mt-3">
                 <p><i class="las la-comment"></i> {{singlePictureInfo.caption}}</p>
             </div>

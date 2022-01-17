@@ -59,10 +59,10 @@ export class DeleteProjectImagesComponent implements OnInit {
       });
     }else{
       Swal.fire({
-        title: 'Wollen Sie wirklich die Zeitdauer des Zugriffsschlüssels verlängern?',
+        title: 'Wollen Sie wirklich die Bilder löschen',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Ja, verlängern',
+        confirmButtonText: 'Ja',
         cancelButtonText: 'Nein',
       }).then((result) => {
   
