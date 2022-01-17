@@ -37,13 +37,13 @@
     <div class="main">
         <h2 class="text-center">Abgeschlossene Projekte</h2><br><br>
         <div *ngFor="let project of projects" class="mb-5" style="background: #eaeaea">
-            {{project.projektname}} <br><br>  
+            <h4>{{project.projektname}}</h4> <br><br>  
             <div class="outer-wrapper">
                 <div class="wrapper">
                     <div class="item">
                         <div class="d-flex justify-content-between">
                             <div *ngFor="let projektbild of project.projektbilder">
-                                <img src="./assets/images/website/{{project.foldername}}/{{projektbild.projektbilder}}" class="img-fluid img-css">
+                                <img src="./assets/images/website/{{project.foldername}}/{{projektbild.projektbilder}}" class="img-fluid img-css" style="width: 300px;">
                             </div>
                         </div>
                     </div>

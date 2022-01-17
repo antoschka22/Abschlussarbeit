@@ -1,3 +1,38 @@
+.navbar {
+  margin-bottom: 0px;
+  height: auto;
+  text-decoration: none;
+}
+
+
+a:link {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration:underline;
+}
+
+a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-img {
+  // height: 185%;
+  height: 36px; 
+  margin-top: -8px;
+  padding-left: 13px;
+  padding-right: 25px;
+}
+
 /* ------------- Contact Form ------------- */
 
 .line-bottom {
@@ -11,7 +46,7 @@
   
   // Font imports
   
-  @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+  // @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
   
   // Color vars
   
@@ -23,16 +58,16 @@
   
   // Mixins
   
-  @mixin lato-book { font-family: 'Lato', sans-serif; font-weight: 300; }
-  @mixin lato-reg { font-family: 'Lato', sans-serif; font-weight: 400; }
-  @mixin lato-bold { font-family: 'Lato', sans-serif; font-weight: 700; }
-  @mixin btn($color) {
-    background-color: $color;
-    border-bottom-color: darken($color, 15%);
-    &:hover {
-        background-color: lighten($color, 5%);
-      }
-  }
+  // @mixin lato-book { font-family: 'Lato', sans-serif; font-weight: 300; }
+  // @mixin lato-reg { font-family: 'Lato', sans-serif; font-weight: 400; }
+  // @mixin lato-bold { font-family: 'Lato', sans-serif; font-weight: 700; }
+  // @mixin btn($color) {
+  //   background-color: $color;
+  //   border-bottom-color: darken($color, 15%);
+  //   &:hover {
+  //       background-color: lighten($color, 5%);
+  //     }
+  // }
   
   // Functions
   
@@ -45,7 +80,7 @@
   body {
     background-color: lighten($grey, 10%);
     font-size: 100%;
-    @include lato-reg;
+    // @include lato-reg;
   }
   div, textarea, input {
     // @include box-sizing(border-box); 
@@ -77,16 +112,16 @@
     float: right; 
   }
   h1 {
-    @include lato-book;
+    // @include lato-book;
     display: inline-block;
-    font-weight: 100;
+    // font-weight: 100;
     font-size: pxtoem(45, 16);
     border-bottom: 1px solid hsla(100%, 100%, 100%, 0.3);
     margin: 0 0 0.1em 0;
     padding: 0 0 0.4em 0;
   }
   h3 {
-    @include lato-reg;
+    // @include lato-reg;
     font-size: pxtoem(20, 16);
     margin: 1em 0 0.4em 0;
   }
@@ -99,10 +134,10 @@
     border-width: 0 0 0 0;
     border-bottom: 5px solid;
     text-transform: uppercase;
-    @include btn(darken($grey, 10%));
-    @include lato-book;
+    // @include btn(darken($grey, 10%));
+    // @include lato-book;
     &.btn-submit {
-      @include btn($blue);
+      // @include btn($blue);
     }
   }
   
@@ -232,7 +267,7 @@ body,h1,h2,h3,h4 {
   h1,h2,h3,h4,p,a {
     text-decoration: none;
     color: #fff;
-    font-family: PT Sans, sans-serif;
+    // font-family: PT Sans, sans-serif;
   }
 
   h3 {

@@ -53,9 +53,13 @@
 .wrapper {
     display: flex;
     flex-direction: row;
-    width: 1920px;
+    min-width: 2000px;
+    overflow:hidden;
+    position: relative;
 }
 
 .outer-wrapper {
     overflow-x: scroll;
+
 }
+

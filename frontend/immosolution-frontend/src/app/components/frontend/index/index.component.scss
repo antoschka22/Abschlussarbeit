@@ -4,13 +4,18 @@
   background-color: rgb(211,211,211);
 }
 
+.index-ul {
+  list-style-type: disc;
+}
+
 .glyphicons-class {
   color: black;
   font-size: 4rem;
 }
 
-.font-fam {
+#font-fam {
   font-family: 'Helvetica 45 Light', sans-serif;
+  font-size: 18px;
 }
 
 .center-align {
@@ -21,11 +26,15 @@
 //   background-color: #e6e6e6;
 // }
 
-.centered {
+.centered-left {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.centered-right {
+  
 }
 
 
@@ -58,6 +67,15 @@
 * {
     margin: 0px;
     padding: 0px;
+    animation: transitionIn .5s; 
+}
+
+.icon-css {
+  animation: transitionIcon 1s;
+}
+
+.transperancy {
+  opacity: 1;
 }
 
 .opacity {
@@ -68,21 +86,21 @@
 
 #p1 {
   color: black;
-  font-size: 17px;
+  font-size: 20px;
 }
 
-.angebot{
-  border-left: 2px black solid;
-  border-radius: 20px;
-  padding: 10px;
-}
+// .angebot{
+//   border-left: 2px black solid;
+//   border-radius: 20px;
+//   padding: 10px;
+// }
 
-.privatkunden{
-  border-right: 2px black solid;
-  border-radius: 20px;
-  padding: 10px;
-  text-align: right;
-}
+// .privatkunden{
+//   border-right: 2px black solid;
+//   border-radius: 20px;
+//   padding: 10px;
+//   text-align: right;
+// }
 
 /* ------------- Textformation End ------------- */
 /* ------------- Main ------------- */
@@ -352,9 +370,6 @@ article {
 
 /* ------------- Main Content Start ------------- */
 
-.transperancy {
-	opacity: 0.5;
-}
 
 .bg-color-bg-pic {
 	background-color: #000;
@@ -374,10 +389,11 @@ article {
 
 .black-placeholder {
 	// background-color: black;
-	height: 350px;
+	height: auto;
   position: relative;
   text-align: center;
-  background-color: #e6e6e6;
+  // background-color: #e6e6e6;
+  background: #fff;
 }
 
 .centered {
@@ -414,6 +430,7 @@ article {
 body,h1,h2,h3,h4 {
     margin: 0;
     padding: 0;
+    animation: transitionIn 0.75s;
   }
   
   h1,h2,h3,h4,p,a {
@@ -542,3 +559,53 @@ body,h1,h2,h3,h4 {
 }
 
 /* ------------- Sroll-Up Button End ------------- */
+
+/* ------------- Keyframes ------------- */
+
+  @keyframes transitionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+
+  // @keyframes transitionIcon {
+  //   from {
+  //     margin-right: 100%;
+  //     width: 300%;
+  //   }
+
+  //   to {
+  //     margin-right: 0%;
+  //     width: 100%;
+  //   }
+  // }
+
+  @keyframes transitionIcon {
+    from {
+      transform: translateX(-500%)
+    }
+
+    to {
+      transform: translateX(0%)
+    }
+  }
+
+/* ------------- Keyframes ------------- */
+
+#btn-css {
+  list-style-type: none;
+}
+
+.css-p {
+  font-size: 30px;
+}
+
+.css-li {
+  font-size: 20px;
+}
