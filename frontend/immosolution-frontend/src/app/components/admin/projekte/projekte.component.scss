@@ -88,3 +88,25 @@
     background: #5850EC;
     color: white;
 }
+
+.projekte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.switch{
+    font-size: 30px;
+    margin-top:15px;
+    cursor: pointer;
+}
+
+.switch:hover{
+    color:green;
+}
+
+.mb-2{
+    margin-top: -20px;
+}

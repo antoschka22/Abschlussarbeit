@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
@@ -20,29 +20,41 @@ class addProject implements project {
 export class AddProjectComponent implements OnInit {
 
   projectModel: addProject
+  lastFoldername: number
+  buttonState: boolean = false
+  @ViewChild('button') button: ElementRef<HTMLElement>;
 
   constructor(private updateWebsiteService: UpdateWebsiteService,
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getLastFoldername()
   }
 
+  getLastFoldername(){
+    this.updateWebsiteService.getLastFoldername().subscribe((data:number)=>{
+      this.lastFoldername = data['foldername'] + 1
+    })
+  }
 
   onSubmit(data: NgForm){
-    console.log(data)
-    const projektname = data.form.value.name 
-    // this.projectModel = new addProject(foldername, herzeigeprojekte, projektname)
+    this.projectModel = new addProject (this.lastFoldername, this.buttonState, data.form.value.projektname)
 
-    // this.updateWebsiteService.addProject().subscribe((data:project)=>{
-    //   this.toastr.success('Der Name wurde verändert', 'Erfolg', {
-    //     timeOut: 3000,
-    //   });
-    // }, (error)=>{
-    //   this.toastr.error(error['statusText'], 'Error', {
-    //     timeOut: 3000,
-    //   });
-    // })
+    this.updateWebsiteService.addProject(this.projectModel).subscribe((data:project)=>{
+      this.getLastFoldername()
+      this.toastr.success('Das Projekt wurde hinzugefügt', 'Erfolg', {
+        timeOut: 3000,
+      });
+    }, (error)=>{
+      this.toastr.error(error['statusText'], 'Error', {
+        timeOut: 3000,
+      });
+    })
 
+  }
+
+  toggle(event){
+    this.buttonState = event.srcElement.attributes.role.ownerElement.checked;
   }
 
 }

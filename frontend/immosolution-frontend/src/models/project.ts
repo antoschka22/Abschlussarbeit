@@ -7,5 +7,6 @@ export interface project{
 
 export interface projektbild{
     id: string
-    projektbilder: string
+    projektbilder: string,
+    selected?: boolean
 }

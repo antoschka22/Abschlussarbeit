@@ -31,9 +31,9 @@ def get_images_by_project_dao(projektid: str):
 def dao_add_Project(project):
     with get_db_cursor() as cursor:
         cursor.execute("""
-                    INSERT INTO projekte (projektname, herzeigeprojekte)
-                    VALUES (%s, %s) returning *
-                       """, [project['projektname'], project['herzeigeprojekte']])
+                    INSERT INTO projekte (projektname, herzeigeprojekte, foldername)
+                    VALUES (%s, %s, %s) returning *
+                       """, [project['projektname'], project['herzeigeprojekte'],project['foldername']])
         return cursor.fetchone()
     
 def dao_remove_project(projektname: str):
@@ -48,4 +48,9 @@ def dao_update_project(project, projektname):
         cursor.execute("""
                     UPDATE projekte SET projektname = %s, herzeigeprojekte= %s WHERE projektname=%s returning *
                        """, [project['projektname'], project['herzeigeprojekte'], projektname])
+        return cursor.fetchone()
+    
+def dao_get_foldercount():
+    with get_db_cursor() as cursor:
+        cursor.execute("SELECT foldername FROM projekte ORDER BY foldername DESC LIMIT 1")
         return cursor.fetchone()

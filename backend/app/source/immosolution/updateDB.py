@@ -390,7 +390,7 @@ def updateDatabase():
                 ADD COLUMN foldername INT UNIQUE NULL;
 
                 UPDATE projekte SET foldername = 1 WHERE projektname = 'Errichtung der kältetechnischen Anlage für ein Bürogebäude am Wiener Neubaugürtel';
-                UPDATE projekte SET foldername = 2 WHERE projektname = 'Errichtung einer Solaranlage auf dem Dach einer Wohnhausanlage in Wien Donaustad';
+                UPDATE projekte SET foldername = 2 WHERE projektname = 'Errichtung einer Solaranlage auf dem Dach einer Wohnhausanlage in Wien Donaustadt';
                 UPDATE projekte SET foldername = 3 WHERE projektname = 'Montage einer Fußbodenheizung in einer Wohnung in Simmering';
                 UPDATE projekte SET foldername = 4 WHERE projektname = 'Sanierung Zinshaus samt Dachgeschossausbau am Ring';
                 UPDATE projekte SET foldername = 5 WHERE projektname = 'Neu Errichtung einer Wohnhausanlage mit 19 Wohneinheiten in Hernals';

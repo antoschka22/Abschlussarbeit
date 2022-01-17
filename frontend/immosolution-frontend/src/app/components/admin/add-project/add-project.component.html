@@ -5,12 +5,15 @@
         <div class="col-sm-10">
           <textarea rows="3" cols="40"
           class="form-control"
-          name="name1"
+          name="projektname"
           ngModel
-          [(ngModel)] = "projectModel"
           required
           #name="ngModel"></textarea>
         </div>
+      </div>
+      <div class="form-check form-switch mt-3">
+        <input #button class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="toggle($event)"/>
+        <label class="form-check-label" for="flexSwitchCheckDefault">Fertiges Projekt</label>
       </div>
     <div class="d-grid gap-2 mt-3">
       <button type="submit" class="btn btn-success" [disabled]="f.invalid">Update</button>

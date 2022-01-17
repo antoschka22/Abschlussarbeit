@@ -19,16 +19,16 @@ paths:
               schema:
                 type: string
 
-  /projects/images/{project_id}:
+  /projects/images/{images_id}:
     delete:
       tags:
       - images
       summary: remove projekt
       operationId: web.controllers.bilder.remove_bild
       parameters:
-        - name: project_id
+        - name: images_id
           in: path
-          description: the id of the image
+          description: the name of the project
           required: true
           schema:
             type: string
@@ -185,6 +185,26 @@ paths:
             application/json:
               schema:
                 type: string
+        404:
+          description: Text does not exist
+          content: {}
+
+  /projects/foldercount:
+    get:
+      tags:
+      - projects
+      summary: get the number of the last folder
+      operationId: web.controllers.projects.get_foldercount
+      responses:
+        200:
+          description: number of the last folder
+          content:
+            application/json:
+              schema:
+                type: integer
+        404:
+          description: Text does not exist
+          content: {}
 
   /doneProjects:
     get:
@@ -199,6 +219,9 @@ paths:
             application/json:
               schema:
                 type: string
+        404:
+          description: Text does not exist
+          content: {}
 
   /infos/ankuendigung:
     get:
@@ -213,6 +236,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ankuendigungen'
+        404:
+          description: Text does not exist
+          content: {}
 
     put:
       tags:
@@ -463,6 +489,36 @@ paths:
       security:
       - jwt: []
 
+  /user/update/{username}:
+    put:
+      tags:
+      - login
+      summary: update user
+      operationId: web.controllers.user.update_user
+      parameters:
+      - name: username
+        in: path
+        description: the username of the user
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+              x-body-name: token
+      responses:
+        200:
+          description: username fetched
+          content:
+            application/json:
+              schema:
+                type: string
+      x-codegen-request-body-name: token
+      security:
+      - jwt: []
+
   /user/{username}:
     get:
       tags:
@@ -483,7 +539,7 @@ paths:
             application/json:
               schema:
                 type: string
-                
+      
     put:
       tags:
       - login
@@ -510,8 +566,6 @@ paths:
               schema:
                 type: string
       x-codegen-request-body-name: token
-      security:
-        - jwt: []
   
   /login:
     post:
@@ -573,7 +627,27 @@ components:
           type: string
           description: the instagram token
       example:
-        token: IGQVJYblMzSVB5RjZAXUWVRUkZAhU0ZAtNUNVVGIzS2NIc3FiQ3VTOVgwY2E5YThuRkZAMZAHJBTUhmc1RFWFJ3c09acjViS1Vwc0RCS1NaQXEwMTdWQkM5U0FWSTBWbUZADTWptYlJYbmNB
+        token: dgkjbsdkvndkfaljskfjlknsdjb
+    user:
+      type: object
+      properties:
+        username: 
+          type: string
+          description: username
+        password:
+          type: string
+          description: gehashes Passwort
+        role:
+          type: string
+          description: Role
+        instagram_at:
+          type: string
+          description: instagram AT
+      example:
+        username: exmaple1
+        password: ds09guiofjhij)(="!U")
+        role: user
+        instagram_at: aosoidjgoiasjfafnjnb
 
     LoginCredentials:
       required:
@@ -735,7 +809,6 @@ components:
       required:
       - projektbilder
       - projektname
-      - id
       type: object
       properties:
         projektbilder:

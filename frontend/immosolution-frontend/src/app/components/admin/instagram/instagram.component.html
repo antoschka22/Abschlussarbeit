@@ -40,10 +40,10 @@
 </div>
 
 <div class="row p-4" *ngIf="media">
-    <div class="col-md-4 col-sm-12 mb-3" *ngFor="let singlePictureInfo of media['data']">
+    <div class="col-md-3 col-sm-12 mb-3" *ngFor="let singlePictureInfo of media['data']">
       <div class="card">
         <div class="card-body">
-            <img [src]="singlePictureInfo.media_url" class="img-fluid">
+            <img [src]="singlePictureInfo.media_url" class="img-fluid" style="height: 350px;">
             <div class="card-text d-flex justify-content-between mt-3">
                 <p><i class="las la-comment"></i> {{singlePictureInfo.caption}}</p>
             </div>

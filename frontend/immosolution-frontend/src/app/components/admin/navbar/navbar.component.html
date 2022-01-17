@@ -1,12 +1,12 @@
 <input type="checkbox" name="" id="sidebar-toggle">
 
-<div class="sidebar">
+<div class="sidebar" *ngIf="user">
     <div class="sidebar-brand">
         <div class="brand-flex">
             <img src="" width="30px" alt="">
 
             <div class="brand-icon">
-                <span class="las la-user-circle" style="font-size: 2rem;"></span>
+                <span class="las la-user-circle" style="font-size: 2rem;" data-bs-toggle="modal" data-bs-target="#user"></span>
             </div>
         </div>
     </div>
@@ -15,8 +15,8 @@
         <div class="sidebar-user">
             <img src="./assets/images/pfp.jpg" alt="">
             <div>
-                <h3 class="text">Adam</h3>
-                <span class="text">email@email.com</span>
+                <h3 class="text">{{user.username}}</h3>
+                <span class="text">{{user.role}}</span>
             </div>
         </div>
 
@@ -65,3 +65,6 @@
 </div>
 
 <label for="sidebar-toggle" class="body-label"></label>
+
+
+<app-update-user [user]=user></app-update-user>

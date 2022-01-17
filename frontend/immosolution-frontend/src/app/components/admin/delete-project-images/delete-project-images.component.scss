@@ -1,0 +1,42 @@
+.wrapper{
+    max-height: 150px;
+    max-width: 415px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+}
+
+.wrapper .image{
+    min-width: 110px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.wrapper .image:last-child{
+    margin-right: 0px;
+}
+
+.button{
+    border: solid 1px #5850EC;
+    border-radius: 5px;
+    color: #5850EC;
+}
+
+.button:hover{
+    background: #5850EC;
+    color: white;
+}
+
+.mb-2{
+    margin-top: -20px;
+}
+
+.transparency{
+    cursor: pointer;    
+}
+
+.visited{
+    opacity: 0.5;
+}

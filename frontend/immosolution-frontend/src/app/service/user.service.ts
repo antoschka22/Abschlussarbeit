@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Globals } from 'src/global/global';
 import * as bcrypt from 'bcryptjs';
+import { user } from 'src/models/user';
 
 
 @Injectable({
@@ -30,4 +31,9 @@ export class UserService {
   updateInstagramAccessToken(username: string, token){
     return this.http.put(this.baseUri + "/user/" + username, token)
   }
+
+  updateUser(user: user, username: string){
+    return this.http.put(this.baseUri + '/user/update/' + username, user);
+  }
+
 }

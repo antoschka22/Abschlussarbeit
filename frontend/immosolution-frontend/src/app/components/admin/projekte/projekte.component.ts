@@ -9,7 +9,6 @@ class changeProjectName implements project {
   constructor(
     public foldername: number,
     public herzeigeprojekte: boolean,
-    public manuellerPost: boolean,
     public projektname: string) {
     }
   }
@@ -29,6 +28,7 @@ export class ProjekteComponent implements OnInit {
   filteredString: string = ''
   changeProjektname: string
   showInsertImageSection: boolean = false
+  deleteImage: boolean = false
 
   @Output() goBackOutput = new EventEmitter<boolean>();
 
@@ -80,10 +80,18 @@ export class ProjekteComponent implements OnInit {
   closeText(){
     this.changeProjectname = false
     this.showInsertImageSection = false
+    this.deleteImage = false
   }
   showInsertImage(){
     this.showInsertImageSection = !this.showInsertImageSection
     this.changeProjectname = false
+  }
+  showDeleteImages(){
+    this.deleteImage = true
+  }
+  closeDeleteImages(event){
+    this.deleteImage = event
+    this.getProjectInfo()
   }
   updateImageArray(addedInfo){
     let gefundenerName: number = -1
@@ -136,9 +144,49 @@ export class ProjekteComponent implements OnInit {
 
   }
 
-  onSubmit(projectID: string, herzeigeprojekte: boolean, manuellerpost: boolean, data: NgForm, foldername:number){
+  switchProjekt(projektname: string, herzeigeprojekte: boolean, foldername: number){
+    Swal.fire({
+      title: 'Wollen Sie wirklich dieses Projekt verschieben',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'ignorieren',
+      cancelButtonText: 'zurück',
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+
+        if(herzeigeprojekte){
+          this.projectModel = new changeProjectName(foldername, false, projektname)
+        }else if(!herzeigeprojekte){
+          this.projectModel = new changeProjectName(foldername, true, projektname)
+        }
+
+        this.updateWebsiteService.updateProject(projektname, this.projectModel).subscribe((data)=>{
+
+          //delete project from the array
+          const ProjectIndex = this.projects.indexOf(data['projektname'])
+          this.projects.splice(ProjectIndex, 1);
+
+          this.toastr.success('Projekt wurde verschoben', 'Erfolg', {
+            timeOut: 3000,
+          });
+    
+        }, (error)=>{
+    
+          this.toastr.error('Ein Fehler ist aufgetreten, '+error['statusText'], 'Error', {
+            timeOut: 3000,
+          });
+    
+        })
+      
+      } else if (result.isDismissed) {}
+    })
+  }
+
+
+  onSubmit(projectID: string, herzeigeprojekte: boolean, data: NgForm, foldername:number){
     const projektname = data.form.value.name 
-    this.projectModel = new changeProjectName(foldername, herzeigeprojekte, manuellerpost, projektname)
+    this.projectModel = new changeProjectName(foldername, herzeigeprojekte, projektname)
     let gefundenerName: number = -1
 
     Swal.fire({

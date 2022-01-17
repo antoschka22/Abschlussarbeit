@@ -31,6 +31,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { AddImageComponent } from './components/admin/add-image/add-image.component';
 import { AddProjectComponent } from './components/admin/add-project/add-project.component';
 import { ContactService } from './service/contact.service';
+import { DeleteProjectImagesComponent } from './components/admin/delete-project-images/delete-project-images.component';
+import { UpdateUserComponent } from './components/admin/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { ContactService } from './service/contact.service';
     FilterPipe,
     AddImageComponent,
     AddProjectComponent,
+    DeleteProjectImagesComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,16 +22,20 @@
           <div id="accordion">
             <div class="card">
               <div class="card-header" id="headingOne">
-                <div class="row">
+                <div class="row projekte">
                     <div class="col-10">
                         <h6 class="mb-0" (click)="closeText()">
                             <a style="text-decoration: none; color: black;" type="button" data-bs-toggle="collapse" attr.data-bs-target="#column{{i}}" aria-expanded="false" attr.aria-controls="column{{i}}">
-                            <span style="font-weight: bold; font-size:15px;" >{{project.projektname}}</span>
+                            <span style="font-weight: bold; font-size:15px;" >{{project.projektname}} ({{project.foldername}})</span>
                             </a>
                         </h6>
                     </div>
                     <div class="col-1">
-                        <i class="las la-trash-alt trash" (click)="deleteProject(project.projektname)"></i>
+                      <!-- trash icon -->
+                        <i class="las la-trash-alt trash" (click)="deleteProject(project.projektname)">
+
+                      <!-- switch icon -->
+                        </i><i class="las la-exchange-alt switch" (click)="switchProjekt(project.projektname, project.herzeigeprojekte, project.foldername)"></i>
                     </div>
                 </div>
 
@@ -39,10 +43,22 @@
               <div class="collapse" id="column{{i}}">
                 <div class="card-body">
 
-                    <div class="wrapper">
+                    <div class="row mb-2" *ngIf="!deleteImage">
+                      <div class="col-6 offset-6">
+                        <div class="d-grid gap-2 mt-3">
+                          <button type="button" class="btn btn-outline-danger" (click)="showDeleteImages()">
+                              Bilder löschen
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <app-delete-project-images [project]=project [deleteImage]=deleteImage (deleteImageBoolean)="closeDeleteImages($event)"></app-delete-project-images>
+
+                    <div class="wrapper" *ngIf="!deleteImage">
                         <!-- {{bild.projektbilder}} -->
                         <div class="image" *ngFor="let bild of project.projektbilder">
-                            <img class="transperancy" src="./assets/images/website/{{project.foldername}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;">
+                            <img class="transparency" src="./assets/images/website/{{project.foldername}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;">
                         </div>
                         <div class="image" id="content" (click)="showInsertImage()">
                             <i class="las la-plus-circle"></i>
@@ -50,7 +66,7 @@
                     </div>
 
                     
-                    <div class="d-grid gap-2 mt-3">
+                    <div class="d-grid gap-2 mt-3" *ngIf="!deleteImage">
                         <button type="button" class="btn button" (click)="showTextUpdate(project.projektname)" *ngIf="!changeProjectname">
                             Projektname ändern
                         </button>
@@ -64,7 +80,7 @@
                     <div *ngIf="changeProjectname">
 
                       <div class="mt-3">
-                        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(project.projektname, project.herzeigeprojekte, project.manuellerpost, f, project.foldername)">
+                        <form novalidate #f="ngForm" (ngSubmit)="onSubmit(project.projektname, project.herzeigeprojekte, f, project.foldername)">
                           <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">

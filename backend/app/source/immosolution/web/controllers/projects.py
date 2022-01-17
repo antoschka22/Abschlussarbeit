@@ -47,3 +47,9 @@ def update_project(project, projektname, token_info):
             return "An error ocurred", 404
     else:
         return "Wrong credentials", 401
+    
+def get_foldercount():
+    try:
+        return dao_get_foldercount(), 200
+    except:
+        return "An error ocurred", 404

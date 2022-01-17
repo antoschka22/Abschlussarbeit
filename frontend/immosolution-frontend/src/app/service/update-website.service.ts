@@ -76,5 +76,13 @@ export class UpdateWebsiteService {
     return this.http.post(this.baseUri + '/projects', project)
   }
 
+  getLastFoldername(){
+    return this.http.get(this.baseUri + '/projects/foldercount');
+  }
+
+  deleteImage(image_id: string){
+    return this.http.delete(this.baseUri + '/projects/images/' + image_id)
+  }
+
 
 }
