@@ -74,8 +74,9 @@ export class DeleteProjectImagesComponent implements OnInit {
           this.toastr.success('Die Bilder wurden erfolgreich gelöscht', 'Erfolg', {
             timeOut: 3000,
           });
-          location.reload()
-          this.sendBackDeleteImage()
+          setTimeout(() => {
+            this.sendBackDeleteImage()
+          }, 500);
   
         } else if (result.isDismissed) {
   
