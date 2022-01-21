@@ -23,6 +23,11 @@ services:
   image: immosolution_backend
   build: ./backend
   restart: always
+  environment:
+   - server=database
+   - name=postgres
+   - user=postgres
+   - password=Immosolution_Abschlussarbeit
   ports:
    - 5050:5000
   links:

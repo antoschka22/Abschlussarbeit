@@ -7,8 +7,14 @@ from updateDB import *
 abs_file_path = os.path.abspath(os.path.dirname(__file__))
 openapi_path = os.path.join(abs_file_path, "../", "../", "openapi")
 
-db.connect(server="database", database="postgres",
-            user="postgres", password="Immosolution_Abschlussarbeit")
+
+server = os.environ['server']
+name = os.environ['name']
+user = os.environ['user']
+password = os.environ['password']
+
+db.connect(server=server, database=name,
+            user=user, password=password)
 
 
 def update_db():
