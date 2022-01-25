@@ -1,5 +1,4 @@
 version: '3'
-
 services:
  frontend:
   container_name: immosolution_frontend

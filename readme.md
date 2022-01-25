@@ -1,23 +1,34 @@
 # FIT Abschlussprüfung
 ## How to use
+
+### !!! Sie müssen Git, Angular, NodeJs und Docker installiert haben. Sonst funktionieren diese Commands nicht. !!!
+
 1. code fetchen
 ```bash
 git clone https://github.com/antoschka22/abschlussarbeit.git
 ```
 
-2. im immosolution-frontend Ordner node-modules herunterladen
-```npm
+2. im immosolution-frontend Ordner node-modules herunterladen 
+```bash
+# in den Angular Ordner gehen
+cd .\abschlussarbeit\frontend\immosolution-frontend\
+
+# Module installieren
 npm install
 ```
 
 3. ebenfalls im immosolution-frontend Ordner Angular-Projekt kompilieren 
-```angular
+```bash
+# Angular Projekt auf JavaScript übersetzen 
 ng.cmd build
 ```
 
 4. Docker-Abbildung und Docker-Container erstellen
-```docker
+```bash
+# Image bilden
 docker-compose build
+
+# Container erstellen
 docker-compose up -d
 ```
 # Zusäztliche Commands
@@ -37,8 +48,8 @@ docker-compose build
 
 docker-compose up -d
 ```
-Mit dem ersten Command erstellst du die Abbildungen und mit dem zweiten Command machst aus du aus ihnen die Kontainer. Unter *``localhost:8080``* sollte dann das Frontend sichtbar sein.<br>
-### Wenn du dein Frontend änderst, musst du dein Code compilieren und einen neuen Kontainer machen.<br><br>
+Mit dem ersten Command erstellst du die Abbildungen und mit dem zweiten Command machst aus du aus ihnen die Container. Unter *``localhost:8080``* sollte dann das Frontend sichtbar sein.<br>
+### Wenn du dein Frontend änderst, musst du dein Code compilieren und einen neuen Container machen.<br><br>
 ## Weitere Docker Befehle
 ```bash
 # Um ein Abbildung vom frontend zu machen, anstatt alle Abbildungen (frontend, admin, backend, database)
