@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 '''
 Basic example of a resource server
 from https://github.com/zalando/connexion/blob/master/examples/openapi3/jwt/app.py

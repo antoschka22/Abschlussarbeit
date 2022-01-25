@@ -3,7 +3,7 @@ from dao.db import get_db_cursor
 def updateDatabase():
     def checkTables():
         """
-            checks if all the tables exist
+            überprüft ob alle bereits Tabelle existieren
         """
         with get_db_cursor() as cursor:
             cursor.execute("""SELECT count(*) as amountoftables
@@ -15,7 +15,7 @@ def updateDatabase():
 
     def checkDBVersionTableExists():
         """
-            function checks if the table db_version which stores the versions of the dbs exists
+            überprüft ob die Tabelle db_version in der Datenbank existiert
         """
         with get_db_cursor() as cursor:
             cursor.execute("""SELECT *
@@ -26,7 +26,7 @@ def updateDatabase():
             return cursor.fetchone()
     if not checkDBVersionTableExists():
         """
-            creates the db_version table if it doesnt exist
+            erstellt die Tabelle db_version, falls sie nicht funktioniert
         """
         with get_db_cursor() as cursor:
             cursor.execute("""

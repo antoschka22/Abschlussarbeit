@@ -24,6 +24,8 @@ ng.cmd build
 ```
 
 4. Docker-Abbildung und Docker-Container erstellen
+### bevor die Container erstellt werden, müssen Sie den Pfad im docker-compose.yml File bei Database volumes ändern. Standard ``"D:\Abschlussarbeit\abschlussarbeit\database\data"``
+
 ```bash
 # Image bilden
 docker-compose build
