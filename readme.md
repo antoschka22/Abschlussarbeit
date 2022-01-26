@@ -33,6 +33,11 @@ docker-compose build
 # Container erstellen
 docker-compose up -d
 ```
+
+5. Webseite zeigen lassen
+```bash
+ng.cmd serve --open
+```
 # Zusäztliche Commands
 ```bash
 #Angular-Web-Server starten
