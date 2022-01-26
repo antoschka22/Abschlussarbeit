@@ -34,7 +34,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-5. Webseite zeigen lassen
+5. Webseite zeigen lassen (Wenn dieser Command ausgeführt wird, nicht das Fenster schließen)
 ```bash
 ng.cmd serve --open
 ```
