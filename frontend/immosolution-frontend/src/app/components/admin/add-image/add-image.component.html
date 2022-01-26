@@ -1,6 +1,7 @@
 <div class="mt-2">
     <h3 class="text-center">Bild auswählen</h3>
-    <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="filename" (click)="showImageSection()" style="font-size: 1.2rem;"></i>
+    <input id="file" type="file" (change)="selectedFile($event)">
+        <i class="las la-info-circle" *ngIf="filename" (click)="showImageSection()" style="font-size: 1.2rem;"></i>
     <div class="mt-2"*ngIf="showSelectedImage">
         <img class="transperancy" src="./assets/images/website/{{foldername}}/{{filename}}" width="100%">
     </div>

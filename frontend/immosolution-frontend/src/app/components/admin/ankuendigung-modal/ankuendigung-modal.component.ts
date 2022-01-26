@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FrontendService } from 'src/app/service/frontend.service';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
@@ -41,7 +40,6 @@ export class AnkuendigungModalComponent implements OnInit {
       this.ankuendigungen = data
       let switchAnkuendigung: boolean = this.ankuendigungen['switchankuendigung'];
 
-      //if the switchAnkuendigung is true, click the button so it is automatically on
       if(switchAnkuendigung){
         this.button.nativeElement.click();
       }

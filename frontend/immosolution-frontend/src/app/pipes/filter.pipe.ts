@@ -10,9 +10,7 @@ export class FilterPipe implements PipeTransform {
         return projects;
     }
 
-    // filter projects array, projects which match and return true will be
-    // kept, false will be filtered out
     return projects.filter(project => project.projektname.indexOf(filter) !== -1);
-}
+  }
 
 }

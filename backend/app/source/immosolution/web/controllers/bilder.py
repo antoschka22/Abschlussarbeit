@@ -1,8 +1,6 @@
 from dao.dao_bilder import *
 from core.security import *
 
-
-
 def remove_bild(images_id, token_info):
     if is_admin(token_info):
         try:

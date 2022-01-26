@@ -11,7 +11,6 @@
               <input #button class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="toggle($event)"/>
               <label class="form-check-label" for="flexSwitchCheckDefault">Ankündigung einschalten</label>
             </div>
-
             <!-- Text toggle -->
             <div class="d-grid gap-2 mt-4" *ngIf="!showText">
               <button type="button" class="btn button" (click)="showTextUpdate()">
@@ -23,20 +22,18 @@
                   Text- und Bildfeld schließen
               </button>
             </div>
-
             <div class="text mt-3 p-2" contenteditable *ngIf="showText">
               <p #text>
                 {{ankuendigungen.ankuendigung}}
               </p>
             </div>
             <div class="mt-2" *ngIf="showText">
-              <input id="file" type="file" (change)="selectedFile($event)"><i class="las la-info-circle" *ngIf="filename" (click)="showImage()" style="font-size: 1.2rem;"></i>
+              <input id="file" type="file" (change)="selectedFile($event)">
+              <i class="las la-info-circle" *ngIf="filename" (click)="showImage()" style="font-size: 1.2rem;"></i>
             </div>
             <div class="mt-2"*ngIf="showSelectedImage">
               <img class="transperancy" src="./assets/images/{{filename}}" width="100%">
             </div>
-            
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn button-primary" *ngIf="showText" (click)="changeContent()">Save changes</button>

@@ -52,13 +52,7 @@ export class BerechtigungenVerwaltenComponent implements OnInit {
     this.expirationDate = this.facebookService.getATExpirationDate();
     // console.log(this.expirationDate)
   }
-
-
-  /**
-   * check if the facebook access token has been fetched
-   * if not then the user needs to login with facebook
-   * the app will show a message with (Sie müssen sich mit facebook einloggen)
-   */
+  
   checkFacebookAT_EXPdate(){
     if(localStorage.getItem("facebookAuthTokenEXPdate")){
       this.FacebookExpirationDate = localStorage.getItem("facebookAuthTokenEXPdate")

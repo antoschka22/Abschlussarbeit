@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +10,9 @@ export class IntagramAuthService {
   accessToken: string = this.authService.getToken()
 
   constructor(private authService: AuthService,
-              private http: HttpClient,
-              private userService: UserService) { }
+              private http: HttpClient) { }
 
+  instagramDomain: string = 'https://graph.instagram.com/refresh_access_token'
 
   isLoggedIn(): boolean{
     let token = this.getToken();
@@ -44,6 +43,6 @@ export class IntagramAuthService {
   }
 
   refreshInstagramAccessToken(token: string){
-    return this.http.get('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token='+token);
+    return this.http.get(this.instagramDomain+'?grant_type=ig_refresh_token&access_token='+token);
   }
 }

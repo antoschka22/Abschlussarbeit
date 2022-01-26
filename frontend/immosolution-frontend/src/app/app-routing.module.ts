@@ -17,14 +17,17 @@ import { ImpressumComponent } from './components/frontend/impressum/impressum.co
 import { DatenschutzComponent } from './components/frontend/datenschutz/datenschutz.component';
 
 const routes: Routes = [
+  // Dashboard
   { path: 'admin', component: DashboardComponent,
   canActivate: [MasterGuard], data: {guards: [AuthGuard], roles: ['ADMIN']}},
   { path: 'facebook', component: FacebookComponent,
   canActivate: [MasterGuard], data: {guards: [FacebookAuthGuard], roles:['ADMIN']}},
   { path: 'instagram', component: InstagramComponent,
   canActivate: [MasterGuard], data: {guards: [InstagramAuthGuard], roles:['ADMIN']}},
-  { path: '', component: IndexComponent},
   { path: 'login', component: LoginComponent},
+  
+  // Website
+  { path: '', component: IndexComponent},
   { path: 'laufendeprojekte', component: LaufendeprojekteComponent},
   { path: 'fertigeprojekte', component: FertigeprojekteComponent},
   { path: 'contact-form', component: ContactFormComponent},

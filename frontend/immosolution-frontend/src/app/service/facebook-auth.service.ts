@@ -6,11 +6,9 @@ import { AuthService } from './auth.service';
 })
 export class FacebookAuthService {
 
-
   accessToken: string = this.authService.getToken()
 
   constructor(private authService: AuthService) { }
-
 
   isLoggedIn(): boolean{
     let token = this.getToken();
@@ -56,6 +54,4 @@ export class FacebookAuthService {
   getATExpirationDate(){
     return this.authService.getTokenExpirationDate(this.accessToken).toString().split(" ")[4];
   }
-
-
 }

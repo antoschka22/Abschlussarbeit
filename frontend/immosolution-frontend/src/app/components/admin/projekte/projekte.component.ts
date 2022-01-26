@@ -72,7 +72,6 @@ export class ProjekteComponent implements OnInit {
     this.goBackOutput.emit(value);
   }
   showTextUpdate(projektname: string){
-    // der eigentliche Projektname wird in echter Zeit veränder, das heißt, dass während der Titel verändert wird, die Bilder nicht mehr angezeigt werden
     this.changeProjektname = projektname
     this.changeProjectname = !this.changeProjectname
     this.showInsertImageSection = false

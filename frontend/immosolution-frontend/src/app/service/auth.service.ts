@@ -15,11 +15,6 @@ export class AuthService {
 
   constructor(private globals: Globals, private httpClient: HttpClient) { }
 
-  /**
-   * Login in the user. If it was successful, a valid JWT token will be stored
-   * 
-   * @param authRequest user data
-   */
   loginUser(authRequest: AuthRequest, keepLogin: boolean): Observable<string>{
     // console.log(keepLogin);
     return this.httpClient
@@ -27,9 +22,6 @@ export class AuthService {
       .pipe(tap((authResponse: string)=> this.setToken(authResponse, keepLogin)));
   }
 
-  /**
-   * Check if a valid JWT token is saved in the localStorage
-   */
   isLoggedIn(): boolean{
     let token = this.getToken();
     if(token == null){
@@ -58,9 +50,6 @@ export class AuthService {
     return token
   }
 
-  /**
-   * Returns the user role based on te current token
-   */
   getUserRole(){
     let token = this.getToken();
     if(token != null){
@@ -74,7 +63,6 @@ export class AuthService {
     return 'UNDEFINED'
   }
 
-  // decodes the token and returns the id of the user
   getUsernameFromToken(){
     let token = this.getToken();
     if(token != null){

@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { UpdateWebsiteService } from 'src/app/service/update-website.service';
 import { project } from 'src/models/project';
-import { projectImage } from 'src/models/projectImage';
 import Swal from 'sweetalert2';
 
 @Component({

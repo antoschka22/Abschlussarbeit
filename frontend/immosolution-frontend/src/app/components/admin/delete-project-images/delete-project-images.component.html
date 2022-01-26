@@ -2,7 +2,9 @@
     <div class="wrapper">
         <!-- {{bild.projektbilder}} -->
         <div class="image" *ngFor="let bild of project.projektbilder">
-            <img class="transparency" src="./assets/images/website/{{project.foldername}}/{{bild.projektbilder}}" style="width: 100%; height: 105px;" (click)="selectImage(bild.id)"
+            <img class="transparency" 
+            src="./assets/images/website/{{project.foldername}}/{{bild.projektbilder}}" 
+            style="width: 100%; height: 105px;" (click)="selectImage(bild.id)"
             [class.visited] = "bild.selected == true">
         </div>
     </div>
