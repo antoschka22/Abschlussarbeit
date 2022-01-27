@@ -98,6 +98,8 @@ export class AnkuendigungModalComponent implements OnInit {
       this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.ankuendigungen['ankuendigung_image'])
     }else if(this.filename && text == this.ankuendigungen['ankuendigung']){ 
       this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.filename)
+    }else if(this.filename && text != this.ankuendigungen['ankuendigung']){
+      this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.filename) 
     }else{
       this.updateAnkuendigung = undefined
     }

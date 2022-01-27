@@ -122,9 +122,7 @@ export class ProjekteComponent implements OnInit {
 
         this.updateWebsiteService.deleteProject(projectName).subscribe((data)=>{
 
-          //delete project from the array
-          const ProjectIndex = this.projects.indexOf(data['projektname'])
-          this.projects.splice(ProjectIndex, 1);
+          this.goBack(false)
 
           this.toastr.success('Projekt wurde gelöscht', 'Erfolg', {
             timeOut: 3000,
@@ -162,9 +160,7 @@ export class ProjekteComponent implements OnInit {
 
         this.updateWebsiteService.updateProject(projektname, this.projectModel).subscribe((data)=>{
 
-          //delete project from the array
-          const ProjectIndex = this.projects.indexOf(data['projektname'])
-          this.projects.splice(ProjectIndex, 1);
+          this.goBack(false)
 
           this.toastr.success('Projekt wurde verschoben', 'Erfolg', {
             timeOut: 3000,
