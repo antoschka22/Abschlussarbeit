@@ -92,19 +92,18 @@ export class AnkuendigungModalComponent implements OnInit {
 
   changeContent(){
     const text = this.text.nativeElement.firstChild['data'].trim()
-    const switchAnkuendigung = this.updateWebsiteService.getSwitchAnkuendigung()
     
     if(!this.filename && text != this.ankuendigungen['ankuendigung']){
-      this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.ankuendigungen['ankuendigung_image'])
+      this.updateAnkuendigung = new changeAnkuendigung(text, this.ankuendigungen['switchankuendigung'], this.ankuendigungen['ankuendigung_image'])
     }else if(this.filename && text == this.ankuendigungen['ankuendigung']){ 
-      this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.filename)
+      this.updateAnkuendigung = new changeAnkuendigung(text, this.ankuendigungen['switchankuendigung'], this.filename)
     }else if(this.filename && text != this.ankuendigungen['ankuendigung']){
-      this.updateAnkuendigung = new changeAnkuendigung(text, Boolean(switchAnkuendigung), this.filename) 
+      this.updateAnkuendigung = new changeAnkuendigung(text, this.ankuendigungen['switchankuendigung'], this.filename) 
     }else{
       this.updateAnkuendigung = undefined
     }
 
-    if(this.updateAnkuendigung){
+    if(this.updateAnkuendigung){      
       Swal.fire({
         title: 'Wollen Sie wirklich den Text bzw. das Bild ändern',
         icon: 'warning',
