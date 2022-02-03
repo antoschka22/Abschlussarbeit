@@ -48,9 +48,7 @@ export class IndexComponent implements OnInit {
     let token: string
     this.userService.getUserInfos("admin").subscribe((data)=>{
       token = data['instagram_at']
-    })
 
-    setTimeout(() => {
       this.instagramAuth.refreshInstagramAccessToken(token).subscribe((data_token)=>{
         let model: token_class = new token_class (data_token['access_token']);
         this.userService.updateInstagramAccessToken("admin", model).subscribe((data)=>{
@@ -60,7 +58,7 @@ export class IndexComponent implements OnInit {
           
         })
       });
-    }, 700);
+    })
   }
 
   getAnkuendigungen(){
